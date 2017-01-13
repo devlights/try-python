@@ -9,7 +9,6 @@ print関数のサンプルです。
 class Sample:
 
     def exec(self) -> None:
-        import sys
         import tempfile
 
         ##################################
