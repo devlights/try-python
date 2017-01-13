@@ -9,6 +9,9 @@ class Sample:
     def exec(self):
         pass
 
-if __name__ == '__main__':
+def go():
     obj = Sample()
     obj.exec()
+
+if __name__ == '__main__':
+    go()
