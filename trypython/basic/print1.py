@@ -37,6 +37,9 @@ class Sample:
         with open(tmp_file_path, "r") as reader:
             print(reader.read())
 
-if __name__ == '__main__':
+def go():
     obj = Sample()
     obj.exec()
+
+if __name__ == '__main__':
+    go()
