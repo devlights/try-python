@@ -1,13 +1,12 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
-print関数のサンプルです。
+print関数のサンプルです.
 """
 
 
 class Sample:
-
     def exec(self) -> None:
         import tempfile
 
@@ -37,9 +36,11 @@ class Sample:
         with open(tmp_file_path, "r") as reader:
             print(reader.read())
 
+
 def go():
     obj = Sample()
     obj.exec()
+
 
 if __name__ == '__main__':
     go()
