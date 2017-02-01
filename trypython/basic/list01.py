@@ -8,17 +8,30 @@
 
 class Sample:
     def exec(self):
+        #
+        # リスト初期生成
+        #   空のリストを作成するには, []とするかlist()とする
+        #
         list1 = [1, 2, 3, 4, 5]
         print(list1)
 
+        #
+        # 要素の追加
+        #
         list1.append(10)
         print(list1)
 
+        #
+        # 要素の削除
+        #
         list1.remove(10)
         print(list1)
 
-        print(2 in list1)
-        print(100 in list1)
+        #
+        # クリア
+        #
+        list1.clear()
+        print(list1)
 
 
 def go():
