@@ -15,7 +15,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-trypython/common/
 lib64/
 parts/
 sdist/
