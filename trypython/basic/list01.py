@@ -33,6 +33,17 @@ class Sample:
         list1.clear()
         print(list1)
 
+        #
+        # 他のリストからの更新
+        #
+        list2 = list(range(10))
+        list1.extend(list2)
+        print(list1)
+
+        # +=を利用しても同じ
+        list1.clear()
+        list1 += list2
+        print(list1)
 
 def go():
     obj = Sample()
