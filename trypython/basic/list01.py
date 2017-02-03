@@ -5,9 +5,10 @@
 リストの基本サンプルです。
 """
 
+from trypython.common.commoncls import *
 from trypython.common.commonfunc import *
 
-class Sample:
+class Sample(SampleBase):
     def exec(self):
         #
         # リスト初期生成

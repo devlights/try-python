@@ -5,10 +5,12 @@
 """
 
 import binascii
+
+from trypython.common.commoncls import *
 from trypython.common.commonfunc import *
 
 
-class Sample(object):
+class Sample(SampleBase):
     def exec(self):
         #
         # 基準となる数値を生成

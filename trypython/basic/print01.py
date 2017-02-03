@@ -4,9 +4,10 @@
 """
 print関数のサンプルです.
 """
+from trypython.common.commoncls import *
 
 
-class Sample:
+class Sample(SampleBase):
     def exec(self) -> None:
         import tempfile
 
