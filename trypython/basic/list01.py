@@ -11,7 +11,23 @@ class Sample:
         #
         # リスト初期生成
         #   空のリストを作成するには, []とするかlist()とする
+        #   空のリストは、ifでFalse扱いとなる
         #
+        # 空リスト生成
+        list1 = []
+        print(list1)
+
+        if not list1:
+            print('False')
+
+        # 空リスト生成
+        list1 = list()
+        print(list1)
+
+        if not list1:
+            print('False')
+
+        # 値を指定して初期化
         list1 = [1, 2, 3, 4, 5]
         print(list1)
 
