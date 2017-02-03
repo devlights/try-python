@@ -3,7 +3,7 @@
 from typing import Iterable, Iterator, Any
 
 
-def pr(prefix: str, message: str) -> None:
+def pr(prefix: str, message: Any) -> None:
     """
     指定された値を「＝」で繋いで出力します。
 
