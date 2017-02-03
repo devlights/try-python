@@ -8,6 +8,7 @@
 from trypython.common.commoncls import *
 from trypython.common.commonfunc import *
 
+
 class Sample(SampleBase):
     def exec(self):
         #
@@ -77,6 +78,7 @@ class Sample(SampleBase):
         list1.clear()
         list1 += list2
         pr('+=で他のリストを指定', list1)
+
 
 def go():
     obj = Sample()
