@@ -79,6 +79,20 @@ class Sample(SampleBase):
         list1 += list2
         pr('+=で他のリストを指定', list1)
 
+        #
+        # list()にデータを渡してリスト生成
+        # 指定できるデータは iterable なものとなる
+        #
+        original_data1 = 'helloworld'
+        list3 = list(original_data1)
+        pr('list()にデータを指定してリスト生成', list3)
+
+        # not iterableなデータを渡すと例外 (TypeError)
+        try:
+            list(100)
+        except TypeError as e:
+            pr('list()に not iterableを指定', e)
+
 
 def go():
     obj = Sample()
