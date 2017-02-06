@@ -150,6 +150,50 @@ class Sample(SampleBase):
         pr('値が 11 はリスト内に存在するか', 11 in list7)
         pr('値が 99 はリスト内に存在するか', 99 in list7)
 
+        #
+        # ソート
+        # ソートには2種類のやり方がある
+        #   sort() -- リストの内容を直接ソートする破壊的メソッド
+        #   sorted() -- ソートした内容を返す組み込み関数
+        # どちらの場合も、デフォルトは昇順ソート。降順にする場合はオプション引数で指定する。
+        #
+        list8 = list(range(10))[::-1]
+        pr('ソートする前', list8)
+
+        list8.sort()
+        pr('ソート後 (sort())(asc)', list8)
+
+        list8 = list8[::-1]
+        sorted_list = sorted(list8)
+        pr('ソート後 (sorted())(asc)', sorted_list)
+        pr('sorted()の場合は、元リストは変更無し', list8)
+
+        #
+        # 要素数の取得
+        #
+        list9 = list(range(10000))
+        pr('要素数の取得', len(list9))
+
+        #
+        # リストのコピー
+        # リストのコピーにはいくつかやり方がある
+        #   スライスを利用
+        #   copy()を利用
+        #
+        list10 = list(range(10))
+        copy_slice = list10[:]
+        copy_method = list10.copy()
+
+        # リストの値を変更
+        list10[5] = 999
+        copy_slice[5] = 998
+        copy_method[5] = 997
+
+        # 確認
+        pr('元リスト (リストのコピー)', list10)
+        pr('スライスコピー (リストのコピー)', copy_slice)
+        pr('copy()コピー (リストのコピー)', copy_method)
+
 
 def go():
     obj = Sample()
