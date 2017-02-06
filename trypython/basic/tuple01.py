@@ -98,6 +98,13 @@ class Sample(SampleBase):
             dict1[(1, 2)] = 300
             pr('ディクショナリ（更新後)', dict1)
 
+            #
+            # 値がタプルの中に存在するか
+            #
+            tuple7 = tuple(range(20))
+            pr('11 が存在するか', 11 in tuple7)
+            pr('99 が存在するか', 99 in tuple7)
+
 
 def go():
     obj = Sample()
