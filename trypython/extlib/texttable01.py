@@ -26,7 +26,7 @@ class Sample(SampleBase):
         #
         # (*) 日本語データだときれいに出力できなかった
         # (*) 同じ用途で利用できる PrettyTable の方はちゃんと出力できる
-        # (*) 2017/02/07 Python3系のみマルチバイト対応した版をプルリクしておいた。
+        # (*) 2017/02/07 マルチバイト対応した版をプルリクしておいた。
         #     https://github.com/foutaise/texttable/pull/12
         #
         table.add_rows([
