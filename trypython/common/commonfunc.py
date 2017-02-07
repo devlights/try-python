@@ -27,12 +27,11 @@ def chunks(sequence: Sequence, chunk_size: int = 1) -> Iterator[Any]:
         yield sequence[i:i + chunk_size]
 
 
-def unicode_width(s: str, width: dict = {'F': 2, 'H': 1, 'W': 2, 'Na': 1, 'A': 2, 'N': 1}) -> int:
+def unicode_width(s: str) -> int:
     """
     マルチバイトを考慮した文字幅を返します。
 
     :param s: 対象文字列
-    :param width: 各 east asian width に対応した1文字の幅
     :return: 文字幅
     """
-    return sum(width[east_asian_width(c)] for c in s)
+    return sum(east_asian_width(c) in 'WF' and 2 or 1 for c in s)
