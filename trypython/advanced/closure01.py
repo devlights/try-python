@@ -21,6 +21,23 @@ class Sample(SampleBase):
         pr('closure1', closure1())
         pr('closure2', closure2())
 
+        closure3 = Sample.make_closure_with_param('hello world')
+        pr('closure3', closure3('closure parameter'))
+
+    @staticmethod
+    def make_closure_with_param(message: str) -> Callable[[str], str]:
+        """
+        引数を一つ受け取るクロージャを生成します。
+
+        :param message: メッセージ
+        :return: クロージャ
+        """
+
+        def new_function(option_message: str):
+            return f'{message} with {option_message}'
+
+        return new_function
+
     @staticmethod
     def make_closure(message: str) -> Callable[[], str]:
         """
@@ -29,6 +46,7 @@ class Sample(SampleBase):
         :param message: メッセージ
         :return: クロージャ
         """
+
         def new_function():
             return message.upper()
 
