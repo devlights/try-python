@@ -22,7 +22,7 @@ class Sample(SampleBase):
         pr('closure2', closure2())
 
     @staticmethod
-    def make_closure(message: str) -> Callable:
+    def make_closure(message: str) -> Callable[[], str]:
         """
         クロージャを生成します。
 
