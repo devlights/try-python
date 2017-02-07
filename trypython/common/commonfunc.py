@@ -34,4 +34,4 @@ def unicode_width(s: str) -> int:
     :param s: 対象文字列
     :return: 文字幅
     """
-    return sum(east_asian_width(c) in 'WF' and 2 or 1 for c in s)
+    return sum([east_asian_width(c) in 'WF' and 2 or 1 for c in s])
