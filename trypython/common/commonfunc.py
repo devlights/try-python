@@ -1,18 +1,21 @@
 # coding: utf-8
 
-from typing import Iterator, Any, Sequence
+from typing import Iterator, Any, Sequence, Tuple
 from unicodedata import east_asian_width
 
 
-def pr(prefix: str, message: Any) -> None:
+def pr(prefix: str, message: Any, *args: Tuple) -> None:
     """
     指定された値を「＝」で繋いで出力します。
+    argsに指定したオプション引数は ( ) で後ろに付与されます。
 
     :param prefix: プリフィックス
     :param message: メッセージ
+    :param args: オプションで追加する情報
     :return: 無し
     """
-    print(f'{prefix}={message}')
+    optional = args and '({0})'.format(','.join(str(s) for s in args)) or ''
+    print(f'{prefix}={message}{optional}')
 
 
 def chunks(sequence: Sequence, chunk_size: int = 1) -> Iterator[Any]:
