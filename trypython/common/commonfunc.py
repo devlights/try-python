@@ -14,7 +14,7 @@ def pr(prefix: str, message: Any, *args: Tuple) -> None:
     :param args: オプションで追加する情報
     :return: 無し
     """
-    optional = args and '({0})'.format(','.join(str(s) for s in args)) or ''
+    optional = args and f'({",".join(str(s) for s in args)})' or ''
     print(f'{prefix}={message}{optional}')
 
 
