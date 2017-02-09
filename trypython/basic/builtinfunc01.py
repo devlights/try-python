@@ -68,6 +68,7 @@ class Sample(SampleBase):
         pr('bytes()', b01)
 
         try:
+            # noinspection PyUnresolvedReferences
             b01[0] = b'10'
         except TypeError as e:
             pr('bytesはイミュータブル', e)
