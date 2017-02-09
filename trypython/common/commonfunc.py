@@ -1,5 +1,6 @@
 # coding: utf-8
 
+from pprint import pformat
 from typing import Iterator, Any, Sequence, Tuple
 from unicodedata import east_asian_width
 
@@ -15,7 +16,7 @@ def pr(prefix: str, message: Any, *args: Tuple) -> None:
     :return: 無し
     """
     optional = args and f'({",".join(str(s) for s in args)})' or ''
-    print(f'{prefix}={message}{optional}')
+    print(f'{prefix}={pformat(message)}{optional}')
 
 
 def chunks(sequence: Sequence, chunk_size: int = 1) -> Iterator[Any]:
