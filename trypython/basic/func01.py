@@ -29,6 +29,22 @@ class Sample(SampleBase):
         #
         self.func_allin('helloworld', 1, 2, 'こんにちわ世界', value1=100, value2='string value')
 
+        #
+        # 関数内関数
+        #
+        def inner_func(x, y):
+            return x + y
+
+        pr('inner-func', inner_func(10, 20))
+        pr('inner-func', inner_func(50, 50))
+
+        #
+        # ラムダ(匿名関数)
+        #
+        lambda01 = lambda x, y: x + y
+        pr('lambda', lambda01(10, 20))
+        pr('lambda', lambda01(50, 50))
+
     def func_with_default_val(self, message=''):
         pr('func_with_default_val', message)
 
