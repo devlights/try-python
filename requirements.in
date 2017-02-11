@@ -2,3 +2,4 @@ bitstring
 texttable
 tqdm
 prettytable
+PyYAML
