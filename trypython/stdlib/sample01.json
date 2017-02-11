@@ -1,0 +1,22 @@
+{
+  "languages": [
+    {
+      "language": {
+        "name": "Python",
+        "type": "script"
+      }
+    },
+    {
+      "language": {
+        "name": "Ruby",
+        "type": "script"
+      }
+    },
+    {
+      "language": {
+        "name": "C#",
+        "type": "compile"
+      }
+    }
+  ]
+}
