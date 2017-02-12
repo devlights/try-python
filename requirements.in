@@ -1,6 +1,13 @@
+beautifulsoup4
 bitstring
+lxml
+paramiko
+python-dateutil
 prettytable
+psutil
+pycrypto
 PyYAML
+pytest
 records
 requests
 SQLAlchemy
