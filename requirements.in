@@ -1,5 +1,9 @@
 bitstring
-texttable
-tqdm
 prettytable
 PyYAML
+records
+requests
+SQLAlchemy
+tablib
+texttable
+tqdm
