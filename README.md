@@ -1,2 +1,2 @@
 # try-python
-my python tutorial
+my python tutorial (Py3.6)
