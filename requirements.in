@@ -9,8 +9,10 @@ pycrypto
 PyYAML
 pytest
 records
+redis
 requests
 SQLAlchemy
 tablib
 texttable
 tqdm
+pyzmq
