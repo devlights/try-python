@@ -15,7 +15,7 @@ class Sample(SampleBase):
         # python で yaml を扱う場合、標準モジュールには
         # 存在しないので、PyYAMLモジュールを利用する
         #
-        with open('sample01.yaml') as fp:
+        with open('sample01.yaml', encoding='utf-8') as fp:
             obj = yaml.load(fp)
             pr('yaml.load()', obj)
 
