@@ -3,6 +3,8 @@
 """
 デコレータについてのサンプルです。
 """
+import functools
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -48,6 +50,16 @@ def sum_it(func):
     return decorator_function
 
 
+def upper(func):
+    # functools.wraps() を利用するとオリジナル関数のメタデータが上書きされない
+    @functools.wraps(func)
+    def decorator_function(*args, **kwargs):
+        result: str = func(*args, **kwargs)
+        return result.upper()
+
+    return decorator_function
+
+
 class Sample(SampleBase):
     def exec(self):
         #
@@ -81,12 +93,18 @@ class Sample(SampleBase):
         self.test_func4(1, 9)
 
         #
+        # functools.wrap()を利用した版
+        #
+        pr('test_func5', self.test_func5('hello decorator'))
+
+        #
         # 関数の名前がどのようになるか
         #
         pr('test_func.__name__', self.test_func.__name__)
         pr('test_func2.__name__', self.test_func2.__name__)
         pr('test_func3.__name__', self.test_func3.__name__)
         pr('test_func4.__name__', self.test_func4.__name__)
+        pr('test_func5.__name__', self.test_func5.__name__)
 
     def test_func(self, x, y):
         pr('test-func', f'hello world {x} {y}')
@@ -107,6 +125,10 @@ class Sample(SampleBase):
 
     # 以下と同じことになる
     # test_func4 = sum_it(log_it(test_func4))
+
+    @upper
+    def test_func5(self, message: str):
+        return message
 
 
 def go():
