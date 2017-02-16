@@ -16,10 +16,9 @@ from trypython.common.commonfunc import pr
 class Sample(SampleBase):
     def exec(self):
         gen01 = simple_generator()
-
-        pr('gen01', next(gen01))
-        pr('gen01', next(gen01))
         try:
+            pr('gen01', next(gen01))
+            pr('gen01', next(gen01))
             pr('gen01', next(gen01))
         except StopIteration as e:
             pr('gen01', e)
