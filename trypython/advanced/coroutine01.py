@@ -7,7 +7,6 @@
   http://postd.cc/python-generators-coroutines-native-coroutines-and-async-await/
   https://docs.python.jp/3/library/asyncio-task.html
 """
-from typing import Generator, Coroutine
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
@@ -84,8 +83,9 @@ def simple_coroutine2():
             pr('break-cor03', push_val)
             break
         total += push_val
-    pr('cor03', 'before last yield total')
+    pr('cor03', 'last yield total')
     yield total
+
 
 def go():
     obj = Sample()
