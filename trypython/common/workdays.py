@@ -6,25 +6,24 @@ def get_day(base_day, days_count = 1, optional_holidays = [], optional_business_
     """
     基準日からN営業日[前or後]の日付を求めます。
 
-    >>> import trypython.common.workdays as workdays
     >>> from datetime import date
 
     >>> today = date(2017, 2, 6)
-    >>> workdays.get_day(today, 5)
+    >>> get_day(today, 5)
     datetime.date(2017, 2, 13)
 
-    >>> workdays.get_day(today, -2)
+    >>> get_day(today, -2)
     datetime.date(2017, 2, 2)
 
     >>> opt_holidays = [date(2017, 2, 13)]
-    >>> workdays.get_day(today, 5, opt_holidays)
+    >>> get_day(today, 5, opt_holidays)
     datetime.date(2017, 2, 14)
 
     >>> opt_business_days = [date(2017, 2, 12)]
-    >>> workdays.get_day(today, 5, optional_business_days=opt_business_days)
+    >>> get_day(today, 5, optional_business_days=opt_business_days)
     datetime.date(2017, 2, 12)
 
-    >>> workdays.get_day(today, 6, opt_holidays, opt_business_days)
+    >>> get_day(today, 6, opt_holidays, opt_business_days)
     datetime.date(2017, 2, 14)
 
     :param date base_day: 基準日
@@ -42,7 +41,7 @@ def get_day(base_day, days_count = 1, optional_holidays = [], optional_business_
         current += timedelta(1 if forward else -1)
         weekday = current.weekday()
 
-        if 5 <= weekday <= 6:
+        if 5 <= weekday <= 6:  # 5=Saturday, 6=Sunday
             if not current in optional_business_days:
                 continue
         if current in optional_holidays:
