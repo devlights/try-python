@@ -41,7 +41,7 @@ def get_day(base_day, days_count = 1, optional_holidays = [], optional_business_
         current += timedelta(1 if forward else -1)
         weekday = current.weekday()
 
-        if 5 <= weekday <= 6:
+        if 5 <= weekday <= 6:  # 5=Saturday, 6=Sunday
             if not current in optional_business_days:
                 continue
         if current in optional_holidays:
