@@ -2,7 +2,7 @@
 from datetime import date, timedelta
 
 
-def get_day(base_day, days_count = 1, optional_holidays = [], optional_business_days = []) -> date:
+def get_day(base_day, days_count=1, optional_holidays=(), optional_business_days=()):
     """
     基準日からN営業日[前or後]の日付を求めます。
 
@@ -28,8 +28,8 @@ def get_day(base_day, days_count = 1, optional_holidays = [], optional_business_
 
     :param date base_day: 基準日
     :param int days_count: 日数
-    :param List[date] optional_holidays: 追加で休日にする日付リスト
-    :param List[date] optional_business_days: 追加で営業日にする日付リスト
+    :param Tuple[date] optional_holidays: 追加で休日にする日付リスト
+    :param Tuple[date] optional_business_days: 追加で営業日にする日付リスト
     :return: 対象日付
     """
     assert base_day
@@ -42,7 +42,7 @@ def get_day(base_day, days_count = 1, optional_holidays = [], optional_business_
         weekday = current.weekday()
 
         if 5 <= weekday <= 6:  # 5=Saturday, 6=Sunday
-            if not current in optional_business_days:
+            if current not in optional_business_days:
                 continue
         if current in optional_holidays:
             continue
