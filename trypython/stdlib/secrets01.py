@@ -18,6 +18,9 @@ class Sample(SampleBase):
         #
         # パスワードやトークンの生成時に利用できる
         #
+        # 参考URL:
+        #   https://www.blog.pythonlibrary.org/2017/02/16/pythons-new-secrets-module/
+        #
         pr('generate passwd', self.generate_password(32))
         pr('url_token', secrets.token_urlsafe(32))
 
