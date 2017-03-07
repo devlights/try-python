@@ -11,11 +11,37 @@ from trypython.common.commonfunc import pr
 
 class Sample(SampleBase):
     def exec(self):
+        #
+        # 通常の関数呼び出し
+        #
         func01('hello world', 'func01')
+
+        #
+        # functools.partial() にて第二引数を予め適用した状態
+        #
         func02('hello world')
 
+        #
+        # functools.partial() で生成した部分適用関数は
+        # __name__をもっていない。
+        #
+        pr('func01.__name__', func01.__name__)
 
-def func01(message, prefix):
+        try:
+            pr('func02.__name__', func02.__name__)
+        except AttributeError as attrEx:
+            pr('func02.__name__', attrEx)
+
+        #
+        # functools.update_wrapper() をかぶせると
+        # 元の関数からの情報を引き継ぐ
+        #
+        func03 = functools.update_wrapper(func02, func01)
+        pr('func03.__name__', func03.__name__)
+        func03('hello world from func03')
+
+
+def func01(message: str, prefix: str) -> None:
     pr('func01', f'{prefix}--{message}')
 
 
