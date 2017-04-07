@@ -3,6 +3,10 @@
 """
 PyQt5のサンプルです。
 何もないタダのWindowを表示するだけ。
+
+[参考情報]
+http://www.qtcentre.org/threads/60203-QApplication-QGuiApplication-and-QCoreApplication
+http://stackoverflow.com/questions/17860604/what-is-the-difference-between-a-qwindow-and-qwidget
 """
 
 import sys
