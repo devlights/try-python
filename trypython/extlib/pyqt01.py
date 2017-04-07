@@ -7,21 +7,21 @@ PyQt5のサンプルです。
 
 import sys
 
-import PyQt5.QtGui as qt
+import PyQt5.QtWidgets as qt
 
 
 def go():
     # ---------------------------
     # 最初にQGuiApplicationを生成
     # ---------------------------
-    app = qt.QGuiApplication(sys.argv)
+    app = qt.QApplication(sys.argv)
 
     # ---------------------------
     # 次にメインウィンドウを生成
     # ---------------------------
-    win = qt.QWindow()
+    win = qt.QWidget()
     win.resize(320, 240)
-    win.setTitle('PyQt5 Hello World')
+    win.setWindowTitle('PyQt5 Hello World')
 
     # ---------------------------
     # メインウィンドウ表示
