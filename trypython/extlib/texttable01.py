@@ -28,11 +28,12 @@ class Sample(SampleBase):
         # (*) 同じ用途で利用できる PrettyTable の方はちゃんと出力できる
         # (*) 2017/02/07 マルチバイト対応した版をプルリクしておいた。
         #     https://github.com/foutaise/texttable/pull/12
+        # (*) 2017/04/07 最新版 0.8.8 がリリースされており、日本語対応
         #
         table.add_rows([
             ['1', 'value9999'],
             ['2', 'value12'],
-            ['3', '日本語データ']  # 日本語だとズレて表示される
+            ['3', '日本語データ']
         ], header=False)
 
         print(table.draw())
