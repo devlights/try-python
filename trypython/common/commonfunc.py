@@ -4,6 +4,16 @@ from pprint import pformat
 from typing import Iterator, Any, Sequence, Tuple
 from unicodedata import east_asian_width
 
+def hr(message: Any = None) -> None:
+    """
+    水平線を出力します。
+    中にメッセージを入れたい場合は引数 message を指定します。
+    
+    :param message: メッセージ 
+    :return: 無し
+    """
+    print(f'----------------{message or ""}----------------')
+
 
 def pr(prefix: str, message: Any, *args: Tuple) -> None:
     """
