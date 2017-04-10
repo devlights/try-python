@@ -4,6 +4,7 @@ from pprint import pformat
 from typing import Iterator, Any, Sequence, Tuple
 from unicodedata import east_asian_width
 
+
 def hr(message: Any = None) -> None:
     """
     水平線を出力します。
