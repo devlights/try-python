@@ -26,6 +26,9 @@ class Sample(SampleBase):
         # ちなみに、Windowsの場合は os.linesep
         # ではなくて、直接 '¥n'を指定すると
         # うまくいった。
+        #
+        # 参考URL
+        #   http://stackoverflow.com/questions/24237524/how-to-split-a-python-string-on-new-line-characters
         # ----------------------------------------
         pr('os.linesep', [line for line in DATA.split(os.linesep) if line])
         pr('splitlines', [line for line in DATA.splitlines() if line])
