@@ -32,7 +32,10 @@ def get_day(base_day, days_count=1, optional_holidays=(), optional_business_days
     :param Tuple[date] optional_business_days: 追加で営業日にする日付リスト
     :return: 対象日付
     """
-    assert base_day
+    assert base_day, 'base_day is not specified'
+    assert type(base_day) is date, 'base_day is not type(date)'
+    assert all(type(x) is date for x in optional_business_days), 'optional_business_days is not type(date)'
+    assert all(type(x) is date for x in optional_holidays), 'optional_holidays is not type(date)'
 
     forward = True if days_count > 0 else False
     count = abs(days_count)
@@ -50,3 +53,44 @@ def get_day(base_day, days_count=1, optional_holidays=(), optional_business_days
         count -= 1
 
     return current
+
+
+if __name__ == '__main__':
+    from datetime import datetime
+
+    try:
+        d1 = datetime(2017, 2, 13)
+        get_day(d1)
+    except AssertionError as e:
+        print('ok', e)
+    else:
+        print('ng')
+
+    try:
+        d1 = date(2017, 2, 13)
+        opt_busi_days = (datetime(2017, 2, 13), datetime(2017, 2, 14))
+        get_day(d1, optional_business_days=opt_busi_days)
+    except AssertionError as e:
+        print('ok', e)
+    else:
+        print('ng')
+
+    try:
+        d1 = date(2017, 2, 13)
+        opt_busi_days = (date(2017, 2, 13), date(2017, 2, 14))
+        opt_holi_days = (datetime(2017, 2, 11), datetime(2017, 2, 12))
+        get_day(d1, optional_business_days=opt_busi_days, optional_holidays=opt_holi_days)
+    except AssertionError as e:
+        print('ok', e)
+    else:
+        print('ng')
+
+    try:
+        d1 = date(2017, 2, 13)
+        opt_busi_days = (date(2017, 2, 13), date(2017, 2, 14))
+        opt_holi_days = (date(2017, 2, 11), date(2017, 2, 12))
+        ret = get_day(d1, optional_business_days=opt_busi_days, optional_holidays=opt_holi_days)
+    except AssertionError as e:
+        print('ng', e)
+    else:
+        print('ok', ret)
