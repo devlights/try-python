@@ -11,7 +11,7 @@ from trypython.common.commonfunc import pr
 
 class Sample(SampleBase):
     def exec(self):
-        #
+        # ---------------------------------------------------------------
         # namedtupleは、「名前つきタプル」を作成する
         # 通常のタプルに、型名と名前つきのフィールドを付与出来るイメージ。
         # 通常のタプルと同様に、イミュータブルであることは同じ。
@@ -19,7 +19,7 @@ class Sample(SampleBase):
         #
         # フィールド名は、カンマ区切りの文字列で渡すか
         # シーケンスを指定する
-        #
+        # ---------------------------------------------------------------
         Person = collections.namedtuple('Person', 'name,age')
         p = Person(name='test', age=30)
         pr('Person', p)
@@ -29,25 +29,27 @@ class Sample(SampleBase):
         except AttributeError as e:
             pr('namedtupleはイミュータブル', e)
 
-        #
+        # ---------------------------------------------------------------
         # フィールド名にはシーケンスを指定することも出来る
-        #
+        # ---------------------------------------------------------------
         field_names = ('name', 'age')
         Person2 = collections.namedtuple('Person2', field_names=field_names)
         p2 = Person2(name='test2', age=30)
         pr('Person2', p2)
 
-        #
+        # ---------------------------------------------------------------
         # 存在しないフィールド名を指定するとエラー
-        #
+        # ---------------------------------------------------------------
         try:
             p3 = Person2(name='test3', age=33, hoge=10)
         except TypeError as e:
             pr('存在しないフィールド名を指定', e)
 
-        #
+        # ---------------------------------------------------------------
         # verbose引数にTrueを指定するとクラス宣言を標準出力に出してくれる
-        #
+        # (*) Python ドキュメントをみると、この指定は deprecated 扱い。
+        #     現在は、_source フィールドから取得するべきとのこと。
+        # ---------------------------------------------------------------
         collections.namedtuple('Person3', 'name', verbose=True)
 
 
