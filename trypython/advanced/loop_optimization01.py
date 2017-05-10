@@ -74,7 +74,7 @@ class SlowProc(_ProcValidateMixin):
 
     def _make_mapping(self) -> Dict[str, list]:
         mapping = collections.defaultdict(list)
-        for line in self._lines:  # type: List[str]
+        for line in self._lines:
             mapping[line[6]].append(line[0])
 
         return mapping
@@ -129,15 +129,15 @@ if __name__ == '__main__':
     # 実際の行数は、2017/05/10時点で124115行ある。
     slow = SlowProc(prepare.read()[:20000])
     slow._pre_validate()
-    print(f'very_slow={round(timeit(slow, number=1), 2)}')
+    print(f'very_slow={round(timeit(slow, number=1), 3)}')
     slow._post_validate()
 
     normal = NormalProc(prepare.read())
     normal._pre_validate()
-    print(f'normal_func={round(timeit(normal, number=1), 2)}')
+    print(f'normal_func={round(timeit(normal, number=1), 3)}')
     normal._post_validate()
 
     fast = FastProc(prepare.read())
     fast._pre_validate()
-    print(f'fast_func={round(timeit(fast, number=1), 2)}')
+    print(f'fast_func={round(timeit(fast, number=1), 3)}')
     fast._post_validate()
