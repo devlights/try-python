@@ -1,4 +1,10 @@
 # coding: utf-8
+"""
+Pythonでのループ最適化のサンプルです。
+以下のURLの情報にインスパイアされてサンプルつくりました。
+
+http://stackoverflow.com/questions/43827281/python-loop-optimization
+"""
 import collections
 import csv
 import pathlib
