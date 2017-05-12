@@ -53,7 +53,7 @@ class PrepareProc:
 
 # noinspection PyUnresolvedReferences
 class _ProcValidateMixin:
-    def _pre_validate(self):
+    def _pre_validate(self) -> None:
         assert self._lines[0][0] != '北海道'
 
     def _post_validate(self) -> None:
