@@ -129,15 +129,15 @@ if __name__ == '__main__':
     # 実際の行数は、2017/05/10時点で124115行ある。
     slow = SlowProc(prepare.read()[:20000])
     slow._pre_validate()
-    print(f'very_slow={round(timeit(slow, number=1), 3)}')
+    print(f'slow={round(timeit(slow, number=1), 3)}')
     slow._post_validate()
 
     normal = NormalProc(prepare.read())
     normal._pre_validate()
-    print(f'normal_func={round(timeit(normal, number=1), 3)}')
+    print(f'normal={round(timeit(normal, number=1), 3)}')
     normal._post_validate()
 
     fast = FastProc(prepare.read())
     fast._pre_validate()
-    print(f'fast_func={round(timeit(fast, number=1), 3)}')
+    print(f'fast={round(timeit(fast, number=1), 3)}')
     fast._post_validate()
