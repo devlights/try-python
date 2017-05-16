@@ -8,6 +8,7 @@ psutil
 pycrypto
 PyYAML
 pytest
+pythonnet
 records
 redis
 requests
