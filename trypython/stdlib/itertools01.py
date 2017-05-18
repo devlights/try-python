@@ -1,7 +1,12 @@
 # coding: utf-8
 
 """
-itertools についてのサンプルです。
+itertools モジュールについてのサンプル
+
+以下の処理についてのサンプルです。
+
+- chain()
+- zip_longest()
 """
 import itertools
 

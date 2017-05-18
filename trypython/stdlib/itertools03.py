@@ -1,5 +1,11 @@
 # coding: utf-8
-"""itertools.repeat()についてのサンプルです。"""
+"""
+itertools モジュールについてのサンプル
+
+以下の処理についてのサンプルです。
+
+- repeat()
+"""
 import itertools
 
 from trypython.common.commoncls import SampleBase

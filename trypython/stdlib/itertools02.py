@@ -1,5 +1,11 @@
 # coding: utf-8
-"""itertools.cycleについてのサンプルです。"""
+"""
+itertools モジュールについてのサンプル
+
+以下の処理についてのサンプルです。
+
+- cycle()
+"""
 import itertools
 
 from trypython.common.commoncls import SampleBase
