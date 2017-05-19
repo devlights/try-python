@@ -14,7 +14,7 @@ import itertools as it
 import operator as op
 
 from common.commoncls import SampleBase
-from common.commonfunc import pr
+from common.commonfunc import pr, hr
 
 
 class Sample(SampleBase):
@@ -26,6 +26,8 @@ class Sample(SampleBase):
         # 指定した start 値から step 分加算した値を
         # 生成し続ける。
         # -----------------------------------------------
+        hr('itertools.count()')
+
         iter01 = it.count(start=10, step=2)
         for i in iter01:
             if i > 20:
@@ -39,6 +41,8 @@ class Sample(SampleBase):
         # 汎用性が高い関数。seed は指定できない。
         # 最終的な累積結果のみが欲しい場合はfunctools.reduce() を使う。
         # -----------------------------------------------
+        hr('itertools.accumulate()')
+
         data01 = [1, 2, 3, 4, 5]
 
         # 加算
@@ -60,6 +64,8 @@ class Sample(SampleBase):
         # 注意点として、zip関数と同様に短い方が終了した
         # 段階で処理が打ち切られる。
         # -----------------------------------------------
+        hr('itertools.compress()')
+
         selector01 = [True if x >= 3 else False for x in data01]
         pr('it.compress', list(it.compress(data01, selectors=selector01)))
 
@@ -72,6 +78,7 @@ class Sample(SampleBase):
         # 第一引数が predicate つまり、条件。
         # 第二引数が データ であることに注意。
         # -----------------------------------------------
+        hr('itertools.dropwhile()')
         pr('it.dropwhile', list(it.dropwhile(lambda x: x < 3, data01)))
 
         # -----------------------------------------------
@@ -83,6 +90,7 @@ class Sample(SampleBase):
         # 第一引数が predicate つまり、条件。
         # 第二引数が データ であることに注意。
         # -----------------------------------------------
+        hr('itertools.filterfalse()')
         pr('it.filterfalse', list(it.filterfalse(lambda x: x < 3, data01)))
 
         # ----------------------------------------------------------------------------
@@ -96,6 +104,7 @@ class Sample(SampleBase):
         # dropwhile() は、一度 True になった後は、以降のデータは無条件で全部返る。
         # filterfalse() は、false の判定になったものしか返さない。
         # ----------------------------------------------------------------------------
+        hr('difference between dropwhile() and filterfalse()')
         data02 = [*data01, 2, 1, 3, 4, 5]
         pr('it.dropwhile', list(it.dropwhile(lambda x: x < 3, data02)))
         pr('it.filterfalse', list(it.filterfalse(lambda x: x < 3, data02)))

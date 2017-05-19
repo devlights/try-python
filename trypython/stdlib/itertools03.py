@@ -9,7 +9,7 @@ itertools モジュールについてのサンプル
 import itertools
 
 from trypython.common.commoncls import SampleBase
-from trypython.common.commonfunc import pr
+from trypython.common.commonfunc import pr, hr
 
 
 class Sample(SampleBase):
@@ -21,6 +21,8 @@ class Sample(SampleBase):
         # timesのデフォルトは None となっており、これは
         # 無限の繰り返しを表す。
         # -----------------------------------------------
+        hr('itertools.repeat()')
+
         str01 = 'hello python'
         for x in itertools.repeat(str01, 2):
             pr('itertools-repeat', x)

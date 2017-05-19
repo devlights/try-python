@@ -11,7 +11,7 @@ itertools モジュールについてのサンプル
 import itertools
 
 from trypython.common.commoncls import SampleBase
-from trypython.common.commonfunc import pr
+from trypython.common.commonfunc import pr, hr
 
 
 class Sample(SampleBase):
@@ -23,6 +23,8 @@ class Sample(SampleBase):
         list01 = ['hello', 'world']
         list02 = list(range(10))
 
+        hr('itertools.chain()')
+
         for x in itertools.chain(list01, list02, 'abc'):
             pr('value', x)
 
@@ -32,6 +34,8 @@ class Sample(SampleBase):
         # 要素数が多い方に合わせる
         #
         # zip() は、要素が最も少ない方になる
+        hr('itertools.zip_longest()')
+
         for x, y in zip(list01, list02):
             pr('zip()', (x, y))
 

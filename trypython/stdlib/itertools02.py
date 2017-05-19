@@ -9,7 +9,7 @@ itertools モジュールについてのサンプル
 import itertools
 
 from trypython.common.commoncls import SampleBase
-from trypython.common.commonfunc import pr
+from trypython.common.commonfunc import pr, hr
 
 
 class Sample(SampleBase):
@@ -24,6 +24,8 @@ class Sample(SampleBase):
         # -------------------------------------------
         numbers = list(range(0, 9))
         cycle_iter = itertools.cycle((1, 2, 3))
+
+        hr('itertools.cycle()')
 
         for i, j in zip(numbers, cycle_iter):
             pr("i,j", f'{i}-{j}')
