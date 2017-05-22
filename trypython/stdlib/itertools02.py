@@ -6,7 +6,7 @@ itertools モジュールについてのサンプル
 
 - cycle()
 """
-import itertools
+import itertools as it
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr, hr
@@ -14,7 +14,9 @@ from trypython.common.commonfunc import pr, hr
 
 class Sample(SampleBase):
     def exec(self):
-        # -------------------------------------------
+        # -----------------------------------------------
+        # itertools.chain()
+        # ----------------------
         # itertools.cycleは、名前の通り
         # 最初に指定したシーケンスを繰り返しサイクルする
         # イテレータを生成してくれる。
@@ -23,7 +25,7 @@ class Sample(SampleBase):
         # ストップさせるのは、利用者側の責任になる。
         # -------------------------------------------
         numbers = list(range(0, 9))
-        cycle_iter = itertools.cycle((1, 2, 3))
+        cycle_iter = it.cycle((1, 2, 3))
 
         hr('itertools.cycle()')
 

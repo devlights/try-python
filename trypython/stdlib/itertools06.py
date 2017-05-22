@@ -9,7 +9,7 @@ itertools モジュールについてのサンプル
 import itertools as it
 
 from common.commoncls import SampleBase
-from common.commonfunc import pr
+from common.commonfunc import pr, hr
 
 
 class Sample(SampleBase):
@@ -26,6 +26,8 @@ class Sample(SampleBase):
         # 引数が二つの場合、start, stopが指定された状態となる。
         # 引数が三つの場合、start, stop, stepが指定された(略
         # -----------------------------------------------
+        hr('it.islice()')
+
         data01 = list(range(10))
         pr('it.islice(8)', list(it.islice(data01, 8)))
         pr('it.islice(5,8)', list(it.islice(data01, 5, 8)))
