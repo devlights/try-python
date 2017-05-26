@@ -11,8 +11,8 @@ import itertools as it
 
 import pandas as pd
 
-from common.commoncls import SampleBase
-from common.commonfunc import pr, hr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import pr, hr
 
 
 class Sample(SampleBase):

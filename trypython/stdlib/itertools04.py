@@ -13,8 +13,8 @@ itertools モジュールについてのサンプル
 import itertools as it
 import operator as op
 
-from common.commoncls import SampleBase
-from common.commonfunc import pr, hr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import pr, hr
 
 
 class Sample(SampleBase):
