@@ -1,14 +1,16 @@
 beautifulsoup4
 bitstring
+ftputil
 lxml
 paramiko
-python-dateutil
-prettytable
 psutil
 pycrypto
-PyYAML
+pyperclip
 pytest
+python-dateutil
 pythonnet
+PyYAML
+pyzmq
 records
 redis
 requests
@@ -16,5 +18,3 @@ SQLAlchemy
 tablib
 texttable
 tqdm
-pyzmq
-workdays
