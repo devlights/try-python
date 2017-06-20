@@ -8,17 +8,25 @@ beautifulsoup4==4.6.0
 bitstring==3.1.5
 ftputil==3.3.1
 lxml==3.8.0
-paramiko==2.2.1
+openpyxl==2.4.8
+paramiko==2.2.1pi
 psutil==5.2.2
 pycrypto==2.6.1
 pyperclip==1.5.27
 pytest==3.1.2
 python-dateutil==2.6.0
 pythonnet==2.3.0
+PyYAML==3.12
 pyzmq==16.0.2
 records==0.5.0
 redis==2.10.5
 requests==2.18.1
+rx==1.5.9
+sqlalchemy==1.1.11
 tablib==0.11.5
 texttable==0.9.0
 tqdm==4.14.0
+unicodecsv==0.14.1        # via tablib
+urllib3==1.21.1           # via requests
+xlrd==1.0.0               # via tablib
+xlwt==1.2.0               # via tablib

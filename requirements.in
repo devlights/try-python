@@ -2,6 +2,7 @@ beautifulsoup4
 bitstring
 ftputil
 lxml
+openpyxl
 paramiko
 psutil
 pycrypto
@@ -14,6 +15,7 @@ pyzmq
 records
 redis
 requests
+Rx
 SQLAlchemy
 tablib
 texttable
