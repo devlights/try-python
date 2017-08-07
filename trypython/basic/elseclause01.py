@@ -9,7 +9,7 @@ from trypython.common.commonfunc import pr
 
 class Sample(SampleBase):
     def exec(self):
-        #
+        # ------------------------------------------------------------
         # Pythonの for, while, try には else をつけることが出来る
         # どれも、正常に処理が通った場合に else に入るようになっている。
         #
@@ -22,7 +22,7 @@ class Sample(SampleBase):
         # 処理を簡単に書くことが出来る。
         #
         # tryの場合は、例外が発生せずに正常に処理が通ったときを判定できる
-        #
+        # ------------------------------------------------------------
         for x in range(5):
             pr('for-loop', x)
         else:

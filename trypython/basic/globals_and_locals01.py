@@ -12,7 +12,7 @@ global_variable01 = 'hello world from global'
 
 class Sample(SampleBase):
     def exec(self):
-        self.acccess_globalvariable_without_globalcalll()
+        self.access_globalvariable_without_globalcall()
         self.access_globalvariable_with_globalcall()
 
         #
@@ -23,13 +23,13 @@ class Sample(SampleBase):
         pr('globals()', globals())
 
     @staticmethod
-    def acccess_globalvariable_without_globalcalll():
+    def access_globalvariable_without_globalcall():
         try:
-            #
+            # ------------------------------------------------------------
             # グローバル変数を見るだけなら可能。
             # 以下の２行のうち、２行目をコメントアウトすると
             # エラーにはならない。
-            #
+            # ------------------------------------------------------------
             # noinspection PyUnresolvedReferences
             pr('global 無しでグローバル変数にアクセス', global_variable01)
             global_variable01 = 'hello world from func-inside'
@@ -38,7 +38,9 @@ class Sample(SampleBase):
 
     @staticmethod
     def access_globalvariable_with_globalcall():
+        # ------------------------------------------------------------
         # グローバル変数を利用すると宣言
+        # ------------------------------------------------------------
         global global_variable01
 
         pr('global 呼び出し後にグローバル変数にアクセス', global_variable01)

@@ -11,6 +11,13 @@ from trypython.common.commonfunc import pr
 
 @unique
 class Fruit(Enum):
+    """
+    PythonにてEnumを定義する場合以下のようにする。
+
+    ・Enumクラスをベースクラスにしたクラスを作成
+    ・クラスフィールドとして各列挙値を定義
+    ・各Enumメンバーが持つ値を一意に制限するにはuniqueデコレータを付与
+    """
     Apple = 1
     Strawberry = 2
     Banana = 3
