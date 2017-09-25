@@ -2,28 +2,28 @@ name: trypython
 channels:
 - defaults
 dependencies:
-- beautifulsoup4=4.6.0=py36_0
-- ipython=6.1.0=py36_0
-- joblib=0.11=py36_0
-- lxml=3.8.0=py36_0
-- openpyxl=2.4.8=py36_0
-- paramiko=2.1.2=py36_0
-- pip=9.0.1=py36_1
-- psutil=5.2.2=py36_0
-- pyqt=5.6.0=py36_2
-- pytest=3.2.1=py36_0
-- python=3.6.2=0
-- pyyaml=3.12=py36_0
-- pyzmq=16.0.2=py36_0
-- requests=2.14.2=py36_0
-- sqlalchemy=1.1.13=py36_0
-- tqdm=4.15.0=py36_0
+- beautifulsoup4
+- ipython
+- joblib
+- lxml
+- openpyxl
+- paramiko
+- pip
+- psutil
+- pyqt
+- pytest
+- python
+- pyyaml
+- pyzmq
+- requests
+- sqlalchemy
+- tqdm
 - pip:
-  - bitstring==3.1.5
-  - ftputil==3.3.1
-  - pyperclip==1.5.27
-  - records==0.5.2
-  - redis==2.10.6
-  - rx==1.6.0
-  - tablib==0.12.1
-  - texttable==0.9.1
+  - bitstring
+  - ftputil
+  - pyperclip
+  - records
+  - redis
+  - rx
+  - tablib
+  - texttable
