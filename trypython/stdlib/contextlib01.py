@@ -4,6 +4,7 @@ contextlib.suppress のサンプルです。
 """
 import contextlib as ctx
 import os
+from typing import Generator
 
 from trypython.common.commoncls import SampleBase
 
@@ -24,8 +25,8 @@ class Sample(SampleBase):
             # やったりする場合、この処理では
             # 例外でても無視するときもある
             os.remove(target_file)
-        except FileNotFoundError:
-            pass
+        except FileNotFoundError as e:
+            print(e)
 
         ######################################
         # contextlib.suppress は
@@ -35,4 +36,36 @@ class Sample(SampleBase):
         # ようになる。例外情報は複数指定できる。
         ######################################
         with ctx.suppress(FileNotFoundError):
-            os.remove(target_file)
+            with log('存在しないファイルを削除'):
+                os.remove(target_file)
+
+
+@ctx.contextmanager
+def log(message: str) -> Generator:
+    """指定したメッセージ付きで開始と終了のログを出力するコンテキストマネージャを返します。
+
+    >>> with log('hello'):
+    ...     print('world')
+    START: hello
+    world
+    END: hello
+
+    :type message: str
+    :param message: メッセージ
+    :rtype: typing.Generator
+    :return: コンテキストマネージャ
+    """
+    print(f'START: {message}')
+    try:
+        yield
+    finally:
+        print(f'END: {message}')
+
+
+def go():
+    obj = Sample()
+    obj.exec()
+
+
+if __name__ == '__main__':
+    go()
