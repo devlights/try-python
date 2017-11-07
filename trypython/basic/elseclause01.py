@@ -17,12 +17,21 @@ class Sample(SampleBase):
         # while: ループが break されずに終了した場合
         # try: 例外が発生しなかった場合
         #
+        # つまり、空ループの場合も、else 部分を通る
+        #
         # 何かをサーチするような処理の場合、見つけた時点で break することが
         # 多いため、このようなときに else を入れておくと見つからなかった場合の
         # 処理を簡単に書くことが出来る。
         #
         # tryの場合は、例外が発生せずに正常に処理が通ったときを判定できる
         # ------------------------------------------------------------
+        for x in []:
+            pr('for-loop', x)
+        else:
+            pr('for-else', 'passed')
+
+        pr('-----------------------------------', '')
+
         for x in range(5):
             pr('for-loop', x)
         else:
@@ -79,8 +88,8 @@ class Sample(SampleBase):
 
 
 class MyException(Exception):
-    def __init__(self, message: str, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, message: str, *args):
+        super().__init__(*args)
         self._message = message
 
     def __str__(self, *args, **kwargs):
