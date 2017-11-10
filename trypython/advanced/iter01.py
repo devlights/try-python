@@ -32,7 +32,7 @@ class Sample(SampleBase):
         # となる。
         #
         # sentinel は、日本語で言うと「番兵」の事。
-        # iter(callable, sentinel) は、毎回 calable を
+        # iter(callable, sentinel) は、毎回 callable を
         # 呼び出して、その値が sentinel と等しいかを判定する。
         #
         # 等しい場合は、StopIteration が発生して
