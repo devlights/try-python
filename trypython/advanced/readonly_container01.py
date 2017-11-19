@@ -131,6 +131,7 @@ class Sample(SampleBase):
 
         hr()
 
+
 def go():
     obj = Sample()
     obj.exec()
