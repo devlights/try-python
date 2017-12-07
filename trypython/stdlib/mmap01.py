@@ -68,10 +68,10 @@ class Sample(SampleBase):
 
     # noinspection PyTypeChecker
     @staticmethod
-    def grep3(pattern_bytes: bytes, file_path: str) -> Union[Match, None]:
+    def grep3(pattern: bytes, file_path: str) -> Union[Match, None]:
         with open(file_path, mode='r', encoding='utf-8') as f:
             mm = mmap.mmap(f.fileno(), length=0, access=mmap.ACCESS_READ)
-            return re.search(pattern_bytes, mm)
+            return re.search(pattern, mm)
 
 
 def go():
