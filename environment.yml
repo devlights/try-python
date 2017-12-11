@@ -1,29 +1,25 @@
 name: trypython
 channels:
 - defaults
+- conda-forge
 dependencies:
-- beautifulsoup4
+- autopep8
 - ipython
 - joblib
-- lxml
 - openpyxl
 - paramiko
 - pip
-- psutil
 - pyqt
+- psutil
 - pytest
 - python
 - pyyaml
 - pyzmq
 - requests
-- sqlalchemy
 - tqdm
 - pip:
   - bitstring
   - ftputil
   - pyperclip
-  - records
   - redis
-  - rx
-  - tablib
   - texttable
