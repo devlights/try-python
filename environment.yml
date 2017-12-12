@@ -4,22 +4,23 @@ channels:
 - conda-forge
 dependencies:
 - autopep8
+- ftputil
 - ipython
 - joblib
 - openpyxl
 - paramiko
 - pip
+- pylint
 - pyqt
 - psutil
+- pyperclip
 - pytest
 - python
 - pyyaml
 - pyzmq
+- redis
 - requests
+- texttable
 - tqdm
 - pip:
   - bitstring
-  - ftputil
-  - pyperclip
-  - redis
-  - texttable
