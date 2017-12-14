@@ -1,4 +1,5 @@
 # coding: utf-8
+import sys
 
 from pprint import pformat
 from typing import Iterator, Any, Sequence, Tuple
@@ -50,3 +51,14 @@ def unicode_width(s: str) -> int:
     :return: 文字幅
     """
     return sum([east_asian_width(c) in 'WF' and 2 or 1 for c in s])
+
+
+def is_py3() -> bool:
+    """
+    python 3.x 系かどうかを返します。
+
+    :return: 3.x 系の場合はTrue, それ以外は False.
+    """
+    if sys.version_info >= (3, 0,):
+        return True
+    return False
