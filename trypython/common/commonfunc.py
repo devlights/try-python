@@ -1,9 +1,33 @@
 # coding: utf-8
+import functools
 import sys
-
+import time
 from pprint import pformat
-from typing import Iterator, Any, Sequence, Tuple
+from typing import Iterator, Any, Sequence, Tuple, Callable
+
 from unicodedata import east_asian_width
+
+
+def stopwatch(func: Callable) -> Callable:
+    """
+    デコレータ。
+    関数呼び出しにかかった時間を出力します。
+
+    :param func: 関数
+    :return: 関数
+    """
+
+    @functools.wraps(func)
+    def _wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        results = func(*args, **kwargs)
+        end = time.perf_counter()
+
+        hr(f'ELAPSED TIME: {(end - start):0.3f}')
+
+        return results
+
+    return _wrapper
 
 
 def hr(message: Any = None) -> None:
