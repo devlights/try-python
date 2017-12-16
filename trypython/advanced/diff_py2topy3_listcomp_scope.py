@@ -33,8 +33,8 @@ class Sample(SampleBase):
             # 外のスコープから見える。
             # -------------------------------------------
             # python 2.x 系で試す場合は以下のコメントを外す
-            # print x
-            pass
+            # noinspection PyUnresolvedReferences,PyUnboundLocalVariable
+            pr('py2', x)
 
 
 def go():
