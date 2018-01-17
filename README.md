@@ -1,5 +1,8 @@
 # try-python
-This is my TUTORIAL project for python. (python 3.6) :wink:
+This is my TUTORIAL project for python. (python 3.6) 
+
+# Caution
+I'm japanese. so some script include Japanese comments. :wink:
 
 # Requirements
 - Latest Anaconda or Miniconda
