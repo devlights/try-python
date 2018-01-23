@@ -3,8 +3,8 @@ Python のクラスについてのサンプルです。
 
 サブクラス側で __init__ を定義した場合の注意点について。
 """
-from common.commoncls import SampleBase
-from common.commonfunc import pr, hr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import pr, hr
 
 
 class B:
