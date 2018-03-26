@@ -8,6 +8,9 @@ REMARKS::
 本サンプルを実行する前に予め以下をコマンドラインで実行しておく必要があります。
 
 $ python -m trypython.advanced.socket_server01
+
+REFERENCES::
+http://pythonwise.blogspot.jp/2018/02/pythons-iter-functoolspartial.html
 """
 import functools
 import socket
