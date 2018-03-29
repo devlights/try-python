@@ -21,7 +21,22 @@ class Sample(SampleBase):
         # グループ化済みの iterable に対して function を適用する。
         # 例えば、zipした後の結果に対して、更に function 適用するなど。
         #
-        # 正直使ったことがない
+        # つまり、以下のような感じ。
+        #
+        # l1 = [1, 2, 3]
+        # l2 = [9, 8, 7]
+        # l3 = list(zip(l1, l2)) ==> [(1,9), (2,8), (3,7)]
+        #
+        # l3に対して operator.add で starmapする
+        # list(itertools.starmap(operator.add, l3))
+        #
+        # 結果は [10, 10, 10] となる。
+        # つまり、以下を実施したのと同じこと
+        #
+        # for item in l3:
+        #     operator.add(*item)
+        #
+        # なので、名前が starmap となっている
         # -----------------------------------------------
         hr('it.starmap()')
 
