@@ -15,7 +15,7 @@ from trypython.common.commonfunc import pr, hr
 class Sample(SampleBase):
     def exec(self):
         # -----------------------------------------------
-        # itertools.chain()
+        # itertools.cycle()
         # ----------------------
         # itertools.cycleは、名前の通り
         # 最初に指定したシーケンスを繰り返しサイクルする
