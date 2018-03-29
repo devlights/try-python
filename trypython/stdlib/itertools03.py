@@ -15,7 +15,7 @@ from trypython.common.commonfunc import pr, hr
 class Sample(SampleBase):
     def exec(self):
         # -----------------------------------------------
-        # itertools.chain()
+        # itertools.repeat()
         # ----------------------
         # itertools.repeat() は、指定したオブジェクトを
         # 指定した回数分繰り返すイテレータを生成してくれる。
