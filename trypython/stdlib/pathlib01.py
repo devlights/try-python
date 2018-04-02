@@ -31,28 +31,33 @@ class Sample(SampleBase):
         #
         # 存在確認
         #
-        pr('存在するか', home_dir.exists())
+        pr('HOME', home_dir)
+        pr('存在するか (HOME)', home_dir.exists())
 
         #
         # パスを追加
         #   / を使ってパスを追加していける
         #
-        anaconda_dir = home_dir / 'anaconda'
-        pr('存在するか', anaconda_dir.exists())
+        anaconda_dir = home_dir / 'anaconda3'
+        pr('存在するか (anaconda)', anaconda_dir.exists())
+        miniconda_dir = home_dir / 'miniconda3'
+        pr('存在するか（miniconda)', miniconda_dir.exists())
+
+        conda_dir = anaconda_dir if anaconda_dir.exists() else miniconda_dir
 
         #
         # globモジュールのように指定したパターンにマッチするファイルを探す
         #
-        pattern = '**/anaconda*.pyc'
-        file_list = [x for x in anaconda_dir.glob(pattern)]
+        pattern = '**/*.pyc'
+        file_list = [x for x in conda_dir.glob(pattern)]
         pr('glob結果', len(file_list))
 
         #
         # rglob メソッドは、recursive glob の意味
         # なので、globを利用する際の **/ の部分はなくても良い。
         #
-        pattern = 'anaconda*.pyc'
-        file_list = [x for x in anaconda_dir.rglob(pattern)]
+        pattern = '*.pyc'
+        file_list = [x for x in conda_dir.rglob(pattern)]
         pr('rglob結果', len(file_list))
 
 
