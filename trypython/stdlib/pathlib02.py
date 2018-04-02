@@ -1,5 +1,8 @@
 """
 pathlib モジュールについてのサンプルです。
+
+REFERENCES::
+  * https://docs.python.jp/3/library/pathlib.html
 """
 import itertools as it
 import pathlib
