@@ -39,6 +39,7 @@ class Sample(SampleBase):
         #
         hr('Path.ctor()')
         tmp_dir = pathlib.Path('/tmp')
+        pr('/tmp', tmp_dir)
 
         #
         # (2) 存在確認は、exists メソッドで行う
