@@ -98,7 +98,7 @@ class Sample(SampleBase):
         pr('存在する (dir1)', dir1.exists())
 
         #
-        # (10) Path は、ファイル操作用の API も備えている。 open メソッドでファイルをそのまま開ける。
+        # (11) Path は、ファイル操作用の API も備えている。 open メソッドでファイルをそのまま開ける。
         #
         hr('Path.open()')
         readme = src_dir / 'README.md'
@@ -107,7 +107,7 @@ class Sample(SampleBase):
             pr('README', f'{len(lines)} 行')
 
         #
-        # (11) 単純にファイルの中身を全取得したい場合だったら, open メソッドを呼ぶ必要はなく
+        # (12) 単純にファイルの中身を全取得したい場合だったら, open メソッドを呼ぶ必要はなく
         #      read_bytes() もしくは read_text() メソッドを呼び出せば取得できる。
         #
         # (*) 書き込む場合は、 write_bytes(), write_text() を利用できる
@@ -118,7 +118,7 @@ class Sample(SampleBase):
         pr('README (read_text)', f'{len(lines)} 行')
 
         #
-        # (12) glob モジュールのように条件にマッチするファイルを抽出したい場合は　glob() メソッドを利用する。
+        # (13) glob モジュールのように条件にマッチするファイルを抽出したい場合は　glob() メソッドを利用する。
         #      glob() は、リストではなくジェネレータを返す。再帰的に抽出する場合は ** を利用する。
         #
         # (*) Path には、 rglob() というメソッドもあるが、これは glob() に ** を指定した場合と同じ動作。
