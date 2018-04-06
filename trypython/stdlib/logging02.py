@@ -27,7 +27,8 @@ class Sample(SampleBase):
         # 今回も、 logging.basicConfig() について
         # filename キーワードを指定して、出力するファイル名を指定する。
         # -----------------------------------------------------------------------------------
-        logfile = pathlib.Path(tempfile.gettempdir()) / 'logging02.log'
+        logdir = pathlib.Path(tempfile.gettempdir())
+        logfile = logdir / 'logging02.log'
         logging.basicConfig(level=logging.INFO, filename=str(logfile))
         logger = logging.getLogger(__name__)
 
