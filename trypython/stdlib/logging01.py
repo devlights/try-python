@@ -56,6 +56,12 @@ class Sample(SampleBase):
         logger.error('error')
         logger.critical('critical')
 
+        # ロギングを終了。強制的に flush を実施。
+        # 基本必要ないが、大量にログを入れた後にすぐに終了や
+        # 対象ログファイルを開こうとすると、PermissionErrorが発生
+        # する場合があるため。
+        logging.shutdown()
+
         # [結果]
         # --------------------------------------
         # INFO: __main__:info
