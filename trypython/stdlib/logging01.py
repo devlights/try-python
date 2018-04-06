@@ -1,6 +1,6 @@
 """
 logging モジュールのサンプルです。
-最も基本的な使い方について。
+最も基本的な使い方について (ログレベルの変更）
 """
 import logging
 
@@ -44,6 +44,7 @@ class Sample(SampleBase):
         #     https://docs.python.jp/3/library/logging.html#logging.basicConfig
         #
         # -----------------------------------------------------------------------------------
+        # 今回は最も簡単なところの、ログレベルの調整から。
         # WARNING がデフォルトレベルなので、変更する
         logging.basicConfig(level=logging.INFO)
         logger = logging.getLogger(__name__)
