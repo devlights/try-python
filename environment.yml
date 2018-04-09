@@ -19,6 +19,7 @@ dependencies:
 - python
 - pyyaml
 - pyzmq
+- raven
 - redis
 - requests
 - texttable
