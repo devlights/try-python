@@ -34,6 +34,10 @@ class Sample(SampleBase):
         #
         #     $ set SENTRY_DSN=xxxxx
         #
+        # (*) bashの場合、一時設定するには以下のようにします。
+        #
+        #     $ export SENTRY_DSN=xxxxx
+        #
         # (*) PyCharmの場合、実行時構成の画面にて環境変数の設定ができるので、そこで設定しておく。
         #
         #     https://www.jetbrains.com/help/pycharm/run-debug-configuration-python.html
