@@ -59,6 +59,9 @@ class Sample(SampleBase):
         logger = logging.getLogger(__name__)
         logger.warning('warning')
 
+        # logging を終了
+        logging.shutdown()
+
 
 def go():
     """処理を実行します。"""
