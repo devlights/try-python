@@ -15,6 +15,7 @@ import sys
 from trypython.common.commoncls import SampleBase
 
 
+# noinspection PyMethodMayBeStatic
 class Sample(SampleBase):
     """サンプルクラス"""
 
@@ -42,9 +43,22 @@ class Sample(SampleBase):
         #   デフォルトは、 sys.stderr となっている。 loggingモジュールにてハンドラを設定ていない状態で
         #   利用すると自動的に追加されるのが、このハンドラ。
         # -----------------------------------------------------------------------------------
-        logger = logging.getLogger('default_streamhandler')
+        self._run_streamhandler_example()
 
-        # ハンドラを設定しないまま利用するので、 StreamHandler(sys.stderr) が自動で追加される
+        # FileHandler
+
+        # RotatingFileHandler
+
+        # TimedRotatingFileHandler
+
+        # MemoryHandler
+
+        # NullHandler
+
+    def _run_streamhandler_example(self):
+        """logging.StreamHandler のサンプル"""
+        # ハンドラを設定しないまま利用すると、 StreamHandler(sys.stderr) が自動で追加される
+        logger = logging.getLogger('default_streamhandler')
         logger.warning('[StreamHandler] default')
 
         # sys.stdout の StreamHandler を追加して出力。
@@ -67,16 +81,6 @@ class Sample(SampleBase):
         message = buf.read().rstrip()  # ログ出力時に末尾に改行文字が追加されているため除去
 
         assert logger.name == message
-
-        # FileHandler
-
-        # RotatingFileHandler
-
-        # TimedRotatingFileHandler
-
-        # MemoryHandler
-
-        # NullHandler
 
 
 def go():
