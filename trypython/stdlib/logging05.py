@@ -3,10 +3,14 @@ logging モジュールのサンプルです。
 応用編 (ハンドラの指定)
 
 参考情報::
+https://docs.python.jp/3/howto/logging-cookbook.html#using-file-rotation
+https://aoishi.hateblo.jp/entry/2017/10/09/021054
 https://stackoverflow.com/questions/6167587/the-logging-handlers-how-to-rollover-after-time-or-maxbytes
 https://stackoverflow.com/questions/29602352/how-to-mix-logging-handlers-file-timed-and-compress-log-in-the-same-config-f
-https://docs.python.jp/3/howto/logging-cookbook.html#using-file-rotation
 """
+import io
+import logging
+import sys
 
 from trypython.common.commoncls import SampleBase
 
@@ -34,6 +38,35 @@ class Sample(SampleBase):
         #     https://docs.python.jp/3/howto/logging.html#useful-handlers
         # -----------------------------------------------------------------------------------
         # StreamHandler
+        #   最も基本的なハンドラ。ストリームを指定してログを出力することが出来る。
+        #   デフォルトは、 sys.stderr となっている。 loggingモジュールにてハンドラを設定ていない状態で
+        #   利用すると自動的に追加されるのが、このハンドラ。
+        # -----------------------------------------------------------------------------------
+        logger = logging.getLogger('default_streamhandler')
+
+        # ハンドラを設定しないまま利用するので、 StreamHandler(sys.stderr) が自動で追加される
+        logger.warning('[StreamHandler] default')
+
+        # sys.stdout の StreamHandler を追加して出力。
+        logger = logging.getLogger('stdout_streamhandler')
+        handler = logging.StreamHandler(sys.stdout)
+        logger.addHandler(handler)
+
+        logger.warning('[StreamHandler] add StreamHandler(sys.stdout)')
+
+        # io.StringIO を使うとユニットテスト時などに便利
+        logger = logging.getLogger('stringio_streamhandler')
+        buf = io.StringIO()
+        handler = logging.StreamHandler(buf)
+        logger.addHandler(handler)
+
+        logger.warning(logger.name)
+
+        handler.flush()
+        buf.seek(io.SEEK_SET)
+        message = buf.read().rstrip()  # ログ出力時に末尾に改行文字が追加されているため除去
+
+        assert logger.name == message
 
         # FileHandler
 
