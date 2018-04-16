@@ -17,6 +17,7 @@ dependencies:
 - pyperclip
 - pytest
 - python
+- python-dateutil
 - pyyaml
 - pyzmq
 - raven
