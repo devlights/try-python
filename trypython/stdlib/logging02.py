@@ -12,7 +12,7 @@ from trypython.common.commoncls import SampleBase
 class Sample(SampleBase):
     def exec(self):
         """サンプル処理を実行します。"""
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         # logging モジュールは、python 標準ライブラリで他の言語でいう log4jやlog4netなど
         # と同様にロギング処理を提供するもの。公式ドキュメントでは以下のURLで説明が記載されている。
         #
@@ -23,10 +23,10 @@ class Sample(SampleBase):
         #     基本： https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
         #     上級： https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
         #
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         # 今回も、 logging.basicConfig() について
         # filename キーワードを指定して、出力するファイル名を指定する。
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         logdir = pathlib.Path(tempfile.gettempdir())
         logfile = logdir / 'logging02.log'
         logging.basicConfig(level=logging.INFO, filename=str(logfile))

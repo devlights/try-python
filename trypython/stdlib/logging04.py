@@ -10,7 +10,7 @@ from trypython.common.commoncls import SampleBase
 class Sample(SampleBase):
     def exec(self):
         """サンプルの処理を実行します。"""
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         # logging モジュールは、python 標準ライブラリで他の言語でいう log4jやlog4netなど
         # と同様にロギング処理を提供するもの。公式ドキュメントでは以下のURLで説明が記載されている。
         #
@@ -21,7 +21,7 @@ class Sample(SampleBase):
         #     基本： https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
         #     上級： https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
         #
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         # 今回も、 logging.basicConfig() について
         # datefmt キーワードを指定して、日付文字列のフォーマットを変更する。
         # datefmt 文字列内にて指定できるキーワードについては、以下を参照。
@@ -30,7 +30,7 @@ class Sample(SampleBase):
         #     https://docs.python.jp/3/library/time.html#time.strftime
         #
         # デフォルトは now.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3] と同じ形。
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         # ミリ秒をログに出力するやり方
         # --------------------
         # Pythonの日付書式は、他の言語と比べると少し変わっていて、ミリ秒のための書式が存在しない。
@@ -51,7 +51,7 @@ class Sample(SampleBase):
         #
         # Pythonドキュメントでは、以下のところに記載がある。
         #     https://docs.python.jp/3/library/logging.html#logrecord-attributes
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         fmt = '[%(asctime)s.%(msecs)03d] | %(message)s'
         datefmt = '%Y/%m/%d %H:%M:%S'  # ここで %f を指定すると実行時にフォーマットエラーになるので注意.
         logging.basicConfig(format=fmt, datefmt=datefmt, level=logging.INFO)

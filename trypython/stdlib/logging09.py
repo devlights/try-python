@@ -18,7 +18,7 @@ from trypython.common.commoncls import SampleBase
 class Sample(SampleBase):
     def exec(self):
         """サンプルの処理を実行します。"""
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         # logging.config.dictConfig() の使用
         # loggingでは、設定情報を外部に出して実行時に読み込む機能があります。
         #
@@ -26,7 +26,7 @@ class Sample(SampleBase):
         #
         # json形式をそのまま読み込めるので便利です。
         # 本サンプルでの設定内容に関しては、 logging_config.json ファイルを参照ください。
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         config_file = pathlib.Path('logging_config.json')
         with config_file.open(mode='r', encoding='utf-8') as fd_conf:
             logging.config.dictConfig(json.load(fd_conf))

@@ -23,7 +23,7 @@ from trypython.common.commoncls import SampleBase
 class Sample(SampleBase):
     def exec(self):
         """サンプルの処理を実行します。"""
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         # Sentry と logging の組み合わせのサンプル
         # Sentry DSN は 環境変数 SENTRY_DSN に設定してから起動します。
         #
@@ -51,7 +51,7 @@ class Sample(SampleBase):
         # その際、 SentryHanler() の設定時に どのログレベルで Sentry に送るかを決めておきます。
         # （以下の例では、ログレベルがERROR以上の場合のみSentryに連携しています。それよりも低いログレベルの場合は通常のログ出力が行われます。)
         #
-        # -----------------------------------------------------------------------------------
+        # --------------------------------------------------------
         fmt = '[%(asctime)s][%(levelname)-8s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s'
         logging.basicConfig(level=logging.INFO, format=fmt)
 
