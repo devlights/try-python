@@ -11,26 +11,27 @@ class Sample(SampleBase):
     def exec(self):
         """サンプル処理を実行します。"""
         # --------------------------------------------------------
-        # logging モジュールは、python 標準ライブラリで他の言語でいう log4jやlog4netなど
-        # と同様にロギング処理を提供するもの。公式ドキュメントでは以下のURLで説明が記載されている。
+        # logging モジュールは、python 標準ライブラリで他の言語でいう
+        # log4jやlog4netなどと同様にロギング処理を提供するもの。
+        # 公式ドキュメントでは以下のURLで説明が記載されている。
         #
-        #     https://docs.python.jp/3/library/logging.html
+        # https://docs.python.jp/3/library/logging.html
         #
-        # このモジュールは、非常に多機能であるため以下のチュートリアルが用意されている。
+        # 非常に多機能であるため以下のチュートリアルが用意されている。
         #
-        #     基本： https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
-        #     上級： https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
+        # 基本：https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
+        # 上級：https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
         #
         # --------------------------------------------------------
         # 今回も、 logging.basicConfig() について
         # format キーワードを指定して、出力文字列のフォーマットを変更する。
         # format 文字列内にて指定できるキーワードについては、以下を参照。
         #
-        #     https://docs.python.jp/3/library/logging.html#logrecord-attributes
+        # https://docs.python.jp/3/library/logging.html#logrecord-attributes
         #
         # 追加で指定できる属性値については、以下を参照。
         #
-        #     https://docs.python.jp/3/library/string.html#formatstrings
+        # https://docs.python.jp/3/library/string.html#formatstrings
         #
         # つまり、左寄せで8文字表示にするには以下のように指定する。
         #

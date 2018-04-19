@@ -11,15 +11,16 @@ class Sample(SampleBase):
     def exec(self):
         """サンプルの処理を実行します。"""
         # --------------------------------------------------------
-        # logging モジュールは、python 標準ライブラリで他の言語でいう log4jやlog4netなど
-        # と同様にロギング処理を提供するもの。公式ドキュメントでは以下のURLで説明が記載されている。
+        # logging モジュールは、python 標準ライブラリで他の言語でいう
+        # log4jやlog4netなどと同様にロギング処理を提供するもの。
+        # 公式ドキュメントでは以下のURLで説明が記載されている。
         #
-        #     https://docs.python.jp/3/library/logging.html
+        # https://docs.python.jp/3/library/logging.html
         #
-        # このモジュールは、非常に多機能であるため以下のチュートリアルが用意されている。
+        # 非常に多機能であるため以下のチュートリアルが用意されている。
         #
-        #     基本： https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
-        #     上級： https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
+        # 基本：https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
+        # 上級：https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
         #
         # --------------------------------------------------------
         # 今回も、 logging.basicConfig() について
@@ -33,27 +34,40 @@ class Sample(SampleBase):
         # --------------------------------------------------------
         # ミリ秒をログに出力するやり方
         # --------------------
-        # Pythonの日付書式は、他の言語と比べると少し変わっていて、ミリ秒のための書式が存在しない。
+        # Pythonの日付書式は、他の言語と比べると少し変わっていて
+        # ミリ秒のための書式が存在しない。
+        #
         # strftime() の書式では、 %f と指定すると「マイクロ秒」が出力される。
         # そのため、通常の sftftime() の場合は、%fを指定して、前３桁を有効とするようする。
         #
-        # が、loggingで指定する datefmt で %f を指定すると実行時に例外が発生する。 (ValueError)
+        # が、loggingで指定する datefmt で %f を
+        # 指定すると実行時に例外が発生する。 (ValueError)
+        #
         # (datetime.datetime.now().sftftime('%H:%M:%S.%f') はエラーとならない・・・）
         #
-        # では、どのようにしてミリ秒を表示するのかという話題になるが、以下のスレッドの情報がとても有用だった。
+        # では、どのようにしてミリ秒を表示するのかという話題になるが
+        # 以下のスレッドの情報がとても有用だった。
+        #
         #     https://stackoverflow.com/a/7517430/190597
-        # %(msecs)d と指定するとミリ秒が出力できる。 この場合、format と datefmt の両方を指定する必要がある。
-        # %(msecs)d は、 %(asctime)s とペアで使用する必要があるので、結局以下のように指定する。
         #
-        #     %(asctime)s.%(msecs)03d --> 03d は、3桁表示でゼロ埋めせよという指示 (3 --> 003)
+        # %(msecs)d と指定するとミリ秒が出力できる。
         #
-        # 間の「.」は、出力時の秒とミリ秒の間に入る文字を表す。ここをカンマにすると 15:14:23,333 となる。
+        # この場合、format と datefmt の両方を指定する必要がある。
+        # %(msecs)d は、 %(asctime)s とペアで使用する必要があるので
+        # 結局以下のように指定する。
+        #
+        #     %(asctime)s.%(msecs)03d
+        #     ( --> 03d は、3桁表示でゼロ埋めせよという指示 (3 --> 003))
+        #
+        # 間の「.」は、出力時の秒とミリ秒の間に入る文字を表す。
+        # ここをカンマにすると 15:14:23,333 となる。
         #
         # Pythonドキュメントでは、以下のところに記載がある。
-        #     https://docs.python.jp/3/library/logging.html#logrecord-attributes
+        #  https://docs.python.jp/3/library/logging.html#logrecord-attributes
         # --------------------------------------------------------
         fmt = '[%(asctime)s.%(msecs)03d] | %(message)s'
-        datefmt = '%Y/%m/%d %H:%M:%S'  # ここで %f を指定すると実行時にフォーマットエラーになるので注意.
+        # ここで %f を指定すると実行時にフォーマットエラーになるので注意.
+        datefmt = '%Y/%m/%d %H:%M:%S'
         logging.basicConfig(format=fmt, datefmt=datefmt, level=logging.INFO)
 
         logger = logging.getLogger(__name__)

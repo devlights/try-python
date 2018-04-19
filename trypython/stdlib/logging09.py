@@ -22,10 +22,12 @@ class Sample(SampleBase):
         # logging.config.dictConfig() の使用
         # loggingでは、設定情報を外部に出して実行時に読み込む機能があります。
         #
-        # logging.config.dictConfig() も、その一つで 辞書形式になっているデータを読み込み設定を行います。
+        # logging.config.dictConfig() も
+        # その一つで 辞書形式になっているデータを読み込み設定を行います。
         #
         # json形式をそのまま読み込めるので便利です。
-        # 本サンプルでの設定内容に関しては、 logging_config.json ファイルを参照ください。
+        # 本サンプルでの設定内容に関しては
+        # logging_config.json ファイルを参照ください。
         # --------------------------------------------------------
         config_file = pathlib.Path('logging_config.json')
         with config_file.open(mode='r', encoding='utf-8') as fd_conf:

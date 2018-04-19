@@ -22,25 +22,31 @@ class Sample(SampleBase):
     def exec(self):
         """サンプル処理を実行します"""
         # --------------------------------------------------------
-        # logging モジュールは、python 標準ライブラリで他の言語でいう log4jやlog4netなど
-        # と同様にロギング処理を提供するもの。公式ドキュメントでは以下のURLで説明が記載されている。
+        # logging モジュールは、python 標準ライブラリで他の言語でいう
+        # log4jやlog4netなどと同様にロギング処理を提供するもの。
+        # 公式ドキュメントでは以下のURLで説明が記載されている。
         #
-        #     https://docs.python.jp/3/library/logging.html
+        # https://docs.python.jp/3/library/logging.html
         #
-        # このモジュールは、非常に多機能であるため以下のチュートリアルが用意されている。
+        # 非常に多機能であるため以下のチュートリアルが用意されている。
         #
-        #     基本： https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
-        #     上級： https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
+        # 基本：https://docs.python.jp/3/howto/logging.html#logging-basic-tutorial
+        # 上級：https://docs.python.jp/3/howto/logging.html#logging-advanced-tutorial
         #
         # --------------------------------------------------------
         # 今回も、 ハンドラ について
-        # loggingモジュールにおける、ハンドラの役目はログをどこに出力するか？という役割を持つ。
-        # loggingモジュールは、デフォルトでいろいろな用途に利用できるハンドラを持っている。ハンドラの一覧については以下を参照。
+        #
+        # loggingモジュールにおける
+        # ハンドラの役目はログをどこに出力するか？という役割を持つ。
+        #
+        # loggingモジュールは、デフォルトでいろいろな用途に利用できるハンドラを持っている。
+        # ハンドラの一覧については以下を参照。
         #     https://docs.python.jp/3/howto/logging.html#useful-handlers
         # --------------------------------------------------------
         # StreamHandler
         #   最も基本的なハンドラ。ストリームを指定してログを出力することが出来る。
-        #   デフォルトは、 sys.stderr となっている。 loggingモジュールにてハンドラを設定ていない状態で
+        #   デフォルトは、 sys.stderr となっている。
+        #   loggingモジュールにてハンドラを設定ていない状態で
         #   利用すると自動的に追加されるのが、このハンドラ。
         # --------------------------------------------------------
         self._run_streamhandler_example()
