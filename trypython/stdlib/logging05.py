@@ -10,9 +10,12 @@ https://stackoverflow.com/questions/29602352/how-to-mix-logging-handlers-file-ti
 """
 import io
 import logging
+import pathlib
 import sys
+import tempfile
 
 from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import hr
 
 
 # noinspection PyMethodMayBeStatic
@@ -49,9 +52,16 @@ class Sample(SampleBase):
         #   loggingモジュールにてハンドラを設定ていない状態で
         #   利用すると自動的に追加されるのが、このハンドラ。
         # --------------------------------------------------------
+        hr('StreamHandler')
         self._run_streamhandler_example()
 
+        # --------------------------------------------------------
         # FileHandler
+        #    指定したファイルに出力するハンドラ。
+        #    出力機能は StreamHandler から継承している。
+        # --------------------------------------------------------
+        hr('FileHandler')
+        self._run_filehandler_example()
 
         # RotatingFileHandler
 
@@ -61,11 +71,31 @@ class Sample(SampleBase):
 
         # NullHandler
 
+    def _run_filehandler_example(self):
+        """logging.FileHandler のサンプル"""
+        logdir = pathlib.Path(tempfile.gettempdir())
+        logfile = logdir / 'logging05.log'
+
+        handler = logging.FileHandler(logfile, mode='w', encoding='utf-8')
+        logger = logging.getLogger('filehandler1')
+        logger.addHandler(handler)
+
+        logger.warning('[FileHandler] add filehandler')
+        handler.flush()
+
+        # 確認
+        print(logfile.open().read())
+
     def _run_streamhandler_example(self):
         """logging.StreamHandler のサンプル"""
         # ハンドラを設定しないまま利用すると、 StreamHandler(sys.stderr) が自動で追加される
         logger = logging.getLogger('default_streamhandler')
         logger.warning('[StreamHandler] default')
+
+        # バッファリングされていると表示位置がずれるのでここで明示的にフラッシュ。
+        # python 起動時のオプションで -u を付与する場合は、以下は必要ない.
+        # ( -u オプションは、バッファリングをしないように指示するオプション (unbuffered) ）
+        sys.stderr.flush()
 
         # sys.stdout の StreamHandler を追加して出力。
         logger = logging.getLogger('stdout_streamhandler')
