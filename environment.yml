@@ -4,6 +4,7 @@ channels:
 - conda-forge
 dependencies:
 - autopep8
+- ciso8601
 - ftputil
 - ipython
 - joblib
