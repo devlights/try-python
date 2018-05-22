@@ -1,5 +1,8 @@
 """
 ZeroMQ (PyZMQ) の PUB-SUB パターンのサンプルです。
+
+REFERENCES::
+http://zguide.zeromq.org/page:all#Getting-the-Message-Out
 """
 import datetime as dt
 import multiprocessing as mp
