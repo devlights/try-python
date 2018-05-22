@@ -31,6 +31,7 @@ class Sample(SampleBase):
         #   http://zguide.zeromq.org/py:wuserver
         #   http://zguide.zeromq.org/py:wuclient
         #   https://stackoverflow.com/questions/13904626/zeromq-and-multiple-subscribe-filters-in-python
+        #   https://stackoverflow.com/questions/6024003/why-doesnt-zeromq-work-on-localhost
         #
         # 注意）ZeroMQ のガイドにあるように、最初の発行は常に受信できない。
         #   http://zguide.zeromq.org/page:all#Getting-the-Message-Out
