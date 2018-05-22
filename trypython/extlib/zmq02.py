@@ -36,6 +36,9 @@ class Sample(SampleBase):
         # 注意）ZeroMQ のガイドにあるように、最初の発行は常に受信できない。
         #   http://zguide.zeromq.org/page:all#Getting-the-Message-Out
         #
+        # 引用::
+        # the subscriber will always miss the first messages that the publisher sends.
+        #
         # ----------------------------------------------------
         server_proc = mp.Process(target=Sample.server, args=())
         client_procs = [
