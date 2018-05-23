@@ -159,8 +159,8 @@ class CountDownLatch:
         with self._count.get_lock():
             val = self._count.value
 
-        with self.lock:
-            if val > 0:
+        if val > 0:
+            with self.lock:
                 return self.lock.wait(timeout=timeout)
 
         return True
