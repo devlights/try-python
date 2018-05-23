@@ -115,9 +115,12 @@ class CountDownLatch:
         >>> latch.count
         1
         """
-        with self.lock, self._count.get_lock():
+        with self._count.get_lock():
             self._count.value -= 1
-            if self._count.value <= 0:
+            val = self._count.value
+
+        if val <= 0:
+            with self.lock:
                 self.lock.notify_all()
 
     def await(self, timeout: ty.Optional[float] = None) -> bool:
@@ -153,8 +156,11 @@ class CountDownLatch:
         >>> latch.await()
         True
         """
-        with self.lock, self._count.get_lock():
-            if self._count.value > 0:
+        with self._count.get_lock():
+            val = self._count.value
+
+        with self.lock:
+            if val > 0:
                 return self.lock.wait(timeout=timeout)
-            else:
-                return True
+
+        return True
