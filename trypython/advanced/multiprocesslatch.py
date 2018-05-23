@@ -1,5 +1,5 @@
 """
-Java の CoundDownLatch 風なクラス (マルチプロセス処理用)
+Java の CountDownLatch 風なクラス (マルチプロセス処理用)
 
 REFERENCES::
 https://stackoverflow.com/questions/10236947/does-python-have-a-similar-control-mechanism-to-javas-countdownlatch
