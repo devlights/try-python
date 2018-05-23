@@ -95,6 +95,12 @@ class CountDownLatch:
         >>> latch.count_down()
         >>> latch.count
         1
+        >>> latch.count_down()
+        >>> latch.count
+        0
+        >>> latch.count_down()
+        >>> latch.count
+        0
         """
         return self._count.value
 
@@ -114,10 +120,18 @@ class CountDownLatch:
         >>> latch.count_down()
         >>> latch.count
         1
+        >>> latch.count_down()
+        >>> latch.count
+        0
+        >>> latch.count_down()
+        >>> latch.count
+        0
         """
         with self._count.get_lock():
-            self._count.value -= 1
-            val = self._count.value
+            val = 0
+            if self._count.value > 0:
+                self._count.value -= 1
+                val = self._count.value
 
         if val <= 0:
             with self.lock:
