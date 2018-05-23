@@ -9,6 +9,7 @@ import time
 
 import zmq
 
+from trypython.advanced.multiprocesslatch import CountDownLatch
 from trypython.common.commoncls import SampleBase
 
 
@@ -20,6 +21,13 @@ class Sample(SampleBase):
     SINK_BIND_URL = 'tcp://*:5556'
     TASK_COUNT = 10
     WORKER_COUNT = 2
+
+    def __init__(self):
+        self.worker_connect_latch = CountDownLatch(Sample.WORKER_COUNT)
+        """workerの接続完了を待ち合わせるためのラッチ"""
+
+        self.worker_quit_latch = CountDownLatch(Sample.WORKER_COUNT)
+        """workerの終了を待ち合わせるためのラッチ"""
 
     def exec(self):
         """サンプルの処理を実施します。"""
@@ -44,132 +52,15 @@ class Sample(SampleBase):
         #   [worker    ] http://zguide.zeromq.org/py:taskwork
         #   [sink      ] http://zguide.zeromq.org/py:tasksink
         # ----------------------------------------------------------------------
-        # ** worker: 1 の場合 **
-        # [worker-0] --> READY
-        # [ventilator] --> START: SEND 0 to sink
-        # [ventilator] Total Expected Time: 9sec
-        # [sink] --> START: RECV 0 from ventilator
-        # [worker-0] --> recv 0
-        # [sink] recv --> 0
-        # [worker-0] --> recv 1
-        # [sink] recv --> 1
-        # [worker-0] --> recv 2
-        # [sink] recv --> 2
-        # [worker-0] --> recv 3
-        # [sink] recv --> 3
-        # [worker-0] --> recv 4
-        # [sink] recv --> 4
-        # [worker-0] --> recv 5
-        # [sink] recv --> 5
-        # [worker-0] --> recv 6
-        # [sink] recv --> 6
-        # [worker-0] --> recv 7
-        # [sink] recv --> 7
-        # [worker-0] --> recv 8
-        # [sink] recv --> 8
-        # [worker-0] --> recv 9
-        # [sink] recv --> 9
-        # [sink] Total elapsed time: 9.0sec
-        # ----------------------------------------------------------------------
-        # ** worker: 2 の場合 **
-        # [worker-0] --> READY
-        # [worker-1] --> READY
-        # [ventilator] --> START: SEND 0 to sink
-        # [sink] --> START: RECV 0 from ventilator
-        # [ventilator] Total Expected Time: 9sec
-        # [worker-0] --> recv 0
-        # [worker-1] --> recv 1
-        # [sink] recv --> 0
-        # [sink] recv --> 1
-        # [worker-0] --> recv 2
-        # [worker-1] --> recv 3
-        # [sink] recv --> 2
-        # [sink] recv --> 3
-        # [worker-1] --> recv 5
-        # [sink] recv --> 5
-        # [worker-0] --> recv 4
-        # [sink] recv --> 4
-        # [worker-1] --> recv 7
-        # [worker-0] --> recv 6
-        # [sink] recv --> 7
-        # [sink] recv --> 6
-        # [worker-1] --> recv 9
-        # [worker-0] --> recv 8
-        # [sink] recv --> 8
-        # [sink] recv --> 9
-        # [sink] Total elapsed time: 4.0sec
-        # ----------------------------------------------------------------------
-        # ** worker: 4 の場合 **
-        # [worker-1] --> READY
-        # [worker-0] --> READY
-        # [worker-2] --> READY
-        # [worker-3] --> READY
-        # [ventilator] --> START: SEND 0 to sink
-        # [ventilator] Total Expected Time: 9sec
-        # [sink] --> START: RECV 0 from ventilator
-        # [worker-3] --> recv 0
-        # [worker-0] --> recv 2
-        # [worker-1] --> recv 1
-        # [worker-2] --> recv 3
-        # [sink] recv --> 2
-        # [sink] recv --> 1
-        # [sink] recv --> 0
-        # [sink] recv --> 3
-        # [worker-2] --> recv 7
-        # [worker-1] --> recv 5
-        # [worker-3] --> recv 4
-        # [sink] recv --> 5
-        # [sink] recv --> 7
-        # [sink] recv --> 4
-        # [worker-0] --> recv 6
-        # [sink] recv --> 6
-        # [worker-3] --> recv 8
-        # [worker-1] --> recv 9
-        # [sink] recv --> 8
-        # [sink] recv --> 9
-        # [sink] Total elapsed time: 2.0sec
-        # ----------------------------------------------------------------------
-        # ** worker: 10 の場合 **
-        # [worker-1] --> READY
-        # [worker-2] --> READY
-        # [worker-0] --> READY
-        # [worker-6] --> READY
-        # [worker-5] --> READY
-        # [worker-9] --> READY
-        # [worker-4] --> READY
-        # [worker-3] --> READY
-        # [worker-8] --> READY
-        # [worker-7] --> READY
-        # [ventilator] --> START: SEND 0 to sink
-        # [sink] --> START: RECV 0 from ventilator
-        # [worker-2] --> recv 1
-        # [worker-6] --> recv 2
-        # [worker-0] --> recv 0
-        # [worker-5] --> recv 3
-        # [ventilator] Total Expected Time: 9sec
-        # [worker-9] --> recv 4
-        # [worker-4] --> recv 5
-        # [sink] recv --> 0
-        # [sink] recv --> 1
-        # [sink] recv --> 2
-        # [sink] recv --> 3
-        # [worker-3] --> recv 6
-        # [worker-8] --> recv 7
-        # [worker-7] --> recv 8
-        # [worker-1] --> recv 9
-        # [sink] recv --> 4
-        # [sink] recv --> 5
-        # [sink] recv --> 6
-        # [sink] recv --> 7
-        # [sink] recv --> 8
-        # [sink] recv --> 9
-        # [sink] Total elapsed time: 0.0sec
-        # ----------------------------------------------------------------------
-        ventilator_proc = mp.Process(target=Sample.ventilator, args=())
+        ventilator_proc = mp.Process(
+            target=Sample.ventilator,
+            args=(self.worker_connect_latch, self.worker_quit_latch))
+
         workers_proc = [
-            mp.Process(target=Sample.worker, args=(i,))
+            mp.Process(target=Sample.worker, args=(i, self.worker_connect_latch, self.worker_quit_latch))
             for i in range(Sample.WORKER_COUNT)
         ]
+
         sink_proc = mp.Process(target=Sample.sink, args=())
 
         # 起動
@@ -185,7 +76,7 @@ class Sample(SampleBase):
             w.join()
 
     @staticmethod
-    def ventilator():
+    def ventilator(worker_connect_latch: CountDownLatch, worker_quit_latch: CountDownLatch):
         """データの送り出しを行う"""
         #
         # データの送り元を構築
@@ -202,9 +93,14 @@ class Sample(SampleBase):
         sink = context.socket(zmq.PUSH)
         sink.connect(Sample.SINK_CONNECT_URL)
 
-        # worker が 接続完了するまで待機
+        # worker が 接続完了して、最初のrecvを実行するまで待機
         # これを行わないと、複数の worker が動いてくれない
         # 一つの worker のみが動作してしまう。
+        # (タスクデータを送り出してから最初にrecvしたworkerが全データを処理してしまうため)
+        #
+        # worker_latch にて待機が解除された段階で、 worker が接続まで完了しているが
+        # 実際に最初の recv　を呼び出すまでに、少しの待ちが必要となるため、sleep している。
+        worker_connect_latch.await()
         time.sleep(1)
 
         # バッチ処理の開始を通知
@@ -224,11 +120,11 @@ class Sample(SampleBase):
         for _ in range(Sample.WORKER_COUNT):
             sender.send_string('quit')
 
-        time.sleep(0.5)
+        worker_quit_latch.await()
         print('[ventilator] --> shutdown...')
 
     @staticmethod
-    def worker(number: int):
+    def worker(number: int, worker_connect_latch: CountDownLatch, worker_quit_latch: CountDownLatch):
         """データを処理する"""
         context = zmq.Context()
 
@@ -239,6 +135,8 @@ class Sample(SampleBase):
         sender.connect(Sample.SINK_CONNECT_URL)
 
         print(f'[worker-{number}] --> READY', flush=True)
+        worker_connect_latch.count_down()
+
         while True:
             message = receiver.recv_string()
             print(f'[worker-{number}] --> recv {message}', flush=True)
@@ -249,6 +147,8 @@ class Sample(SampleBase):
 
             sender.send_string(message)
             time.sleep(1)
+
+        worker_quit_latch.count_down()
 
     @staticmethod
     def sink():
