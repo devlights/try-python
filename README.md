@@ -22,7 +22,7 @@ $ cd try-python
 $ conda activate trypython
 $ pytest
 ```
-# Run Samples
+# Run Examples
 Each python scripts can be run individually.
 - Launch from PyCharm
 
