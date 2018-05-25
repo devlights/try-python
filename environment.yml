@@ -1,9 +1,10 @@
 name: trypython
 channels:
-- defaults
 - conda-forge
+- defaults
 dependencies:
 - autopep8
+- blinker
 - ciso8601
 - ftputil
 - ipython
