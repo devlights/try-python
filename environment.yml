@@ -29,4 +29,5 @@ dependencies:
 - tqdm
 - pip:
   - bitstring
+  - crayons
   - icecream
