@@ -24,8 +24,8 @@ class Game:
 
     @staticmethod
     def _draw(deck: Deck, p1: Player, p2: Player):
-        p1.card = deck.remove_card()
-        p2.card = deck.remove_card()
+        p1.card = deck.take()
+        p2.card = deck.take()
         print(f'{p1.name} は {p1.card}, {p2.name} は {p2.card} を引いた')
 
     @staticmethod
