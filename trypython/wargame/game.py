@@ -29,12 +29,14 @@ class Game:
         print(f'{p1.name} は {p1.card}, {p2.name} は {p2.card} を引いた')
 
     @staticmethod
-    def _winner(p1: Player, p2: Player) -> str:
+    def _winner(p1: Player, p2: Player):
+        wins_status = f'{p1.name}[{p1.wins}] {p2.name}[{p2.wins}]'
         if p1.wins > p2.wins:
-            return p1.name
-        if p1.wins < p2.wins:
-            return p2.name
-        return '引き分け'
+            print(f'ゲーム終了 {p1.name} の勝ち {wins_status}')
+        elif p1.wins < p2.wins:
+            print(f'ゲーム終了 {p2.name} の勝ち {wins_status}')
+        else:
+            print(f'引き分け {wins_status}')
 
     def play(self):
         name1 = input('プレーヤー１の名前：')
@@ -54,5 +56,4 @@ class Game:
             winner = self._wins(self._p1, self._p2)
             print(f'{winner.name}の勝ち')
 
-        win = self._winner(self._p1, self._p2)
-        print(f'ゲーム終了 {win} の勝ち {self._p1.name}[{self._p1.wins}] {self._p2.name}[{self._p2.wins}]')
+        self._winner(self._p1, self._p2)
