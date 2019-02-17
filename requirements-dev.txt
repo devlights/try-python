@@ -1,0 +1,17 @@
+#########################################
+# try-python requirements file (develop)
+# https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file
+#########################################
+#---------------------------------------
+# Runtime
+#---------------------------------------
+-r requirements.txt
+
+#---------------------------------------
+# Develop
+#---------------------------------------
+ipython
+pytest
+autopep8
+flake8
+mypy
