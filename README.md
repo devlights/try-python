@@ -5,7 +5,7 @@ This is my TUTORIAL project for python. (python 3.6)
 I'm japanese. so some script include Japanese comments. :wink:
 
 # Requirements
-- Latest Anaconda or Miniconda
+- Python 3.7 or higher
 
 # Requirements (Optional)
 - JetBrains PyCharm
@@ -13,13 +13,14 @@ I'm japanese. so some script include Japanese comments. :wink:
 # Make Environment
 ```sh
 $ cd try-python
-$ conda env create -f environment.yml
-$ conda activate trypython
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ python -m pip install -r requirements-dev.txt
 ```
 # Unit Test
 ```sh
 $ cd try-python
-$ conda activate trypython
+$ source .venv/bin/activate
 $ pytest
 ```
 # Run Examples
@@ -30,7 +31,7 @@ or
 
 ```sh
 $ cd try-python
-$ conda activate trypython
+$ source .venv/bin/activate
 $ python -m trypython.xxx.xxx
 ```
 
