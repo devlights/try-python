@@ -1,0 +1,30 @@
+#########################################
+# try-python requirements file (develop)
+# https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file
+#########################################
+#---------------------------------------
+# Runtime
+#---------------------------------------
+bitstring
+blinker
+ciso8601
+crayons
+ftputil
+icecream
+joblib
+openpyxl
+pandas
+paramiko
+pygments
+pyQT5
+psutil
+pyperclip
+python-dateutil
+pyyaml
+pyzmq
+raven
+redis
+requests
+texttable
+trio
+tqdm
