@@ -19,7 +19,7 @@ pygments
 pyQT5
 psutil
 pyperclip
-pypiwin32; sys_platform == 'win32' # ==> For Twisted on windows
+pywin32; sys_platform == 'win32' # ==> For Twisted on windows
 python-dateutil
 pyyaml
 pyzmq
