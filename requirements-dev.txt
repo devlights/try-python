@@ -10,8 +10,9 @@
 #---------------------------------------
 # Develop
 #---------------------------------------
-ipython
-pytest
 autopep8
 flake8
+ipython
 mypy
+pydocstyle
+pytest
