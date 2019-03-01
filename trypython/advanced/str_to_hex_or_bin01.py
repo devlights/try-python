@@ -8,8 +8,8 @@ from datetime import date
 
 from bitstring import BitArray
 
-from common.commoncls import SampleBase
-from common.commonfunc import pr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import pr
 
 
 class Sample(SampleBase):
