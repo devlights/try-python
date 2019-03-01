@@ -19,10 +19,10 @@ class CountDownLatch:
     使い方は Java 版と同じで以下のメソッドを利用します。
 
     - count_down
-    - await
+    - await_
 
     count_down メソッドを各プロセスが呼び出しカウントを減らす。
-    待機を行うプロセスは await メソッドで条件が揃うまで待つ。
+    待機を行うプロセスは await_ メソッドで条件が揃うまで待つ。
 
     本クラスは、マルチプロセス処理で利用できます。
 
@@ -39,21 +39,21 @@ class CountDownLatch:
 
     >>> latch.count
     2
-    >>> latch.await(timeout=1.0)
+    >>> latch.await_(timeout=1.0)
     False
 
     >>> proc1.start()
     >>> tm.sleep(1)
     >>> latch.count
     1
-    >>> latch.await(timeout=1.0)
+    >>> latch.await_(timeout=1.0)
     False
 
     >>> proc2.start()
     >>> tm.sleep(1)
     >>> latch.count
     0
-    >>> latch.await(timeout=1.0)
+    >>> latch.await_(timeout=1.0)
     True
     """
 
@@ -137,7 +137,7 @@ class CountDownLatch:
             with self.lock:
                 self.lock.notify_all()
 
-    def await(self, timeout: ty.Optional[float] = None) -> bool:
+    def await_(self, timeout: ty.Optional[float] = None) -> bool:
         """
         カウントが 0 になるまで待機します。
         timeout を指定している場合、指定時間後に結果を返します。
@@ -150,24 +150,24 @@ class CountDownLatch:
         >>> latch = mp_latch.CountDownLatch(5)
         >>> latch.count
         5
-        >>> latch.await(timeout=0.1)
+        >>> latch.await_(timeout=0.1)
         False
         >>> latch.count_down()
         >>> latch.count
         4
-        >>> latch.await(timeout=0.1)
+        >>> latch.await_(timeout=0.1)
         False
         >>> latch.count_down()
         >>> latch.count_down()
         >>> latch.count_down()
         >>> latch.count
         1
-        >>> latch.await(timeout=0.1)
+        >>> latch.await_(timeout=0.1)
         False
         >>> latch.count_down()
         >>> latch.count
         0
-        >>> latch.await()
+        >>> latch.await_()
         True
         """
         with self._count.get_lock():

@@ -15,10 +15,10 @@ class CountDownLatch:
     使い方は Java 版と同じで以下のメソッドを利用します。
 
     - count_down
-    - await
+    - await_
 
     count_down メソッドを各スレッドが呼び出しカウントを減らす。
-    待機を行うスレッドは await メソッドで条件が揃うまで待つ。
+    待機を行うスレッドは await_ メソッドで条件が揃うまで待つ。
 
     本クラスは、スレッド処理で利用できます。
 
@@ -35,21 +35,21 @@ class CountDownLatch:
 
     >>> latch.count
     2
-    >>> latch.await(timeout=1.0)
+    >>> latch.await_(timeout=1.0)
     False
 
     >>> th1.start()
     >>> tm.sleep(1)
     >>> latch.count
     1
-    >>> latch.await(timeout=1.0)
+    >>> latch.await_(timeout=1.0)
     False
 
     >>> th2.start()
     >>> tm.sleep(1)
     >>> latch.count
     0
-    >>> latch.await(timeout=1.0)
+    >>> latch.await_(timeout=1.0)
     True
     """
     def __init__(self, count: int = 1, condition: ty.Optional[th.Condition] = None):
@@ -120,7 +120,7 @@ class CountDownLatch:
             if self._count <= 0:
                 self.lock.notify_all()
 
-    def await(self, timeout: ty.Optional[float] = None) -> bool:
+    def await_(self, timeout: ty.Optional[float] = None) -> bool:
         """
         カウントが 0 になるまで待機します。
         timeout を指定している場合、指定時間後に結果を返します。
@@ -133,22 +133,22 @@ class CountDownLatch:
         >>> latch = mp_latch.CountDownLatch(5)
         >>> latch.count
         5
-        >>> latch.await(timeout=0.1)
+        >>> latch.await_(timeout=0.1)
         False
         >>> latch.count_down()
         >>> latch.count
         4
-        >>> latch.await(timeout=0.1)
+        >>> latch.await_(timeout=0.1)
         False
         >>> latch.count_down()
         >>> latch.count_down()
         >>> latch.count_down()
         >>> latch.count
         1
-        >>> latch.await(timeout=0.1)
+        >>> latch.await_(timeout=0.1)
         False
         >>> latch.count_down()
-        >>> latch.await()
+        >>> latch.await_()
         True
         """
         with self.lock:
