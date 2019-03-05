@@ -92,3 +92,9 @@ ENV/
 
 # VSCode
 .vscode/
+
+# mypy
+.mypy_cache/
+
+# pytest
+.pytest_cache/
