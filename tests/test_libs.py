@@ -37,7 +37,7 @@ def test_timetracer():
     result = str(file.read()).strip()
 
     assert result
-    r = re.match(r'[test] elapsed: .* seconds', result)
+    re.match(r'[test] elapsed: .* seconds', result)
     pass
 
 
