@@ -16,8 +16,8 @@ from twisted.internet.endpoints import TCP4ServerEndpoint
 from twisted.internet.interfaces import ITransport, IReactorCore
 from twisted.internet.protocol import Protocol, Factory
 
-from common.commoncls import SampleBase
-from common.commonfunc import pr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import pr
 
 
 # noinspection PyArgumentList
