@@ -7,6 +7,7 @@ REFERENCES: http://bit.ly/2Vw6asZ
             http://bit.ly/2VrpMhR
 """
 import shutil
+from os import terminal_size
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
@@ -26,7 +27,7 @@ class Sample(SampleBase):
         # 対応しているOSは、 unix, windows となっている。
         # この関数が追加されたのは、 python 3.3
         # ----------------------------------------------------------
-        ts = shutil.get_terminal_size()
+        ts: terminal_size = shutil.get_terminal_size()
         pr('terminal size', ts)
         pr('\tcolumns', ts.columns)
         pr('\tlines', ts.lines)
