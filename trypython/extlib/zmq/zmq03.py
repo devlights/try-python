@@ -9,7 +9,7 @@ import time
 
 import zmq
 
-from trypython.advanced.multiprocesslatch import CountDownLatch
+from trypython.advanced.async_.multiprocesslatch import CountDownLatch
 from trypython.common.commoncls import SampleBase
 
 
@@ -100,7 +100,7 @@ class Sample(SampleBase):
         #
         # worker_latch にて待機が解除された段階で、 worker が接続まで完了しているが
         # 実際に最初の recv　を呼び出すまでに、少しの待ちが必要となるため、sleep している。
-        worker_connect_latch.await()
+        worker_connect_latch.await_()
         time.sleep(1)
 
         # バッチ処理の開始を通知
@@ -120,7 +120,7 @@ class Sample(SampleBase):
         for _ in range(Sample.WORKER_COUNT):
             sender.send_string('quit')
 
-        worker_quit_latch.await()
+        worker_quit_latch.await_()
         print('[ventilator] --> shutdown...')
 
     @staticmethod
