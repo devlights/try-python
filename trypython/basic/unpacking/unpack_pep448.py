@@ -22,7 +22,7 @@ class Sample(SampleBase):
         # 1
         self.pep448_01(*[1, 2], *[5], 3, *[9, 10])
         self.pep448_02(**{'a': 100, 'b': 200}, c=300, **{'d': 400})
-        self.pep448_02(*range(2), 3, *range(3, 4))
+        self.pep448_02(*range(2), 2, *range(3, 4))
 
         # 2
         r1 = *range(2), 2
