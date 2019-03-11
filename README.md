@@ -1,5 +1,7 @@
 # try-python
-This is my TUTORIAL project for python. (python 3.7) 
+This is my TUTORIAL project for python. 
+
+![try-python - Python Version](https://img.shields.io/badge/python-3.7-blue.svg)
 
 # Caution
 I'm japanese. so some script include Japanese comments. :wink:
