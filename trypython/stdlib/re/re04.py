@@ -5,6 +5,7 @@
 
 REFERENCES:: http://bit.ly/2O3jVNn
              http://bit.ly/2NXqocl
+             http://bit.ly/2NVGi71
 """
 import re
 
