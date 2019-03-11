@@ -25,6 +25,7 @@ pyyaml
 pyzmq
 raven
 redis
+regex
 requests
 texttable
 trio
