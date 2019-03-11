@@ -6,6 +6,7 @@
 REFERENCES:: http://bit.ly/2O3jVNn
              http://bit.ly/2NXqocl
              http://bit.ly/2NVGi71
+             http://bit.ly/2NXEg6m
 """
 import re
 
