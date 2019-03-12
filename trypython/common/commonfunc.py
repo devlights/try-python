@@ -113,7 +113,7 @@ def hr(message: Any = None) -> None:
     print(f'----------------{message or ""}----------------')
 
 
-def pr(prefix: str, message: Any, *args: Tuple) -> None:
+def pr(prefix: str, message: Any, *args: Any) -> None:
     """
     指定された値を「＝」で繋いで出力します。
     argsに指定したオプション引数は ( ) で後ろに付与されます。
