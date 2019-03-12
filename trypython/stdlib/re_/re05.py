@@ -57,7 +57,7 @@ class Sample(SampleBase):
         r = regex.compile(p)
         m = r.match(s)
         if m:
-            pr('.*+b+', '絶対最大量指定子を使っていないのでマッチする (正解)')
+            pr('.*b+', '絶対最大量指定子を使っていないのでマッチする (正解)')
 
 
 def go():
