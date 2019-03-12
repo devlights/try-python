@@ -5,6 +5,7 @@
 #---------------------------------------
 # Runtime
 #---------------------------------------
+aiohttp
 bitstring
 blinker
 ciso8601; sys_platform != 'win32'
