@@ -33,3 +33,4 @@ texttable
 trio
 tqdm
 twisted
+yarl
