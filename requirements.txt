@@ -33,4 +33,5 @@ texttable
 trio
 tqdm
 twisted
+wxpython
 yarl
