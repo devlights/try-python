@@ -19,7 +19,6 @@ openpyxl
 pandas
 paramiko
 pygments
-pyQT5
 psutil
 pyperclip
 pywin32; sys_platform == 'win32' # ==> For Twisted on windows
