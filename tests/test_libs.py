@@ -26,19 +26,18 @@ def test_chdir():
 
 def test_timetracer():
     # arrange
-    file = io.StringIO()
+    file_ = io.StringIO()
 
     # act
-    with libs.timetracer('test', file):
+    with libs.timetracer('test', file_):
         time.sleep(0.3)
 
     # assert
-    file.seek(io.SEEK_SET)
-    result = str(file.read()).strip()
+    file_.seek(io.SEEK_SET)
+    result = str(file_.read()).strip()
 
     assert result
     re.match(r'[test] elapsed: .* seconds', result)
-    pass
 
 
 def test_open_inout():
