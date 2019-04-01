@@ -52,9 +52,9 @@ def get_day(base_day, days_count=1, optional_holidays=(), optional_business_days
     :return: 対象日付
     """
     assert base_day, 'base_day is not specified'
-    assert type(base_day) is date, 'base_day is not type(date)'
-    assert all(type(x) is date for x in optional_business_days), 'optional_business_days is not type(date)'
-    assert all(type(x) is date for x in optional_holidays), 'optional_holidays is not type(date)'
+    assert isinstance(base_day, date), 'base_day is not type(date)'
+    assert all(isinstance(x, date) for x in optional_business_days), 'optional_business_days is not type(date)'
+    assert all(isinstance(x, date) for x in optional_holidays), 'optional_holidays is not type(date)'
 
     forward = True if days_count > 0 else False
     count = abs(days_count)
