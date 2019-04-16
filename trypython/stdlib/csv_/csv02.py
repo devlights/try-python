@@ -7,26 +7,24 @@ csvモジュールについてのサンプルです。
 """
 import csv
 import pathlib
-import sys
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
 
 class Sample(SampleBase):
+    # noinspection PyTypeChecker
     def exec(self):
         #
         # csvモジュールを利用してファイルに書き込みを行う場合に
         # open() に newline='' を付与していないと
         # 書込み後のファイルには、自動で改行が一つ多く含まれてしまう。
         #
-        p = r'c:\csv02.csv' if sys.platform == 'win32' else r'~/csv02.csv'
-
-        csv_path = pathlib.Path(p)
+        csv_path = pathlib.Path.home() / r'csv02.csv'
         if csv_path.exists():
             csv_path.unlink()
 
-        with open(csv_path.absolute(), mode='wt', encoding='utf-8', newline='') as fp:
+        with open(csv_path, mode='wt', encoding='utf-8', newline='') as fp:
             writer = csv.DictWriter(fp, fieldnames=['field1', 'field2'])
 
             writer.writeheader()
@@ -35,7 +33,7 @@ class Sample(SampleBase):
 
         assert csv_path.exists()
 
-        with open(csv_path.absolute(), mode='rt', encoding='utf-8', newline='') as fp:
+        with open(csv_path, mode='rt', encoding='utf-8', newline='') as fp:
             reader = csv.DictReader(fp)
 
             for row in reader:

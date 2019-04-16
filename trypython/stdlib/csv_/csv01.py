@@ -11,6 +11,7 @@ from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
 
+# noinspection PyMethodMayBeStatic
 class Sample(SampleBase):
     def exec(self):
         rows = [
