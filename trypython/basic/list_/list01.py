@@ -5,8 +5,8 @@
 リストの基本サンプルです。
 """
 
-from trypython.common.commoncls import *
-from trypython.common.commonfunc import *
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import pr
 
 
 class Sample(SampleBase):

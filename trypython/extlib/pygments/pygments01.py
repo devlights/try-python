@@ -6,14 +6,15 @@ pygments に関するサンプルです。
 - pygmentize コマンドの使い方（コメントで）
 """
 import os
+import pathlib
 import subprocess
 
 from pygments import highlight
 from pygments.formatters import get_formatter_by_name
 from pygments.lexers import get_lexer_by_name
 
-from common.commoncls import SampleBase
-from common.commonfunc import pr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import pr
 
 
 class Sample(SampleBase):
@@ -64,7 +65,7 @@ def hello():
             html = html.decode('utf-8')
         pr('pygments.html', html)
 
-        file_path = '/tmp/pygments_test.html'
+        file_path = (pathlib.Path.home() / 'pygments_test.html').as_posix()
         with open(file_path, 'w') as out_fp:
             out_fp.write(html)
 
