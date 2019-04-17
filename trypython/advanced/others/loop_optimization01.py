@@ -8,7 +8,8 @@ http://stackoverflow.com/questions/43827281/python-loop-optimization
 import collections
 import csv
 import pathlib
-import zipfile as zip
+import tempfile
+import zipfile
 from timeit import timeit
 from typing import List, Dict
 
@@ -16,13 +17,13 @@ import requests
 
 
 class PrepareProc:
-    def __init__(self) -> None:
+    def __init__(self, base_dir: str) -> None:
         super().__init__()
 
         self.zip_file_name = r'ken_all.zip'
         self.csv_file_name = r'ken_all.csv'
 
-        self.work_dir = pathlib.Path(r'/tmp')
+        self.work_dir = pathlib.Path(base_dir)
         self.zip_file_path = self.work_dir / self.zip_file_name
         self.csv_file_path = self.work_dir / self.csv_file_name
 
@@ -42,7 +43,7 @@ class PrepareProc:
         if self.csv_file_path.exists():
             return
 
-        with zip.ZipFile(str(self.zip_file_path.absolute()), mode='r') as z:
+        with zipfile.ZipFile(str(self.zip_file_path.absolute()), mode='r') as z:
             z.extractall(self.work_dir)
 
     def read(self) -> List[List[str]]:
@@ -53,10 +54,10 @@ class PrepareProc:
 
 # noinspection PyUnresolvedReferences
 class _ProcValidateMixin:
-    def _pre_validate(self) -> None:
+    def pre_validate(self) -> None:
         assert self._lines[0][0] != '北海道'
 
-    def _post_validate(self) -> None:
+    def post_validate(self) -> None:
         assert self._lines[0][0] == '北海道'
 
 
@@ -121,23 +122,26 @@ class FastProc(_ProcValidateMixin):
 
 
 if __name__ == '__main__':
-    prepare = PrepareProc()
-    prepare.download()
-    prepare.extract()
+    with tempfile.TemporaryDirectory() as tmpdir:
+        print(f'base_dir={tmpdir}')
 
-    # 全件処理させると、とても時間がかかるので20000行に絞って実施。
-    # 実際の行数は、2017/05/10時点で124115行ある。
-    slow = SlowProc(prepare.read()[:20000])
-    slow._pre_validate()
-    print(f'slow={round(timeit(slow, number=1), 3)}')
-    slow._post_validate()
+        prepare = PrepareProc(tmpdir)
+        prepare.download()
+        prepare.extract()
 
-    normal = NormalProc(prepare.read())
-    normal._pre_validate()
-    print(f'normal={round(timeit(normal, number=1), 3)}')
-    normal._post_validate()
+        # 全件処理させると、とても時間がかかるので20000行に絞って実施。
+        # 実際の行数は、2017/05/10時点で124115行ある。
+        slow = SlowProc(prepare.read()[:20000])
+        slow.pre_validate()
+        print(f'slow={round(timeit(slow, number=1), 3)}')
+        slow.post_validate()
 
-    fast = FastProc(prepare.read())
-    fast._pre_validate()
-    print(f'fast={round(timeit(fast, number=1), 3)}')
-    fast._post_validate()
+        normal = NormalProc(prepare.read())
+        normal.pre_validate()
+        print(f'normal={round(timeit(normal, number=1), 3)}')
+        normal.post_validate()
+
+        fast = FastProc(prepare.read())
+        fast.pre_validate()
+        print(f'fast={round(timeit(fast, number=1), 3)}')
+        fast.post_validate()
