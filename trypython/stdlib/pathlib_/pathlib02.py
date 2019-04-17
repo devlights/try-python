@@ -6,6 +6,7 @@ REFERENCES::
 """
 import itertools as it
 import pathlib
+import tempfile
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr, hr
@@ -34,19 +35,20 @@ class Sample(SampleBase):
         #
         ###########################################################
 
-        #
-        # (1) Path インスタンスの作成
-        #
-        hr('Path.ctor()')
-        tmp_dir = pathlib.Path('/tmp')
-        pr('/tmp', tmp_dir)
+        with tempfile.TemporaryDirectory() as tmpdir:
+            #
+            # (1) Path インスタンスの作成
+            #
+            hr('Path.ctor()')
+            tmp_dir = pathlib.Path(tmpdir)
+            pr('/tmp', tmp_dir)
 
-        #
-        # (2) 存在確認は、exists メソッドで行う
-        #
-        hr('Path.exists()')
-        pr('パス (tmp_dir)', str(tmp_dir))
-        pr('存在するか (/tmp)', tmp_dir.exists())
+            #
+            # (2) 存在確認は、exists メソッドで行う
+            #
+            hr('Path.exists()')
+            pr('パス (tmp_dir)', str(tmp_dir))
+            pr('存在するか (/tmp)', tmp_dir.exists())
 
         #
         # (3) パスの結合は、 / で行える
@@ -54,7 +56,7 @@ class Sample(SampleBase):
         #
         hr('Path::home() and path concat by "/"')
         home_dir = pathlib.Path.home()
-        work_dir = pathlib.Path('work')
+        work_dir = pathlib.Path('PyCharmProjects')
         py_dir = pathlib.Path('try-python')
 
         src_dir = home_dir / work_dir / py_dir
