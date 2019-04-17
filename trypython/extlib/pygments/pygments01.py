@@ -7,7 +7,9 @@ pygments に関するサンプルです。
 """
 import os
 import pathlib
+import shlex
 import subprocess
+import sys
 
 from pygments import highlight
 from pygments.formatters import get_formatter_by_name
@@ -71,7 +73,11 @@ def hello():
 
         preserve_file = True
         try:
-            subprocess.check_call(file_path, shell=True)
+            if sys.platform == 'win32':
+                cmd = shlex.split(f'cmd /C start {file_path}')
+            else:
+                cmd = shlex.split(f'open {file_path}')
+            subprocess.check_call(cmd, shell=False)
         finally:
             if not preserve_file:
                 os.unlink(file_path)
