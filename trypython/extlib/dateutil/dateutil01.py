@@ -2,6 +2,8 @@
 dateutil (python-dateutil) モジュールに関するサンプルです。
 
 relativedelta について
+
+REFERENCES:: http://bit.ly/2KNPi0p
 """
 import datetime
 
