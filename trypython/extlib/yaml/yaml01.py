@@ -4,6 +4,7 @@
 pyyamlモジュールについてのサンプルです。
 """
 import io
+
 import yaml
 
 from trypython.common.commoncls import SampleBase
@@ -33,7 +34,7 @@ class Sample(SampleBase):
         # 存在しないので、PyYAMLモジュールを利用する
         #
         with io.StringIO(YAML_TEXT) as fp:
-            obj = yaml.load(fp)
+            obj = yaml.load(fp, Loader=yaml.SafeLoader)
             pr('yaml.load()', obj)
 
 
