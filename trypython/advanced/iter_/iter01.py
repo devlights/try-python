@@ -4,6 +4,8 @@
 """
 
 import os
+import pathlib
+import tempfile
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
@@ -15,9 +17,9 @@ class MySentinel:
 
 
 class Sample(SampleBase):
-    def __init__(self) -> None:
+    def __init__(self, tmpdir: pathlib.Path) -> None:
         super().__init__()
-        self._file = '/tmp/test.txt'
+        self._file = str(tmpdir / '/tmp/test.txt')
 
     def exec(self):
         ####################################################
@@ -65,8 +67,9 @@ class Sample(SampleBase):
 
 
 def go():
-    obj = Sample()
-    obj.exec()
+    with tempfile.TemporaryDirectory() as tmpdir:
+        obj = Sample(pathlib.Path(tmpdir))
+        obj.exec()
 
 
 if __name__ == '__main__':
