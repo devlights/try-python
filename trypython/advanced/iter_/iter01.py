@@ -19,7 +19,7 @@ class MySentinel:
 class Sample(SampleBase):
     def __init__(self, tmpdir: pathlib.Path) -> None:
         super().__init__()
-        self._file = str(tmpdir / '/tmp/test.txt')
+        self._file = str(tmpdir / 'test.txt')
 
     def exec(self):
         ####################################################
