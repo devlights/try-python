@@ -5,8 +5,8 @@ datetime.datetime オブジェクトについての基本的な情報につい�
 """
 from datetime import datetime
 
-from common.commoncls import SampleBase
-from common.commonfunc import hr, pr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import hr, pr
 
 
 class Sample(SampleBase):

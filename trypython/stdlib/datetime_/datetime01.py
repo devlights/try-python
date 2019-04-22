@@ -4,8 +4,8 @@ datetime.fromtimestamp() についてのサンプルです。
 import time
 from datetime import datetime
 
-from common.commoncls import SampleBase
-from common.commonfunc import hr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import hr
 
 
 class Sample(SampleBase):
