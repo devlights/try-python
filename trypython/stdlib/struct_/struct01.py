@@ -6,8 +6,8 @@ structモジュールのサンプルです。
 
 import struct
 
-from common.commoncls import SampleBase
-from common.commonfunc import hr
+from trypython.common.commoncls import SampleBase
+from trypython.common.commonfunc import hr
 
 
 class Sample(SampleBase):

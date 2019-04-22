@@ -28,8 +28,8 @@ from System.Threading import Thread
 # noinspection PyUnresolvedReferences
 from System.Threading.Tasks import Task
 
-from common.commonfunc import pr
-from common.commoncls import SampleBase
+from trypython.common.commonfunc import pr
+from trypython.common.commoncls import SampleBase
 
 
 class Sample(SampleBase):
