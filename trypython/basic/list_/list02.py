@@ -2,6 +2,9 @@
 リストのサンプルです.
 
 リストの flatten について
+
+REFERENCES:: http://bit.ly/2L7yfq1
+             http://bit.ly/2Li2N8S
 """
 import itertools
 
