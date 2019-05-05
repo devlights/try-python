@@ -6,6 +6,7 @@
 # Runtime
 #---------------------------------------
 aiohttp
+aiojobs
 async-timeout
 bitstring
 blinker
