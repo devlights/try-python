@@ -4,3 +4,4 @@ python:
   - "3.7"
 script:
   - pytest
+install: pip install --user -r requirements_ci.txt
