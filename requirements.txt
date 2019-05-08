@@ -24,6 +24,8 @@ psutil
 pyperclip
 pywin32; sys_platform == 'win32' # ==> For Twisted on windows
 python-dateutil
+pytablereader
+pytablereader[md]
 pyyaml
 pyzmq
 raven
