@@ -1,6 +1,7 @@
 import io
 import os
 import re
+import tempfile
 import time
 
 import trypython.common.commonfunc as libs
@@ -9,7 +10,7 @@ import trypython.common.commonfunc as libs
 def test_chdir():
     # arrange
     orig_dir = os.path.abspath('.')
-    dest_dir = os.path.abspath('/tmp')
+    dest_dir = os.path.abspath(tempfile.gettempdir())
 
     os.chdir(orig_dir)
     assert orig_dir == os.path.abspath(os.curdir)
@@ -42,8 +43,9 @@ def test_timetracer():
 
 def test_open_inout():
     # arrange
-    in_file = '/tmp/test_open_input.txt'
-    out_file = '/tmp/test_open_input2.txt'
+    tmp_dir_path = tempfile.gettempdir()
+    in_file = os.path.join(tmp_dir_path, 'test_open_input.txt')
+    out_file = os.path.join(tmp_dir_path, 'test_open_input2.txt')
 
     with open(in_file, 'w', encoding='utf-8') as fp:
         fp.writelines(str(x) for x in range(10))
