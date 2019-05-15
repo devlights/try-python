@@ -1,0 +1,19 @@
+#########################################
+# try-python requirements file (CI Environment)
+# https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file
+#########################################
+#---------------------------------------
+# Runtime
+#---------------------------------------
+-r requirements.txt
+
+#---------------------------------------
+# Extra links
+#---------------------------------------
+-f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04/
+
+#---------------------------------------
+# Travis-CI
+#---------------------------------------
+wxPython; sys_platform == 'linux'
+pytest

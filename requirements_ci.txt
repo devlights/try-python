@@ -1,8 +1,0 @@
-#########################################
-# try-python requirements file (CI Environment)
-# https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file
-#########################################
-#---------------------------------------
-# Travis-CI
-#---------------------------------------
-pytest
