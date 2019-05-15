@@ -8,8 +8,12 @@
 -r requirements.txt
 
 #---------------------------------------
-# Travis-CI
+# Extra links
 #---------------------------------------
 -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04/
-wxPython
+
+#---------------------------------------
+# Travis-CI
+#---------------------------------------
+wxPython; sys_platform == 'linux'
 pytest
