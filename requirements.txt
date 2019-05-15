@@ -36,5 +36,5 @@ texttable
 trio
 tqdm
 twisted
-wxpython
+wxpython; sys_platform != 'linux'
 yarl
