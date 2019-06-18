@@ -1,7 +1,7 @@
 """
 signal モジュールのサンプル
 
-singnal.signal(SIGINT) の使い方について。
+signal.signal(SIGINT) の使い方について。
 CTRL-C をハンドルする。
 
 注意点:: 本サンプルはPyCharmから実行してもうまく動きません。
