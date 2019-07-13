@@ -6,7 +6,7 @@
 import re
 
 from trypython.common.commoncls import SampleBase
-from trypython.stdlib.re import util
+from trypython.stdlib.re_ import util
 
 
 class Sample(SampleBase):

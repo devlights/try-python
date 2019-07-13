@@ -4,7 +4,7 @@
 import random
 from typing import List, Optional
 
-from wargame.card import Card
+from trypython.wargame.card import Card
 
 
 class Deck:

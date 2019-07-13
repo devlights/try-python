@@ -39,7 +39,7 @@ or
 ```sh
 $ cd try-python
 $ source .venv/bin/activate
-$ python -m trypython.xxx.xxx
+$ python -m trypython
 ```
 
 # VSCode settings (Example)

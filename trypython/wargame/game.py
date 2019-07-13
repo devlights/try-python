@@ -3,8 +3,8 @@
 #
 # すこし改変
 # ---------------------------------------------------------
-from wargame.deck import Deck
-from wargame.player import Player
+from trypython.wargame.deck import Deck
+from trypython.wargame.player import Player
 
 
 class Game:
