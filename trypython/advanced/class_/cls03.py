@@ -102,7 +102,3 @@ def go() -> None:
     """
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

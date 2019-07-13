@@ -68,7 +68,3 @@ def heavy_proc(value: str, sleep_seconds: int) -> dict:
 def go():
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

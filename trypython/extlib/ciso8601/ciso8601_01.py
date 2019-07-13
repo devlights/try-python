@@ -61,7 +61,12 @@ class Sample(SampleBase):
             datetime.strptime(d, '%Y-%m-%dT%H:%M:%S')
 
 
-def go(params: Any):
+def go():
+    obj = Sample(100000, 'ciso8601', False)
+    obj.exec()
+
+
+def _go(params: Any):
     obj = Sample(params.count, params.mode, params.call_unaware)
     obj.exec()
 
@@ -72,4 +77,4 @@ if __name__ == '__main__':
     parser.add_argument('--mode', default='ciso8601', choices=['ciso8601', 'datetime'])  # noqa
     parser.add_argument('--call-unaware', action='store_true', default=False)
     args = parser.parse_args()
-    go(args)
+    _go(args)

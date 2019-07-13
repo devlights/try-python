@@ -52,7 +52,7 @@ class Sample(SampleBase):
         print(result)
 
 
-def go(file_path: str, encoding: str) -> None:
+def _go(file_path: str, encoding: str) -> None:
     """
     サンプルを実行します。
 
@@ -80,4 +80,4 @@ if __name__ == '__main__':
     parser.add_argument('--encoding', type=str, default='utf-8', help='file encoding (default: utf-8)')
 
     args = parser.parse_args()
-    go(args.file_path, args.encoding)
+    _go(args.file_path, args.encoding)

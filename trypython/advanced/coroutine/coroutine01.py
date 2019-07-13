@@ -90,7 +90,3 @@ def simple_coroutine2():
 def go():
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

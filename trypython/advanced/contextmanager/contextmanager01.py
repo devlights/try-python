@@ -104,7 +104,3 @@ def return_obj_ctx_manager():
 def go():
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

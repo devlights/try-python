@@ -21,7 +21,6 @@ class Sample(SampleBase):
         Sample.fn02(10, 20, 30, **dict(apple=100, pineapple=200))
         Sample.fn03(10, 20, 30, **dict(apple=100, pineapple=200))
 
-
     def fn01(self, *args, **kwargs):
         pr('vars() in method', vars())
 
@@ -33,10 +32,7 @@ class Sample(SampleBase):
     def fn03(*args, **kwargs):
         pr('vars() in static method', vars())
 
+
 def go():
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

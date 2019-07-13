@@ -70,7 +70,3 @@ def go():
     with tempfile.TemporaryDirectory() as tmpdir:
         obj = Sample(pathlib.Path(tmpdir))
         obj.exec()
-
-
-if __name__ == '__main__':
-    go()
