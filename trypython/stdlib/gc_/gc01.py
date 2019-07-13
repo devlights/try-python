@@ -1,8 +1,9 @@
 # coding: utf-8
 """gcモジュールについてのサンプルです。"""
-import gc
 import secrets
 import string
+
+import gc
 
 from trypython.common.commoncls import SampleBase, timetracer
 from trypython.common.commonfunc import pr
@@ -43,7 +44,3 @@ class Sample(SampleBase):
 def go():
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

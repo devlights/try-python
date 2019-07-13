@@ -62,7 +62,8 @@ def load_examples() -> Dict[str, object]:
         try:
             m = importlib.import_module(mod_name)
             examples[mod_name[mod_name.rfind('.') + 1:]] = m
-        except Exception:
+        except Exception as e:
+            print(e)
             raise ExampleLoadError(mod_name)
 
     return examples

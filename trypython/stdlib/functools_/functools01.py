@@ -56,7 +56,3 @@ func02 = functools.partial(func01, prefix='partial')
 def go():
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

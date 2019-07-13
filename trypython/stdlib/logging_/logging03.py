@@ -61,7 +61,3 @@ def go():
     """処理を実行します。"""
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()
