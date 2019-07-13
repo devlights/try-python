@@ -20,7 +20,7 @@ def finalize_sample(*args, **kwargs):
     print(f'object [sample] is dead. \n\targs   = {tuple(args)}\n\tkwargs = {kwargs}')
 
 
-def go():
+def _go():
     obj = Sample()
 
     #################################################################
@@ -33,8 +33,8 @@ def go():
     obj.exec()
 
 
-if __name__ == '__main__':
-    go()
+def go():
+    _go()
 
     ###################################################################################
     # go() が終了した段階で Sample オブジェクトの参照数が0となるので、オブジェクトが gc される

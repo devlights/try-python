@@ -1,3 +1,3 @@
 def play():
-    from wargame.game import Game
+    from trypython.wargame.game import Game
     Game().play()

@@ -96,7 +96,3 @@ def go():
     """サンプルを実行します。"""
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

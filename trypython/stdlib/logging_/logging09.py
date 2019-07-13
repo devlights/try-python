@@ -7,9 +7,9 @@ https://docs.python.jp/3/library/logging.config.html#logging-config-dictschema
 https://docs.sentry.io/clients/python/integrations/logging/
 https://stackoverflow.com/questions/38323810/does-pythons-logging-config-dictconfig-apply-the-loggers-configuration-setti
 """
+import json
 import logging
 import logging.config
-import json
 import pathlib
 
 from trypython.common.commoncls import SampleBase
@@ -48,7 +48,3 @@ def go():
     """処理を実行します。"""
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

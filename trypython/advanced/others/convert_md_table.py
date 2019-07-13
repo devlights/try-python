@@ -23,7 +23,3 @@ def main():
                 for r in t.row_list:
                     _write('\t'.join(r))
                 _write('\n')
-
-
-if __name__ == '__main__':
-    main()

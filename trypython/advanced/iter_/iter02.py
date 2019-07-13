@@ -20,6 +20,7 @@ from trypython.common.commoncls import SampleBase
 
 class Sample(SampleBase):
     """本サンプルの処理を実装しているクラスです"""
+
     def __init__(self):
         self._host = '127.0.0.1'
         self._port = 8888
@@ -37,7 +38,3 @@ def go():
     """サンプルを実行します"""
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()

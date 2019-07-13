@@ -91,7 +91,3 @@ class Sample(SampleBase):
 def go():
     obj = Sample()
     obj.exec()
-
-
-if __name__ == '__main__':
-    go()
