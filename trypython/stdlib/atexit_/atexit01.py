@@ -19,16 +19,21 @@ class Sample(SampleBase):
         # 引数無しの関数に限り、@atexit.register という風にデコレータで
         # 指定できる。
         #
-        atexit.register(Sample.exit_hook)
-        pr('script', 'end')
-        sys.exit(0)
+        # そのままにしておくと、このモジュールがロードされたタイミングで
+        # フックが追加されてしまうので、基本コメントアウトしておく
+        # 試す場合は以下のコメントを外して利用すること
+        #
+        # atexit.register(Sample.exit_hook)
+        # pr('script', 'end')
+        # sys.exit(0)
+        pass
 
     @staticmethod
     def exit_hook():
         pr('exit_hook', 'called')
 
     @staticmethod
-    @atexit.register
+    # @atexit.register
     def exit_hook2():
         pr('exit_hook2', 'called')
 

@@ -3,7 +3,7 @@
 # ---------------------------------------------------------
 import dataclasses
 
-from wargame.card import Card
+from trypython.wargame.card import Card
 
 
 @dataclasses.dataclass

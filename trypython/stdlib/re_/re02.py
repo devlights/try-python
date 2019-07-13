@@ -7,7 +7,7 @@ import re
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
-from trypython.stdlib.re import util
+from trypython.stdlib.re_ import util
 
 
 class Sample(SampleBase):
