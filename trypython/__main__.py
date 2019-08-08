@@ -48,7 +48,7 @@ def load_examples() -> Dict[str, object]:
         #   - ファイル名の末尾の ".py" を除去
         #   - "/" を "." に置換
         index = real_path.find('trypython')
-        mod_name = real_path[index:-3].replace('/', '.')
+        mod_name = real_path[index:-3].replace(os.path.sep, '.')
 
         if not mod_name:
             continue
@@ -62,8 +62,11 @@ def load_examples() -> Dict[str, object]:
         try:
             m = importlib.import_module(mod_name)
             examples[mod_name[mod_name.rfind('.') + 1:]] = m
+        except ModuleNotFoundError as not_found_ex:
+            # モジュールが見つからない
+            print(f'[警告] モジュールがロードできませんでした: {not_found_ex}')
         except Exception as e:
-            print(e)
+            print(f'[エラー] モジュールがロード中にエラー発生: {e}')
             raise ExampleLoadError(mod_name)
 
     return examples
