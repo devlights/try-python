@@ -25,7 +25,7 @@ class ExampleLoadError(Exception):
         self.example_name = example_name
 
 
-def load_examples() -> Dict[str, object]:
+def load_examples(raise_error: bool = False) -> Dict[str, object]:
     """サンプルをロードします.
 
     Returns:
@@ -36,6 +36,7 @@ def load_examples() -> Dict[str, object]:
     examples = {}
     basedir = pathlib.Path(os.getcwd())
 
+    failed_modules = []
     for p in basedir.rglob('*.py'):
         real_path = str(p)
 
@@ -67,7 +68,14 @@ def load_examples() -> Dict[str, object]:
             print(f'[警告] モジュールがロードできませんでした: {not_found_ex}')
         except Exception as e:
             print(f'[エラー] モジュールがロード中にエラー発生: {e}')
-            raise ExampleLoadError(mod_name)
+            failed_modules.append(mod_name)
+
+    if failed_modules:
+        print('以下のモジュールはロードに失敗しました')
+        for m in failed_modules:
+            print(f'\t{m}')
+        if raise_error:
+            raise ExampleLoadError(','.join(failed_modules))
 
     return examples
 
