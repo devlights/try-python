@@ -3,7 +3,6 @@ This is my TUTORIAL project for python.
 
 ![try-python - Python Version](https://img.shields.io/badge/python-3.8-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-python/badge)](https://www.codefactor.io/repository/github/devlights/try-python)
-![TravisCI](https://travis-ci.org/devlights/try-python.svg?branch=master)
 
 # Caution
 I'm japanese. so some script include Japanese comments. :wink:
