@@ -8,7 +8,7 @@ This is my TUTORIAL project for python.
 I'm japanese. so some script include Japanese comments. :wink:
 
 # Requirements
-- Python 3.7 or higher
+- Python 3.7 or higher (I'm using Python 3.8)
 
 # Requirements (Optional)
 - JetBrains PyCharm
