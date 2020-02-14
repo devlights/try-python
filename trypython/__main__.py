@@ -135,6 +135,9 @@ def main():
             print(f'[END  ] ==== {m.__name__} ====\n')
         except Exception as e:
             print(f'サンプル実行中にエラーが発生しました [{e}]')
+        finally:
+            if onetime:
+                break
 
     print('\nDONE')
 
