@@ -7,11 +7,15 @@ $ python -m trypython
 
 と起動した場合に実行されます。
 """
+import argparse
 import importlib
 import os
 import pathlib
 import sys
 from typing import Dict
+
+onetime = False
+verbose = False
 
 
 class ExampleLoadError(Exception):
@@ -65,15 +69,18 @@ def load_examples(raise_error: bool = False) -> Dict[str, object]:
             examples[mod_name[mod_name.rfind('.') + 1:]] = m
         except ModuleNotFoundError as not_found_ex:
             # モジュールが見つからない
-            print(f'[警告] モジュールがロードできませんでした: {not_found_ex}')
+            if verbose:
+                print(f'[警告] モジュールがロードできませんでした: {not_found_ex}')
         except Exception as e:
-            print(f'[エラー] モジュールがロード中にエラー発生: {e}')
+            if verbose:
+                print(f'[エラー] モジュールがロード中にエラー発生: {e}')
             failed_modules.append(mod_name)
 
     if failed_modules:
-        print('以下のモジュールはロードに失敗しました')
-        for m in failed_modules:
-            print(f'\t{m}')
+        if verbose:
+            print('以下のモジュールはロードに失敗しました')
+            for m in failed_modules:
+                print(f'\t{m}')
         if raise_error:
             raise ExampleLoadError(','.join(failed_modules))
 
@@ -133,4 +140,12 @@ def main():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='trypython -- example executor')
+    parser.add_argument('-o', '--onetime', action='store_true', help='サンプルを一度だけ実行して終了する')
+    parser.add_argument('-v', '--verbose', action='store_true', help='冗長なログ出力モード')
+
+    args = parser.parse_args()
+
+    onetime = args.onetime
+    verbose = args.verbose
     main()
