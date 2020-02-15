@@ -1,4 +1,4 @@
- tasks:
+tasks:
   - init: go env -w GO111MODULE=off &&
           go get github.com/devlights/mkghurl &&
           go env -u GO111MODULE &&
