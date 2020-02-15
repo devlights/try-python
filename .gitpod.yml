@@ -2,9 +2,9 @@ tasks:
   - init: go env -w GO111MODULE=off &&
           go get github.com/devlights/mkghurl &&
           go env -u GO111MODULE &&
+          if [ -n "$GITHUB_TOKEN" ]; then git remote set-url origin $(mkghurl try-python); fi &&
           python3 -m pip install -U -r requirements_dev.txt &&
-          python3 -m pip install --upgrade pip &&
-          if [ -n "$GITHUB_TOKEN" ]; then git remote set-url origin $(mkghurl try-python); fi
+          python3 -m pip install --upgrade pip 
     command: python3 -V
 image:
   file: .gitpod.Dockerfile
