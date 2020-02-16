@@ -8,7 +8,6 @@ from trypython.extlib.bitstring import bitstring01, bitstring02, bitstring03, bi
 from trypython.extlib.blinker import blinker01
 from trypython.extlib.crayons import crayons01
 from trypython.extlib.dateutil import dateutil01
-from trypython.extlib.gui import wx01, wx02, wx03
 from trypython.extlib.icecream import icecream01
 from trypython.extlib.joblib import joblib01, joblib02
 from trypython.extlib.netaddr import netaddr01
@@ -48,9 +47,12 @@ def regist_modules(m: Dict[str, Callable[[], None]]):
         m["pyautogui_01"] = pyautogui01.go
         m["pythonnet_01"] = pythonnet01.go
 
-    m["gui_wx_01"] = wx01.go
-    m["gui_wx_02"] = wx02.go
-    m["gui_wx_03"] = wx03.go
+    if not sys.platform.startswith('linux'):
+        from trypython.extlib.gui import wx01, wx02, wx03
+        m["gui_wx_01"] = wx01.go
+        m["gui_wx_02"] = wx02.go
+        m["gui_wx_03"] = wx03.go
+    
     m["icecream_01"] = icecream01.go
     m["joblib_01"] = joblib01.go
     m["joblib_02"] = joblib02.go
