@@ -51,9 +51,9 @@ def main():
 
         # サンプル実行
         try:
-            print(f'\n[START] ==== {m.__name__} ====')
+            print(f'\n[START] ==== {target} ====')
             m()
-            print(f'[END  ] ==== {m.__name__} ====\n')
+            print(f'[END  ] ==== {target} ====\n')
         except Exception as e:
             print(f'サンプル実行中にエラーが発生しました [{e}]')
         finally:
