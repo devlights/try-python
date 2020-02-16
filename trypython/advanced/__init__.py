@@ -1,3 +1,6 @@
+"""
+初期処理を実施します.
+"""
 from typing import Dict, Callable
 
 from trypython.advanced.class_ import cls01, cls02, cls03, dynamicclass01, singletontype01, slots01

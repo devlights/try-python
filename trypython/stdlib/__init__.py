@@ -1,3 +1,6 @@
+"""
+初期処理を実施します.
+"""
 from typing import Dict, Callable
 
 from trypython.stdlib.argparse_ import argparse01

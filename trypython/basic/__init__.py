@@ -1,3 +1,6 @@
+"""
+初期処理を実施します.
+"""
 from typing import Dict, Callable
 
 from trypython.basic.builtinfunc import builtinfunc01, float01, format01, len01, round01
