@@ -36,7 +36,6 @@ from trypython.stdlib.sys_ import sys01, sys02, sys03, sys_getsizeof_vs_dunder_s
 from trypython.stdlib.tempfile_ import tempfile01, tempfile02, tempfile03
 from trypython.stdlib.textwrap_ import textwrap01
 from trypython.stdlib.time_ import time01
-from trypython.stdlib.tkinter_ import messagebox01
 from trypython.stdlib.tracemalloc_ import tracemalloc01
 from trypython.stdlib.typing_ import typing01
 from trypython.stdlib.weakref_ import weakref01, weakref02
@@ -117,7 +116,13 @@ def regist_modules(m: Dict[str, Callable[[], None]]):
     m["tempfile_03"] = tempfile03.go
     m["textwrap_01"] = textwrap01.go
     m["time_01"] = time01.go
-    m["tkinter_01"] = messagebox01.go
+
+    try:
+        from trypython.stdlib.tkinter_ import messagebox01
+        m["tkinter_01"] = messagebox01.go
+    except:
+        pass
+
     m["tracemalloc_01"] = tracemalloc01.go
     m["typing_01"] = typing01.go
     m["weakref_01"] = weakref01.go
