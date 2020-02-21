@@ -2,7 +2,6 @@
 This is my TUTORIAL project for python. 
 
 ![try-python - Python Version](https://img.shields.io/badge/python-3.8-blue.svg)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8b8bf44a6dbe40b5aa29e045a8494638)](https://www.codacy.com/manual/devlights/try-python?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=devlights/try-python&amp;utm_campaign=Badge_Grade)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-python) 
 
 # Caution
