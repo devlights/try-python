@@ -2,7 +2,6 @@
 This is my TUTORIAL project for python. 
 
 ![try-python - Python Version](https://img.shields.io/badge/python-3.8-blue.svg)
-[![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-python/badge)](https://www.codefactor.io/repository/github/devlights/try-python)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-python) 
 
 # Caution
