@@ -2,9 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: pyenv install 3.9.7 &&
-          pyenv global 3.9.7 &&
-          python3 -m pip install -U -r requirements_dev.txt &&
+  - init: python3 -m pip install -U -r requirements_dev.txt &&
           python3 -m pip install --upgrade pip
 
 vscode:
