@@ -10,6 +10,7 @@ from trypython.basic.elseclause import elseclause01
 from trypython.basic.enum_ import enum01
 from trypython.basic.func_ import func01, func02, func03
 from trypython.basic.globals_ import globals_and_locals01
+from trypython.basic.helloworld import helloworld
 from trypython.basic.int_ import int01
 from trypython.basic.io import io01
 from trypython.basic.list_ import list01, list02, list_copy
@@ -41,6 +42,7 @@ def regist_modules(m: Dict[str, Callable[[], None]]):
     m["func_02"] = func02.go
     m["func_03"] = func03.go
     m["globals_and_locals"] = globals_and_locals01.go
+    m["helloworld"] = helloworld.go
     m["int_01"] = int01.go
     m["io_01"] = io01.go
     m["list_01"] = list01.go
