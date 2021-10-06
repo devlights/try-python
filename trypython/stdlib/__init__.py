@@ -20,7 +20,7 @@ from trypython.stdlib.itertools_ import itertools01, itertools02, itertools03, i
 from trypython.stdlib.json_ import json01
 from trypython.stdlib.keyword_ import keyword01
 from trypython.stdlib.logging_ import logging01, logging02, logging03, logging04, logging05, logging06, logging07, \
-    logging08, logging09, logging10
+    logging08, logging09
 from trypython.stdlib.mmap_ import mmap01
 from trypython.stdlib.multiprocessing_ import multiprocessing01
 from trypython.stdlib.operator_ import operator01
@@ -88,7 +88,6 @@ def regist_modules(m: Dict[str, Callable[[], None]]):
     # m["logging_07"] = logging07.go
     # m["logging_08"] = logging08.go
     m["logging_09"] = logging09.go
-    m["logging_10"] = logging10.go
     m["mmap_01"] = mmap01.go
     m["multiprocessing_01"] = multiprocessing01.go
     m["operator_01"] = operator01.go
