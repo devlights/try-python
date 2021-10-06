@@ -1,19 +1,16 @@
 # try-python
 This is my TUTORIAL project for python. 
 
-![try-python - Python Version](https://img.shields.io/badge/python-3.8-blue.svg)
+![try-python - Python Version](https://img.shields.io/badge/python-3.9-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-python/badge)](https://www.codefactor.io/repository/github/devlights/try-python)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-python) 
 
-# Caution
-I'm japanese. so some script include Japanese comments. :wink:
-
 # Requirements
-- Python 3.7 or higher (I'm using Python 3.8)
+- Python 3.9 or higher
 
 # Requirements (Optional)
-- JetBrains PyCharm
 - VisualStudio Code
+- JetBrains PyCharm
 
 # Make Environment
 ```sh
@@ -87,5 +84,3 @@ $ python -m trypython
     ]
 }
 ```
-
-:smiley:
