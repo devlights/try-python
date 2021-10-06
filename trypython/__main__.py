@@ -65,7 +65,7 @@ def main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='trypython -- example executor')
-    parser.add_argument('-o', '--onetime', action='store_true', help='サンプルを一度だけ実行して終了する')
+    parser.add_argument('-o', '--onetime', action='store_true', default=True, help='サンプルを一度だけ実行して終了する')
     parser.add_argument('-v', '--verbose', action='store_true', help='冗長なログ出力モード')
 
     args = parser.parse_args()

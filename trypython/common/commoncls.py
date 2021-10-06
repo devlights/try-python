@@ -14,7 +14,7 @@ class SampleBase(metaclass=ABCMeta):
     """
 
     @abstractmethod
-    def exec(self):
+    def exec(self) -> None:
         """処理を実行します。"""
         raise NotImplementedError()
 
