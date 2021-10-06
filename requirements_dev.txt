@@ -10,9 +10,9 @@
 #---------------------------------------
 # Develop
 #---------------------------------------
-black
-flake8
-ipython
-mypy
-pydocstyle
-pytest
+black         # Code formatter
+flake8        # Linter
+ipython       # REPL
+mypy          # Type checker
+pydocstyle    # Docstring style checker
+pytest        # TDD
