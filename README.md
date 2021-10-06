@@ -84,3 +84,8 @@ $ python -m trypython
     ]
 }
 ```
+
+# Misc
+
+- [try-python-extlib](https://github.com/devlights/try-python-extlib)
+  - 姉妹プロジェクト. 外部ライブラリのサンプルなどがあります。
