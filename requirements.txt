@@ -19,6 +19,7 @@ netaddr
 openpyxl
 pandas
 paramiko
+pyautogui
 pygments
 psutil
 pyperclip

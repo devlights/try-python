@@ -46,9 +46,12 @@ def regist_modules(m: Dict[str, Callable[[], None]]):
     m["dateutil_01"] = dateutil01.go
 
     if sys.platform.startswith('win'):
-        from trypython.extlib.forwindows import pyautogui01, pythonnet01
+        from trypython.extlib.forwindows import pyautogui01
         m["pyautogui_01"] = pyautogui01.go
-        m["pythonnet_01"] = pythonnet01.go
+        
+        if sys.version_info.minor < 8:
+            from trypython.extlib.forwindows import pythonnet01
+            m["pythonnet_01"] = pythonnet01.go
 
     if not sys.platform.startswith('linux'):
         from trypython.extlib.gui import wx01, wx02, wx03
