@@ -5,38 +5,4 @@
 #---------------------------------------
 # Runtime
 #---------------------------------------
-aiohttp
-aiojobs
-async-timeout
-bitstring
-blinker
-ciso8601; sys_platform != 'win32'
-crayons
-ftputil
-icecream
-joblib
-netaddr
-openpyxl
 pandas
-paramiko
-pyautogui
-pygments
-psutil
-pyperclip
-pywin32; sys_platform == 'win32' # ==> For Twisted on windows
-python-dateutil
-pytablereader
-pytablereader[md]
-pyyaml
-pyzmq
-raven
-redis
-regex
-requests
-texttable
-trio
-tqdm
-twisted
-wxpython; sys_platform != 'linux'
-yarl
-rich

@@ -3,7 +3,7 @@
 """
 from typing import Dict, Callable
 
-from trypython import advanced, basic, extlib, stdlib, py38
+from trypython import advanced, basic, stdlib, py38
 
 
 def make_mappings() -> Dict[str, Callable[[], None]]:
@@ -13,7 +13,6 @@ def make_mappings() -> Dict[str, Callable[[], None]]:
 
     advanced.regist_modules(m)
     basic.regist_modules(m)
-    extlib.regist_modules(m)
     stdlib.regist_modules(m)
     py38.regist_modules(m)
 
