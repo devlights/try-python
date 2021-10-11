@@ -1,5 +1,5 @@
 """
-Python 3.8 にて導入された f-string での {xxx=} 表記についてのサンプルです。
+Python 3.8 にて導入された f-string での {xxx=} 表記についてのサンプルです.
 
 REFERENCES:: http://bit.ly/2NlJkSc
 """
@@ -7,7 +7,10 @@ from trypython.common.commoncls import SampleBase
 
 
 class Sample(SampleBase):
+    """f-string での {xxx=} 表記についてのサンプルです."""
+
     def exec(self):
+        """処理を実行します."""
         # ------------------------------------------------------------
         # f-string debugging specifier
         #
@@ -23,9 +26,10 @@ class Sample(SampleBase):
         s2 = "world"
         s3 = "hoge"
 
-        print(f'{s1=}\t{s2 = }\t{s3=:>10}')
+        print(f"{s1=}\t{s2 = }\t{s3=:>10}")
 
 
 def go():
+    """サンプルを実行します."""
     obj = Sample()
     obj.exec()
