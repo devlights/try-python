@@ -43,20 +43,16 @@ $ python -m trypython
 
 ```json
 {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4,
-    "python.pythonPath": "/path/to/python",
+    "python.defaultInterpreterPath": "python",
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.formatting.provider": "black",
+    "python.linting.pydocstyleEnabled": true,
     "python.terminal.launchArgs": [
         "-B",
         "-c",
         "\"import IPython; IPython.start_ipython()\""
-    ],
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.formatting.provider": "black",
-    "python.unitTest.pyTestEnabled": true,
-    "python.linting.pydocstyleEnabled": false
+    ]
 }
 ```
 
@@ -67,15 +63,11 @@ $ python -m trypython
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File (Integrated Terminal)",
+            "name": "try-python",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}",
-            "pythonPath": "${config:python.pythonPath}",
+            "module": "trypython",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}",
                 "PYTHONDONTWRITEBYTECODE": "1"
             }
         }
