@@ -67,6 +67,10 @@ $ python -m trypython
             "type": "python",
             "request": "launch",
             "module": "trypython",
+            "pythonArgs": [
+                "-X", "dev",
+                "-X", "tracemalloc=10"
+            ],
             "env": {
                 "PYTHONDONTWRITEBYTECODE": "1"
             }
