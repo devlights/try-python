@@ -6,10 +6,7 @@ itertools モジュールについてのサンプル
 
 - product()
 """
-import datetime as dt
 import itertools as it
-
-import pandas as pd
 
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr, hr
@@ -36,13 +33,6 @@ class Sample(SampleBase):
         pr('listcomp', [(x, y) for x in list01 for y in list02])
 
         pr('it.product(*iterable, repeat=2)', list(it.product('AB', repeat=4)))
-
-        # テストデータを一気に生成するときに便利
-        date_range = pd.date_range(dt.date.today(), periods=3, freq='D')
-        values = (10, 11, 12)
-
-        pr('it.product', list(it.product(date_range, values)))
-        pr('listcomp', [(d, v) for d in date_range for v in values])  # 同じ
 
         # -----------------------------------------------
         # itertools.permutations()
