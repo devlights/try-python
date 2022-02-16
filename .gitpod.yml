@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-python:latest
 
 tasks:
   - init: python3 -m pip install -U -r requirements_dev.txt &&
