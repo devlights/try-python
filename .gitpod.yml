@@ -2,6 +2,7 @@ image: gitpod/workspace-python:latest
 
 tasks:
   - init: make prepare
+    command: make prepare
 
 vscode:
   extensions:
