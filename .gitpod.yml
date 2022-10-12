@@ -12,7 +12,7 @@ tasks:
   - name: install revive
     init: go install github.com/mgechev/revive@latest
   - name: prepare
-    init: make prepare
+    command: make prepare
 
 vscode:
   extensions:
