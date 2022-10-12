@@ -1,7 +1,18 @@
 image: gitpod/workspace-full:latest
 
 tasks:
-  - init: make prepare
+  - name: pyenv
+    init: pyenv install 3.10.7 && pyenv global 3.10.7
+  - name: install staticcheck
+    init: go install honnef.co/go/tools/cmd/staticcheck@latest
+  - name: install go-task
+    init: go install github.com/go-task/task/v3/cmd/task@latest
+  - name: install goimport
+    init: go install golang.org/x/tools/cmd/goimports@latest
+  - name: install revive
+    init: go install github.com/mgechev/revive@latest
+  - name: prepare
+    init: make prepare
 
 vscode:
   extensions:
