@@ -100,3 +100,5 @@ ENV/
 .pytest_cache/
 
 .venv/
+
+poetry.lock
