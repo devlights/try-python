@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "trypython"}]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 regex = "^2022.10.31"
 
 [tool.poetry.group.dev.dependencies]
