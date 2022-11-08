@@ -1,8 +1,0 @@
-#########################################
-# try-python requirements file (runtime)
-# https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file
-#########################################
-#---------------------------------------
-# Runtime
-#---------------------------------------
-regex
