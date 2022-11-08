@@ -6,35 +6,82 @@ This is my TUTORIAL project for python.
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-python) 
 
 # Requirements
-- Python 3.9 or higher
+- Python 3.10 or higher
+- [Poetry](https://python-poetry.org/)
+  - Dependency management
+- [Task](https://taskfile.dev/#/)
+  - Task runner
+
+# Python version
 
 ```sh
-$ python3
-Python 3.10.0 (default, Oct  8 2021, 04:49:46) [GCC 9.3.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
+$ poetry run python -V
+Python 3.10.7
+
+$ poetry env info
+
+Virtualenv
+Python:         3.10.7
+Implementation: CPython
+Path:           /workspace/.pyenv_mirror/poetry/virtualenvs/try-python-M1FUJLyv-py3.10
+Executable:     /workspace/.pyenv_mirror/poetry/virtualenvs/try-python-M1FUJLyv-py3.10/bin/python
+Valid:          True
+
+System
+Platform:   linux
+OS:         posix
+Python:     3.10.7
+Path:       /home/gitpod/.pyenv/versions/3.10.7
+Executable: /home/gitpod/.pyenv/versions/3.10.7/bin/python3.10
 ```
 
 # Make Environment
 ```sh
-$ cd try-python
-$ python3 -m venv .venv
-$ source .venv/bin/activate
-$ python -m pip install -U -r requirements-dev.txt
+$ poetry install
+$ poetry lock
 ```
 
-# Unit Test
+# REPL
+
 ```sh
-$ cd try-python
-$ source .venv/bin/activate
-$ pytest
+$ task repl
+task: [repl] poetry run python
+Python 3.10.7 (main, Nov  8 2022, 08:35:33) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import os
+>>> os.system("which python")
+/workspace/.pyenv_mirror/poetry/virtualenvs/try-python-M1FUJLyv-py3.10/bin/python
+0
 ```
 
 # Launch
 
 ```sh
-$ cd try-python
-$ source .venv/bin/activate
-$ python -m trypython
+$ task run
+```
+
+# Unit Test
+
+```sh
+$ task test
+```
+
+# Format
+
+```sh
+$ task fmt
+```
+
+# Lint
+
+```sh
+$ task lint
+```
+
+# Mypy
+
+```sh
+$ task mypy
 ```
 
 # VSCode settings (Example)
