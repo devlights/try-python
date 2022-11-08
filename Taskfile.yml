@@ -4,6 +4,9 @@ tasks:
   default:
     cmds:
       - task: run
+  repl:
+    cmds:
+      - poetry run python
   run:
     cmds:
       - poetry run python -m trypython
