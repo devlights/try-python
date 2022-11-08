@@ -1,0 +1,21 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - poetry run python -m trypython
+  fmt:
+    cmds:
+      - poetry run black {trypython,tests}
+  lint:
+    cmds:
+      - cmd: poetry run flake8 trypython
+        ignore_error: true
+  test:
+    cmds:
+      - cmd: poetry run pytest
+        ignore_error: true
+  mypy:
+    cmds:
+      - cmd: poetry run mypy trypython
+        ignore_error: true
