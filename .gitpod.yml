@@ -11,8 +11,8 @@ tasks:
   - name: install revive
     init: go install github.com/mgechev/revive@latest
   - name: install python dependencies
-    init: poetry config virtualenvs.in-project true ; poetry install
-  - name: write poetry.lock file
+    init: poetry install
+  - name: rewrite poetry.lock file
     command: poetry lock
 
 vscode:
