@@ -3,7 +3,7 @@ name = "try-python"
 version = "1.0.1"
 description = "This is my TUROTIAL project for python."
 authors = [{ name = "devlights", email = "gsf.zero1@devlights.onmicrosoft.com" }]
-requires-python = ">=3.10,<4"
+requires-python = ">=3.10"
 readme = "README.md"
 license = "MIT"
 classifiers = [
@@ -21,7 +21,6 @@ dev = [
     "ty",
     "ruff",
     "pytest",
-    "mypy",
 ]
 
 [tool.uv.build-backend]
