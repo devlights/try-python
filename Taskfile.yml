@@ -6,22 +6,22 @@ tasks:
       - task: run
   repl:
     cmds:
-      - poetry run python
+      - uv run python
   run:
     cmds:
-      - poetry run python -m trypython
+      - uv run python -m trypython
   fmt:
     cmds:
-      - poetry run black {trypython,tests}
+      - uv run ruff format .
   lint:
     cmds:
-      - cmd: poetry run flake8 trypython
+      - cmd: uv run ruff check .
+        ignore_error: true
+  typecheck:
+    cmds:
+      - cmd: uv run ty check
         ignore_error: true
   test:
     cmds:
-      - cmd: poetry run pytest
-        ignore_error: true
-  mypy:
-    cmds:
-      - cmd: poetry run mypy trypython
+      - cmd: uv run pytest
         ignore_error: true

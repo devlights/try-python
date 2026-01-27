@@ -1,23 +1,33 @@
-[tool.poetry]
+[project]
 name = "try-python"
 version = "1.0.1"
 description = "This is my TUROTIAL project for python."
-authors = ["devlights <gsf.zero1@devlights.onmicrosoft.com>"]
-license = "MIT"
+authors = [{ name = "devlights", email = "gsf.zero1@devlights.onmicrosoft.com" }]
+requires-python = ">=3.10,<4"
 readme = "README.md"
-packages = [{include = "trypython"}]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = ["regex>=2024.0.0"]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-regex = "^2022.10.31"
+[dependency-groups]
+dev = [
+    "ty",
+    "ruff",
+    "pytest",
+    "mypy",
+]
 
-[tool.poetry.group.dev.dependencies]
-black = "^22.10.0"
-flake8 = "^5.0.4"
-mypy = "^0.990"
-pydocstyle = "^6.1.1"
-pytest = "^7.2.0"
+[tool.uv.build-backend]
+module-name = ["trypython"]
+module-root = ""
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.9.27,<0.10.0"]
+build-backend = "uv_build"
