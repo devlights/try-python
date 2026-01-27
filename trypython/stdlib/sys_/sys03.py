@@ -11,6 +11,7 @@ venv 環境での
 REFERENCES:: http://bit.ly/2Vun6U9
              http://bit.ly/2Vuvqn6
 """
+
 import sys
 
 from trypython.common.commoncls import SampleBase
@@ -24,13 +25,13 @@ class Sample(SampleBase):
         # sys モジュールの prefixとbase_prefixの値が異なる
         # 状態となる。仮想環境を使っていない場合、同じ値となる.
         # --------------------------------------------
-        pr('prefix', sys.prefix)
-        pr('exec_prefix', sys.exec_prefix)
+        pr("prefix", sys.prefix)
+        pr("exec_prefix", sys.exec_prefix)
         hr()
-        pr('base_prefix', sys.base_prefix)
-        pr('base_exec_prefix', sys.base_exec_prefix)
+        pr("base_prefix", sys.base_prefix)
+        pr("base_exec_prefix", sys.base_exec_prefix)
 
-        pr('venv 利用している？', sys.prefix != sys.base_prefix)
+        pr("venv 利用している？", sys.prefix != sys.base_prefix)
 
 
 def go():

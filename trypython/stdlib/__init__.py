@@ -1,13 +1,21 @@
 """
 初期処理を実施します.
 """
+
 from typing import Dict, Callable
 
 from trypython.stdlib.argparse_ import argparse01
 from trypython.stdlib.atexit_ import atexit01
 from trypython.stdlib.binascii_ import binascii01
-from trypython.stdlib.collections_ import collections01, collections02, collections03, collections04, collections05, \
-    collections06, collections07
+from trypython.stdlib.collections_ import (
+    collections01,
+    collections02,
+    collections03,
+    collections04,
+    collections05,
+    collections06,
+    collections07,
+)
 from trypython.stdlib.contextlib_ import contextlib01, contextlib02
 from trypython.stdlib.csv_ import csv01, csv02
 from trypython.stdlib.dataclasses_ import dataclasses01, dataclasses02
@@ -15,12 +23,29 @@ from trypython.stdlib.datetime_ import datetime01, datetime02
 from trypython.stdlib.dis_ import dis01
 from trypython.stdlib.functools_ import functools01, functools02, functools03
 from trypython.stdlib.gc_ import gc01
-from trypython.stdlib.itertools_ import itertools01, itertools02, itertools03, itertools04, itertools05, itertools06, \
-    itertools07, itertools08
+from trypython.stdlib.itertools_ import (
+    itertools01,
+    itertools02,
+    itertools03,
+    itertools04,
+    itertools05,
+    itertools06,
+    itertools07,
+    itertools08,
+)
 from trypython.stdlib.json_ import json01
 from trypython.stdlib.keyword_ import keyword01
-from trypython.stdlib.logging_ import logging01, logging02, logging03, logging04, logging05, logging06, logging07, \
-    logging08, logging09
+from trypython.stdlib.logging_ import (
+    logging01,
+    logging02,
+    logging03,
+    logging04,
+    logging05,
+    logging06,
+    logging07,
+    logging08,
+    logging09,
+)
 from trypython.stdlib.mmap_ import mmap01
 from trypython.stdlib.multiprocessing_ import multiprocessing01
 from trypython.stdlib.operator_ import operator01
@@ -32,7 +57,12 @@ from trypython.stdlib.secrets_ import secrets01
 from trypython.stdlib.signal_ import signal01
 from trypython.stdlib.socket_ import socket01
 from trypython.stdlib.struct_ import struct01
-from trypython.stdlib.sys_ import sys01, sys02, sys03, sys_getsizeof_vs_dunder_sizeof_diff
+from trypython.stdlib.sys_ import (
+    sys01,
+    sys02,
+    sys03,
+    sys_getsizeof_vs_dunder_sizeof_diff,
+)
 from trypython.stdlib.tempfile_ import tempfile01, tempfile02, tempfile03
 from trypython.stdlib.textwrap_ import textwrap01
 from trypython.stdlib.time_ import time01
@@ -118,6 +148,7 @@ def regist_modules(m: Dict[str, Callable[[], None]]):
 
     try:
         from trypython.stdlib.tkinter_ import messagebox01
+
         m["tkinter_01"] = messagebox01.go
     except:
         pass

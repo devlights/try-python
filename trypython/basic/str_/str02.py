@@ -1,5 +1,6 @@
 # coding: utf-8
 """splitlinesメソッドについてのサンプルです。"""
+
 import os
 
 from trypython.common.commoncls import SampleBase
@@ -30,8 +31,8 @@ class Sample(SampleBase):
         # 参考URL
         #   http://stackoverflow.com/questions/24237524/how-to-split-a-python-string-on-new-line-characters
         # ----------------------------------------
-        pr('os.linesep', [line for line in DATA.split(os.linesep) if line])
-        pr('splitlines', [line for line in DATA.splitlines() if line])
+        pr("os.linesep", [line for line in DATA.split(os.linesep) if line])
+        pr("splitlines", [line for line in DATA.splitlines() if line])
         # pr('for-windows', [line for line in DATA.split('¥n') if line])
 
 

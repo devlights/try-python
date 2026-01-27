@@ -6,6 +6,7 @@ itertools モジュールについてのサンプル
 
 - repeat()
 """
+
 import itertools as it
 
 from trypython.common.commoncls import SampleBase
@@ -23,18 +24,18 @@ class Sample(SampleBase):
         # timesのデフォルトは None となっており、これは
         # 無限の繰り返しを表す。
         # -----------------------------------------------
-        hr('it.repeat()')
+        hr("it.repeat()")
 
-        str01 = 'hello python'
+        str01 = "hello python"
         for x in it.repeat(str01, 2):
-            pr('it-repeat', x)
+            pr("it-repeat", x)
 
         list01 = list(range(5))
         for i, x in enumerate(it.repeat(list01)):
             # そのままだと、無限ループするので10回出力で止める
             if i >= 10:
                 break
-            pr('it-repeat times=None', f'{i} -- {x}')
+            pr("it-repeat times=None", f"{i} -- {x}")
 
 
 def go():

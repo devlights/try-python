@@ -3,6 +3,7 @@ datetime モジュールについてのサンプルです。
 
 datetime.datetime オブジェクトについての基本的な情報について
 """
+
 from datetime import datetime
 
 from trypython.common.commoncls import SampleBase
@@ -23,11 +24,11 @@ class Sample(SampleBase):
         # とする。
         # (from datetime import datetime としているとする)
         #############################################
-        hr('datetime.now()')
+        hr("datetime.now()")
         now = datetime.now()
 
-        pr('now', now)
-        pr('type', type(now))
+        pr("now", now)
+        pr("type", type(now))
 
         # --------------------------------------------
         # datetime.ctime()
@@ -35,10 +36,10 @@ class Sample(SampleBase):
         # 日付文字列を ctime スタイルで表示
         #    https://bit.ly/2PGoEYB
         # --------------------------------------------
-        hr('datetime.ctime()')
+        hr("datetime.ctime()")
         ctime_value = now.ctime()
-        pr('ctime', ctime_value)
-        pr('type', type(ctime_value))
+        pr("ctime", ctime_value)
+        pr("type", type(ctime_value))
 
 
 def go():

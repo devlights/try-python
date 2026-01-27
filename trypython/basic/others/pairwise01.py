@@ -4,6 +4,7 @@
 参考：
 https://twitter.com/raymondh/status/967927989752098816?s=12
 """
+
 from trypython.common.commoncls import SampleBase
 
 

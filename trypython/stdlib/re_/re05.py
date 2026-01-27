@@ -10,6 +10,7 @@ REFERENCES:: http://bit.ly/2NW2TAq
              http://bit.ly/2NZDm9v
              http://bit.ly/2NXxyNQ
 """
+
 import re
 
 import regex
@@ -19,7 +20,6 @@ from trypython.common.commonfunc import pr
 
 
 class Sample(SampleBase):
-
     def exec(self):
         # ------------------------------------------------------------------------
         # 絶対最大量指定子 (possessive quantifier) について
@@ -35,12 +35,12 @@ class Sample(SampleBase):
         # ------------------------------------------------------------------------
 
         # 標準 re モジュールは 「*+」をサポートしていない
-        s = 'aaaabbbb'
-        p = r'.*+b+'
+        s = "aaaabbbb"
+        p = r".*+b+"
         try:
             re.compile(p)
         except re.error as e:
-            pr('re.error', '標準モジュール re では 「*+」はサポートされていない', e)
+            pr("re.error", "標準モジュール re では 「*+」はサポートされていない", e)
 
         # regex モジュールは　「*+」をサポートしている
         #   この場合、パターンとして指定している「.*+b+」の「.*+」が aaaabbbb 全体に
@@ -50,14 +50,14 @@ class Sample(SampleBase):
         r = regex.compile(p)
         m = r.match(s)
         if not m:
-            pr('.*+b+', '絶対最大量指定子を使っているのでマッチしない (正解)')
+            pr(".*+b+", "絶対最大量指定子を使っているのでマッチしない (正解)")
 
         # パターンから絶対最大量指定子をなくして、「.*b+」とすると当然マッチする
-        p = r'.*b+'
+        p = r".*b+"
         r = regex.compile(p)
         m = r.match(s)
         if m:
-            pr('.*b+', '絶対最大量指定子を使っていないのでマッチする (正解)')
+            pr(".*b+", "絶対最大量指定子を使っていないのでマッチする (正解)")
 
 
 def go():

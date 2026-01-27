@@ -3,6 +3,7 @@
 """
 数値をゼロパディングするサンプルです。
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -13,13 +14,13 @@ class Sample(SampleBase):
         i02 = 11
         i03 = 111
 
-        pr('zero-padding-3', f'{i01:03d}')
-        pr('zero-padding-3', f'{i02:03d}')
-        pr('zero-padding-3', f'{i03:03d}')
+        pr("zero-padding-3", f"{i01:03d}")
+        pr("zero-padding-3", f"{i02:03d}")
+        pr("zero-padding-3", f"{i03:03d}")
 
-        pr('space-padding-3', f'{i01: 3d}')
-        pr('space-padding-3', f'{i01:3d}')
-        pr('space-padding-3', f'{i01:>3}')
+        pr("space-padding-3", f"{i01: 3d}")
+        pr("space-padding-3", f"{i01:3d}")
+        pr("space-padding-3", f"{i01:>3}")
 
 
 def go():

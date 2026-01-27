@@ -8,6 +8,7 @@ REFERENCES:: http://bit.ly/2O3jVNn
              http://bit.ly/2NVGi71
              http://bit.ly/2NXEg6m
 """
+
 import re
 
 import regex
@@ -15,7 +16,7 @@ import regex
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import stopwatch, pr
 
-_message = '1' * 300000000
+_message = "1" * 300000000
 
 
 # noinspection PyMethodMayBeStatic
@@ -71,19 +72,19 @@ class Sample(SampleBase):
 
     def normal(self):
         global _message
-        m = re.match(r'\d*:', _message)
+        m = re.match(r"\d*:", _message)
         if m:
-            pr('normal', 'マッチした')
+            pr("normal", "マッチした")
         else:
-            pr('normal', 'マッチしない')
+            pr("normal", "マッチしない")
 
     def atomic_stdlib_re(self):
         global _message
-        m = re.match(r'(?=(?P<tmp>\d*:))(?P=tmp)', _message)
+        m = re.match(r"(?=(?P<tmp>\d*:))(?P=tmp)", _message)
         if m:
-            pr('atomic_stdlib_re', 'マッチした')
+            pr("atomic_stdlib_re", "マッチした")
         else:
-            pr('atomic_stdlib_re', 'マッチしない')
+            pr("atomic_stdlib_re", "マッチしない")
 
     def atomic_regex_module(self):
         """Python の 標準モジュール re は、アトミックグループをサポートしていない。
@@ -92,11 +93,11 @@ class Sample(SampleBase):
         「regex」モジュールは、(?>pattern)の書式をサポートしている。
         """
         global _message
-        m = regex.match(r'(?>\d*):', _message)
+        m = regex.match(r"(?>\d*):", _message)
         if m:
-            pr('atomic_regex_module', 'マッチした')
+            pr("atomic_regex_module", "マッチした")
         else:
-            pr('atomic_regex_module', 'マッチしない')
+            pr("atomic_regex_module", "マッチしない")
 
 
 def go():

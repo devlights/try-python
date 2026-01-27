@@ -3,6 +3,7 @@
 
 「ブラケット表現」について
 """
+
 import re
 
 from trypython.common.commoncls import SampleBase
@@ -27,25 +28,25 @@ class Sample(SampleBase):
         # [from-to] という表現もサポートしている
         # [a-z]とすると a から z までマッチする
         # -----------------------------------------------------------
-        s = 'a'
-        p = r'[abc]'
+        s = "a"
+        p = r"[abc]"
         r = re.compile(p)
         m = r.match(s)
         if m:
             util.print_match_object(m)
 
-        s = 'z'
+        s = "z"
         m = r.match(s)
         if not m:
-            pr('[abc].match("z")', 'マッチしない')
+            pr('[abc].match("z")', "マッチしない")
 
-        p = r'[^abc]'
+        p = r"[^abc]"
         r = re.compile(p)
         m = r.match(s)
         if m:
             util.print_match_object(m)
 
-        p = r'[a-z]'
+        p = r"[a-z]"
         r = re.compile(p)
         m = r.match(s)
         if m:

@@ -3,6 +3,7 @@
 """
 collections.dequeについてのサンプルです。
 """
+
 import collections
 
 from trypython.common.commoncls import SampleBase
@@ -33,23 +34,23 @@ class Sample(SampleBase):
         #
         # 左右からpop
         #
-        pr('deque01', deque01)
-        pr('pop()', deque01.pop())
-        pr('popleft()', deque01.popleft())
-        pr('deque01', deque01)
+        pr("deque01", deque01)
+        pr("pop()", deque01.pop())
+        pr("popleft()", deque01.popleft())
+        pr("deque01", deque01)
 
         #
         # rotate() は指定された数分、右に循環させる
         # 負の値を指定すると左に循環する
         #
         deque01.rotate()
-        pr('rotate()', deque01)
+        pr("rotate()", deque01)
 
         deque01.rotate(-1)
-        pr('rotate(-1)', deque01)
+        pr("rotate(-1)", deque01)
 
         deque01.rotate(3)
-        pr('rotate(3)', deque01)
+        pr("rotate(3)", deque01)
 
         #
         # dequeの特徴として、生成時に maxlen を指定すると
@@ -62,15 +63,15 @@ class Sample(SampleBase):
         #
         deque02 = collections.deque(maxlen=3)
 
-        pr('deque02', deque02)
+        pr("deque02", deque02)
         deque02.extend(range(1, 4))
-        pr('deque02', deque02)
+        pr("deque02", deque02)
         deque02.append(100)
-        pr('deque02', deque02)
+        pr("deque02", deque02)
         deque02.append(200)
-        pr('deque02', deque02)
+        pr("deque02", deque02)
         deque02.appendleft(300)
-        pr('deque02', deque02)
+        pr("deque02", deque02)
 
 
 def go():

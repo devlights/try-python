@@ -6,6 +6,7 @@ itertools モジュールについてのサンプル
 
 - groupby()
 """
+
 import collections
 import itertools as it
 
@@ -28,35 +29,35 @@ class Sample(SampleBase):
         # 別途リストなどを用意して保持しておく必要がある。
         # (それか、再度 groupby() 呼ぶ)
         # -----------------------------------------------
-        GroupingData = collections.namedtuple('GroupingData', ['id', 'name'])
+        GroupingData = collections.namedtuple("GroupingData", ["id", "name"])
 
         # 未ソートのシーケンス
         groups_not_sorted = [
-            GroupingData(1, 'data1'),
-            GroupingData(1, 'data2'),
-            GroupingData(2, 'data3'),
-            GroupingData(1, 'data4')
+            GroupingData(1, "data1"),
+            GroupingData(1, "data2"),
+            GroupingData(2, "data3"),
+            GroupingData(1, "data4"),
         ]
 
         def key_func(grp: GroupingData) -> int:
             return grp.id
 
-        hr('未ソートの状態で groupby() ')
+        hr("未ソートの状態で groupby() ")
 
         grp_iter = it.groupby(groups_not_sorted, key=key_func)
         for k, g in grp_iter:
-            pr('grp-key', k)
-            pr('\tgrp-items', ','.join(_.name for _ in g))
+            pr("grp-key", k)
+            pr("\tgrp-items", ",".join(_.name for _ in g))
 
-        hr('ソート済みの状態で groupby() ')
+        hr("ソート済みの状態で groupby() ")
 
         # ソート済み
         groups_sorted = sorted(groups_not_sorted, key=key_func)
 
         grp_iter = it.groupby(groups_sorted, key=key_func)
         for k, g in grp_iter:
-            pr('grp-key', k)
-            pr('\tgrp-items', ','.join(_.name for _ in g))
+            pr("grp-key", k)
+            pr("\tgrp-items", ",".join(_.name for _ in g))
 
 
 def go():

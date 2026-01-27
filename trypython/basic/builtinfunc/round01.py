@@ -8,6 +8,7 @@ REFERENCERS:: http://bit.ly/2H4CBZT
               http://bit.ly/2H4CE81
               http://bit.ly/2GZBz12
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -27,12 +28,12 @@ class Sample(SampleBase):
         #
         # なので、round(2.5) は、tie であるので、最近接偶数 が適用されて 2 となる。
         # --------------------------------------------------------------------
-        pr('round(0.5)', round(0.5))  # 最近接偶数 は 0
-        pr('round(1.5)', round(1.5))  # 最近接偶数 は 2
-        pr('round(2.5)', round(2.5))  # 最近接偶数 は 2
-        pr('round(3.5)', round(3.5))  # 最近接偶数 は 4
-        pr('round(1.3)', round(1.3))  # ど真ん中 (tie) ではないので、通常の丸めで 1
-        pr('round(1.7)', round(1.7))  # ど真ん中 (tie) ではないので、通常の丸めで 2
+        pr("round(0.5)", round(0.5))  # 最近接偶数 は 0
+        pr("round(1.5)", round(1.5))  # 最近接偶数 は 2
+        pr("round(2.5)", round(2.5))  # 最近接偶数 は 2
+        pr("round(3.5)", round(3.5))  # 最近接偶数 は 4
+        pr("round(1.3)", round(1.3))  # ど真ん中 (tie) ではないので、通常の丸めで 1
+        pr("round(1.7)", round(1.7))  # ど真ん中 (tie) ではないので、通常の丸めで 2
 
 
 def go():

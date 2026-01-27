@@ -5,6 +5,7 @@ REFERENCES::
 https://stackoverflow.com/questions/10236947/does-python-have-a-similar-control-mechanism-to-javas-countdownlatch
 https://qiita.com/shinkiro/items/75f3561d6bc96694ce30
 """
+
 import multiprocessing as mp
 import typing as ty
 
@@ -72,8 +73,8 @@ class CountDownLatch:
         >>> latch2 = mp_latch.CountDownLatch(5)
         """
         if count <= 0:
-            raise ValueError(f'0 以下は指定できません。 [{count}]')
-        self._count = mp.Value('i', count)  # type: mp.Value
+            raise ValueError(f"0 以下は指定できません。 [{count}]")
+        self._count = mp.Value("i", count)  # type: mp.Value
         self.lock = mp.Condition()
 
     @property

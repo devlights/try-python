@@ -25,13 +25,13 @@ def get_day(base_day, days_count=1, optional_holidays=(), optional_business_days
 
     >>> get_day(today, 6, opt_holidays, opt_business_days)
     datetime.date(2017, 2, 14)
-    
+
     >>> from datetime import datetime
     >>> d1 = datetime(2017, 2, 6)
     >>> get_day(d1)
     Traceback (most recent call last):
     AssertionError: base_day is not type(date)
-    
+
     >>> d1 = date(2017, 2, 6)
     >>> opt_busi_days = (datetime(2017, 2, 13), datetime(2017, 2, 14))
     >>> get_day(d1, optional_business_days=opt_busi_days)
@@ -51,10 +51,14 @@ def get_day(base_day, days_count=1, optional_holidays=(), optional_business_days
     :param Tuple[date] optional_business_days: 追加で営業日にする日付リスト
     :return: 対象日付
     """
-    assert base_day, 'base_day is not specified'
-    assert isinstance(base_day, date), 'base_day is not type(date)'
-    assert all(isinstance(x, date) for x in optional_business_days), 'optional_business_days is not type(date)'
-    assert all(isinstance(x, date) for x in optional_holidays), 'optional_holidays is not type(date)'
+    assert base_day, "base_day is not specified"
+    assert isinstance(base_day, date), "base_day is not type(date)"
+    assert all(isinstance(x, date) for x in optional_business_days), (
+        "optional_business_days is not type(date)"
+    )
+    assert all(isinstance(x, date) for x in optional_holidays), (
+        "optional_holidays is not type(date)"
+    )
 
     forward = True if days_count > 0 else False
     count = abs(days_count)
@@ -74,6 +78,7 @@ def get_day(base_day, days_count=1, optional_holidays=(), optional_business_days
     return current
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
+
     doctest.testmod(verbose=True)

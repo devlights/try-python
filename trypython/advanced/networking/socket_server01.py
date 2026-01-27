@@ -8,7 +8,7 @@ CTRL+C で終了します。
 import contextlib
 import socket
 
-HOST = '127.0.0.1'
+HOST = "127.0.0.1"
 PORT = 8888
 BACKLOG = 1
 
@@ -21,7 +21,7 @@ def start():
             _accept_endless(sock)
         except KeyboardInterrupt:
             # 終わり
-            print('CTRL+C Pressed....shutting down')
+            print("CTRL+C Pressed....shutting down")
 
 
 def _configure(sock: socket.socket):
@@ -36,11 +36,11 @@ def _accept_endless(sock: socket.socket):
         with contextlib.suppress(socket.timeout):
             client, address = sock.accept()
             with client:
-                print(f'Connect From {address}')
-                client.sendall('hello'.encode('utf-8'))
+                print(f"Connect From {address}")
+                client.sendall("hello".encode("utf-8"))
 
 
-if __name__ == '__main__':
-    print('Start Server....')
+if __name__ == "__main__":
+    print("Start Server....")
     start()
-    print('Shutdown Server....')
+    print("Shutdown Server....")

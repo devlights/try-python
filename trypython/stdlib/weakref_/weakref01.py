@@ -3,6 +3,7 @@
 weakref モジュールについてのサンプルです。
 weakref.finalize() についてのサンプルコードが記載されています。
 """
+
 import time
 import weakref
 
@@ -11,13 +12,13 @@ from trypython.common.commoncls import SampleBase
 
 class Sample(SampleBase):
     def exec(self):
-        print(f'処理開始')
+        print(f"処理開始")
         time.sleep(3)
-        print(f'処理終了')
+        print(f"処理終了")
 
 
 def finalize_sample(*args, **kwargs):
-    print(f'object [sample] is dead. \n\targs   = {tuple(args)}\n\tkwargs = {kwargs}')
+    print(f"object [sample] is dead. \n\targs   = {tuple(args)}\n\tkwargs = {kwargs}")
 
 
 def _go():
@@ -29,7 +30,7 @@ def _go():
     # finalize() の書式は (obj, func, *args, **kwargs) となっており
     # 設定時に指定した *args, **kwargs が、ファイナライザに引き渡される
     #################################################################
-    weakref.finalize(obj, finalize_sample, 999, keyword1='helloworld')
+    weakref.finalize(obj, finalize_sample, 999, keyword1="helloworld")
     obj.exec()
 
 
@@ -43,4 +44,4 @@ def go():
     #
     # (*1) 循環参照を検出するために 世代間GC もやっている
     ###################################################################################
-    print(f'メインルーチン終了')
+    print(f"メインルーチン終了")

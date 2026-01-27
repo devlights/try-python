@@ -3,6 +3,7 @@
 """
 タプルと辞書のアンパックについてのサンプルです。
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -19,10 +20,10 @@ class Sample(SampleBase):
         self.output_kwargs(**d1)
 
     def output_args(self, *args):
-        pr('args', args)
+        pr("args", args)
 
     def output_kwargs(self, **kwargs):
-        pr('kwargs', kwargs)
+        pr("kwargs", kwargs)
 
 
 def go():

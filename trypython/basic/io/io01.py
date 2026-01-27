@@ -3,6 +3,7 @@
 """
 IO関連のサンプルです。
 """
+
 import os
 import tempfile
 from typing import TextIO
@@ -26,12 +27,12 @@ class Sample(SampleBase):
         #
         fp = self.get_file_obj()
         try:
-            fp.write('hello world')
+            fp.write("hello world")
 
             fp.seek(os.SEEK_SET)
             data = fp.read()
 
-            pr('io.read()', data)
+            pr("io.read()", data)
         finally:
             fp.close()
 
@@ -46,9 +47,9 @@ class Sample(SampleBase):
         # 以下の場合、ブロックを抜けたタイミングでファイルを閉じる
         # (C# などの using と同じ)
         with self.get_file_obj() as fp2:
-            fp2.write('こんにちわ世界')
+            fp2.write("こんにちわ世界")
             fp2.seek(os.SEEK_SET)
-            pr('io.read() with contextmanager', fp2.read())
+            pr("io.read() with contextmanager", fp2.read())
 
     # noinspection PyMethodMayBeStatic
     def get_file_obj(self) -> TextIO:
@@ -56,7 +57,7 @@ class Sample(SampleBase):
         #   w: 書き込み用にファイルを開いてファイルを切り詰める
         #   +: ファイルを更新用に開く (読み書きOK）
         #   t: テキストモード
-        return tempfile.TemporaryFile(mode='w+t', encoding='utf-8')
+        return tempfile.TemporaryFile(mode="w+t", encoding="utf-8")
 
 
 def go():

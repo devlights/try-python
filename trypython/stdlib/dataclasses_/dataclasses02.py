@@ -8,6 +8,7 @@ REFERENCESS:: http://bit.ly/2KTZynw
               http://bit.ly/2KHeNA9
               http://bit.ly/2KFLGxc
 """
+
 import dataclasses as dc
 
 from trypython.common.commoncls import SampleBase
@@ -26,7 +27,7 @@ class Data1:
 
 class Sample(SampleBase):
     def exec(self):
-        obj = Data1(name='test', unit_price=300.5)
+        obj = Data1(name="test", unit_price=300.5)
 
         try:
             # --------------------------------------------------------
@@ -36,7 +37,7 @@ class Sample(SampleBase):
             # noinspection PyDataclass
             obj.quantity = 5
         except dc.FrozenInstanceError as e:
-            pr('frozen な dataclass に値を設定', e)
+            pr("frozen な dataclass に値を設定", e)
 
 
 def go():

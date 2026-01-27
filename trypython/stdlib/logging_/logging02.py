@@ -2,6 +2,7 @@
 logging モジュールのサンプルです。
 最も基本的な使い方について (ファイルへの出力)
 """
+
 import logging
 import pathlib
 import tempfile
@@ -29,16 +30,16 @@ class Sample(SampleBase):
         # filename キーワードを指定して、出力するファイル名を指定する。
         # --------------------------------------------------------
         logdir = pathlib.Path(tempfile.gettempdir())
-        logfile = logdir / 'logging02.log'
+        logfile = logdir / "logging02.log"
         logging.basicConfig(level=logging.INFO, filename=str(logfile))
         logger = logging.getLogger(__name__)
 
         # それぞれのログレベルで出力
-        logger.debug('debug')
-        logger.info('info')
-        logger.warning('warn')
-        logger.error('error')
-        logger.critical('critical')
+        logger.debug("debug")
+        logger.info("info")
+        logger.warning("warn")
+        logger.error("error")
+        logger.critical("critical")
 
         # ロギングを終了。強制的に flush を実施。
         # 基本必要ないが、大量にログを入れた後にすぐに終了や
@@ -50,9 +51,9 @@ class Sample(SampleBase):
         # (丁度 logging が、そのファイルに出力している最中に開くと例外となる)
         logging.shutdown()
 
-        with logfile.open(mode='r', encoding='utf-8') as f:
+        with logfile.open(mode="r", encoding="utf-8") as f:
             for l in f:
-                print(l, end='')
+                print(l, end="")
 
         logfile.unlink()
 

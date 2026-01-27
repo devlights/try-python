@@ -1,6 +1,7 @@
 """
 初期処理を実施します.
 """
+
 from typing import Dict, Callable
 
 from trypython import advanced, basic, stdlib, py38

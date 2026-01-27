@@ -2,6 +2,7 @@
 """
 dis モジュールについてのサンプルです。
 """
+
 import dis
 
 from trypython.common.commoncls import SampleBase
@@ -28,23 +29,23 @@ class Sample(SampleBase):
         # 返してくれる。
         #
         ##############################################
-        listcomp_str = 'r = [x for x in range(1000000) if x % 2 == 0]'
-        forloop_str = '''
+        listcomp_str = "r = [x for x in range(1000000) if x % 2 == 0]"
+        forloop_str = """
         
 r = []
 for x in range(1000000):
     if x % 2 == 0:
         r.append(x)
         
-        '''
+        """
 
         ###############################################
         # dis.dis()
         ###############################################
-        hr('dis.dis(listcomp_str)')
+        hr("dis.dis(listcomp_str)")
         dis.dis(listcomp_str)
 
-        hr('dis.dis(forloop_str)')
+        hr("dis.dis(forloop_str)")
         dis.dis(forloop_str)
 
         ###############################################
@@ -54,14 +55,14 @@ for x in range(1000000):
         # 内部で code オブジェクトや dis.code_info() の
         # 結果を保持してくれたりするので、こちらの方が便利。
         ###############################################
-        hr('dis.Bytecode(listcomp_str)')
+        hr("dis.Bytecode(listcomp_str)")
         listcomp_bytecode = dis.Bytecode(listcomp_str)
 
         print(listcomp_bytecode.codeobj)
         print(listcomp_bytecode.dis())
         print(listcomp_bytecode.info())
 
-        hr('dis.Bytecode(forloop_str)')
+        hr("dis.Bytecode(forloop_str)")
         forloop_bytecode = dis.Bytecode(forloop_str)
 
         print(forloop_bytecode.codeobj)

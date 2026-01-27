@@ -3,6 +3,7 @@ Python のクラスについてのサンプルです。
 
 サブクラス側で __init__ を定義した場合の注意点について。
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr, hr
 
@@ -22,6 +23,7 @@ class C(B):
 
     自分の __init__ を定義していないバージョン
     """
+
     pass
 
 
@@ -65,7 +67,7 @@ class Sample(SampleBase):
         #     既定で、 super().__init__() が呼ばれた状態となる
         # ------------------------------------------------------------
         obj1 = C()
-        pr('C.x', obj1.x)
+        pr("C.x", obj1.x)
 
         hr()
 
@@ -80,10 +82,10 @@ class Sample(SampleBase):
         # ------------------------------------------------------------
         try:
             obj2 = D()
-            pr('D.x', obj2.x)
-            pr('D.y', obj2.y)
+            pr("D.x", obj2.x)
+            pr("D.y", obj2.y)
         except AttributeError as e:
-            pr('D', e)
+            pr("D", e)
 
         hr()
 
@@ -92,8 +94,8 @@ class Sample(SampleBase):
         #     呼んでいる場合、親クラスの __init__ も呼ばれる。
         # ------------------------------------------------------------
         obj3 = E()
-        pr('E.x', obj3.x)
-        pr('E.y', obj3.y)
+        pr("E.x", obj3.x)
+        pr("E.y", obj3.y)
 
 
 def go() -> None:

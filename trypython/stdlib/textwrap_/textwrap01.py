@@ -4,6 +4,7 @@ textwrap モジュールに関するサンプルです。
 link::
     https://docs.python.jp/3/library/textwrap.html
 """
+
 import textwrap
 
 from trypython.common.commoncls import SampleBase
@@ -23,10 +24,10 @@ class Sample(SampleBase):
         #   - fill   : 指定したテキストに折り返し処理をして結果を文字列で返す
         #   - shorten : 指定したテキストを指定した幅で切って、残りをプレースホルダにする
         # -----------------------------------------------------
-        str01 = 'hello world'
-        pr('textwrap.wrap', textwrap.wrap(str01, width=5))
-        pr('textwrap.fill', textwrap.fill(str01, width=5))
-        pr('textwrap.shorten', textwrap.shorten(str01, width=10, placeholder='...'))
+        str01 = "hello world"
+        pr("textwrap.wrap", textwrap.wrap(str01, width=5))
+        pr("textwrap.fill", textwrap.fill(str01, width=5))
+        pr("textwrap.shorten", textwrap.shorten(str01, width=10, placeholder="..."))
 
 
 def go():

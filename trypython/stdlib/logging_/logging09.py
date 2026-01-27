@@ -7,6 +7,7 @@ https://docs.python.jp/3/library/logging.config.html#logging-config-dictschema
 https://docs.sentry.io/clients/python/integrations/logging/
 https://stackoverflow.com/questions/38323810/does-pythons-logging-config-dictconfig-apply-the-loggers-configuration-setti
 """
+
 import json
 import logging
 import logging.config
@@ -29,19 +30,19 @@ class Sample(SampleBase):
         # 本サンプルでの設定内容に関しては
         # logging_config.json ファイルを参照ください。
         # --------------------------------------------------------
-        config_file = pathlib.Path('logging_config.json')
-        with config_file.open(mode='r', encoding='utf-8') as fd_conf:
+        config_file = pathlib.Path("logging_config.json")
+        with config_file.open(mode="r", encoding="utf-8") as fd_conf:
             logging.config.dictConfig(json.load(fd_conf))
 
         logger = logging.getLogger(__name__)
 
-        logger.debug('debug message')
-        logger.info('info message')
-        logger.warning('warning message')
+        logger.debug("debug message")
+        logger.info("info message")
+        logger.warning("warning message")
         try:
             1 / 0
         except ZeroDivisionError:
-            logger.error('error message', exc_info=True)
+            logger.error("error message", exc_info=True)
 
 
 def go():

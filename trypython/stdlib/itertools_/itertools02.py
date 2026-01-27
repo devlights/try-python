@@ -6,6 +6,7 @@ itertools モジュールについてのサンプル
 
 - cycle()
 """
+
 import itertools as it
 
 from trypython.common.commoncls import SampleBase
@@ -27,10 +28,10 @@ class Sample(SampleBase):
         numbers = list(range(0, 9))
         cycle_iter = it.cycle((1, 2, 3))
 
-        hr('itertools.cycle()')
+        hr("itertools.cycle()")
 
         for i, j in zip(numbers, cycle_iter):
-            pr("i,j", f'{i}-{j}')
+            pr("i,j", f"{i}-{j}")
 
 
 def go():

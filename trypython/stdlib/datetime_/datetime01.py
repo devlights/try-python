@@ -1,6 +1,7 @@
 """
 datetime.fromtimestamp() についてのサンプルです。
 """
+
 import time
 from datetime import datetime
 
@@ -18,7 +19,7 @@ class Sample(SampleBase):
         # メソッドが存在する。このメソッドにタイムスタンプを渡すと
         # datetimeに変換してくれる.
         #############################################
-        hr('fromtimestamp(0)')
+        hr("fromtimestamp(0)")
 
         try:
             print(datetime.fromtimestamp(0))
@@ -26,7 +27,7 @@ class Sample(SampleBase):
             # 呼び出し失敗は OSError が送出される
             print(e)
 
-        hr('fromtimestamp(time.time())')
+        hr("fromtimestamp(time.time())")
         now = time.time()
         print(datetime.fromtimestamp(now))
 

@@ -4,6 +4,7 @@ reprlib についてのサンプルです。
 link::
   https://docs.python.jp/3/library/reprlib.html
 """
+
 import functools
 import random
 import reprlib
@@ -20,7 +21,7 @@ class ManyFields:
             self.__dict__[name] = value_factory()
 
     def __repr__(self) -> str:
-        return ','.join(f'{k}={v}' for k, v in self.__dict__.items())
+        return ",".join(f"{k}={v}" for k, v in self.__dict__.items())
 
 
 class Sample(SampleBase):
@@ -38,8 +39,8 @@ class Sample(SampleBase):
 
         many_fields = ManyFields(names, value_factory)
 
-        pr('repr', repr(many_fields))
-        pr('reprlib.repr', reprlib.repr(many_fields))
+        pr("repr", repr(many_fields))
+        pr("reprlib.repr", reprlib.repr(many_fields))
 
 
 def go():

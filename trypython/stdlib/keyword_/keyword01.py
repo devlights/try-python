@@ -5,6 +5,7 @@ keyword モジュールについてのサンプル
 
 - iskeyword()
 """
+
 import keyword
 
 from trypython.common.commoncls import SampleBase
@@ -23,8 +24,8 @@ class Sample(SampleBase):
         # 名前の通り、指定された文字列がキーワードとして予約されている
         # ものかどうかを判定してくれる。
         # --------------------------------------------------------
-        pr('iskeyword("for")', keyword.iskeyword('for'))
-        pr('iskeyword("foreach")', keyword.iskeyword('foreach'))
+        pr('iskeyword("for")', keyword.iskeyword("for"))
+        pr('iskeyword("foreach")', keyword.iskeyword("foreach"))
 
 
 def go():

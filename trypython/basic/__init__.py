@@ -1,6 +1,7 @@
 """
 初期処理を実施します.
 """
+
 from typing import Dict, Callable
 
 from trypython.basic.builtinfunc import builtinfunc01, float01, format01, len01, round01
@@ -14,7 +15,13 @@ from trypython.basic.helloworld import helloworld
 from trypython.basic.int_ import int01
 from trypython.basic.io import io01
 from trypython.basic.list_ import list01, list02, list_copy
-from trypython.basic.others import mathoperators01, pairwise01, thousands_separator01, vars01, zeropadding01
+from trypython.basic.others import (
+    mathoperators01,
+    pairwise01,
+    thousands_separator01,
+    vars01,
+    zeropadding01,
+)
 from trypython.basic.print_ import print01
 from trypython.basic.set_ import set01
 from trypython.basic.slice_ import slice01

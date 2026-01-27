@@ -6,6 +6,7 @@ https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-pyt
 
 回答がとてもわかり易いので、自分用のメモとしても残しておく。
 """
+
 import time
 from datetime import datetime
 
@@ -39,7 +40,7 @@ class Sample(SampleBase):
         # ----------------------------------------------------------
         list01 = list(range(5))
         for i in list01:
-            pr('list-item', i)
+            pr("list-item", i)
 
         # ----------------------------------------------------------
         # list01 は、iterable です。
@@ -48,7 +49,7 @@ class Sample(SampleBase):
         # ----------------------------------------------------------
         list02 = [x * 2 for x in range(5)]
         for i in list02:
-            pr('list-item(list comprehension)', i)
+            pr("list-item(list comprehension)", i)
 
         # ----------------------------------------------------------
         # for ... in ... は、iterableなもの全てに使えます。
@@ -80,17 +81,17 @@ class Sample(SampleBase):
         # [] を () に変えるだけで generator になります。
         # ----------------------------------------------------------
         gen01 = (x * 2 for x in range(5))
-        pr('generator-object', gen01)
+        pr("generator-object", gen01)
 
         for i in gen01:
-            pr('generator-item(first-loop)', i)
+            pr("generator-item(first-loop)", i)
         else:
-            pr('first-loop', 'done')
+            pr("first-loop", "done")
 
         for i in gen01:
-            pr('generator-item(second-loop)', i)
+            pr("generator-item(second-loop)", i)
         else:
-            pr('second-loop', 'done')
+            pr("second-loop", "done")
 
         # ----------------------------------------------------------
         # Yield
@@ -110,10 +111,10 @@ class Sample(SampleBase):
             yield 5
 
         gen02 = create_generator()
-        pr('generator-object', gen02)
+        pr("generator-object", gen02)
 
         for x in gen02:
-            pr('generator-item', x)
+            pr("generator-item", x)
 
         # -----------------------------------------------------------------------
         # 上記の create_generator 関数では yield が5回登場しています。
@@ -158,7 +159,7 @@ class Sample(SampleBase):
         for i, d in enumerate(gen03):
             if i > 5:
                 break
-            pr('gen03', d.isoformat())
+            pr("gen03", d.isoformat())
             time.sleep(1)
 
 

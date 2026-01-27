@@ -3,6 +3,7 @@ sys モジュールに関するサンプルです。
 
 - sys.executable について
 """
+
 import sys
 
 from trypython.common.commoncls import SampleBase
@@ -22,7 +23,7 @@ class Sample(SampleBase):
         # subprocess モジュールを使って、内部から別プロセスで python を起動する際にも
         # sys.executable からパスを取得して起動すれば間違いがない。
         # -------------------------------------------------------
-        pr('sys.executable', sys.executable)
+        pr("sys.executable", sys.executable)
 
 
 def go():

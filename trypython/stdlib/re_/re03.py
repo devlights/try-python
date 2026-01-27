@@ -3,6 +3,7 @@
 
 最長一致と最短一致について
 """
+
 import re
 
 from trypython.common.commoncls import SampleBase
@@ -18,15 +19,15 @@ class Sample(SampleBase):
         # 「最長一致」を行う。「最短一致」を行うには、「*?」を
         # 使う。
         # ---------------------------------------------
-        message = 'hello world hello world'
-        pattern = r'h.*d'
+        message = "hello world hello world"
+        pattern = r"h.*d"
 
         # 最長一致
         m = re.match(pattern, message)
         util.print_match_object(m)
 
         # 最短一致
-        pattern = r'h.*?d'
+        pattern = r"h.*?d"
         m = re.match(pattern, message)
         util.print_match_object(m)
 

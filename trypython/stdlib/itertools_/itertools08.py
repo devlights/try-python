@@ -6,6 +6,7 @@ itertools モジュールについてのサンプル
 
 - product()
 """
+
 import itertools as it
 
 from trypython.common.commoncls import SampleBase
@@ -24,15 +25,15 @@ class Sample(SampleBase):
         #
         # キーワード引数の repeat を利用すると直積も求められる。
         # -----------------------------------------------
-        hr('it.product()')
+        hr("it.product()")
 
-        list01 = list('ABC')
-        list02 = list('DEF')
+        list01 = list("ABC")
+        list02 = list("DEF")
 
-        pr('it.product(*iterable)', list(it.product(list01, list02)))
-        pr('listcomp', [(x, y) for x in list01 for y in list02])
+        pr("it.product(*iterable)", list(it.product(list01, list02)))
+        pr("listcomp", [(x, y) for x in list01 for y in list02])
 
-        pr('it.product(*iterable, repeat=2)', list(it.product('AB', repeat=4)))
+        pr("it.product(*iterable, repeat=2)", list(it.product("AB", repeat=4)))
 
         # -----------------------------------------------
         # itertools.permutations()
@@ -42,12 +43,15 @@ class Sample(SampleBase):
         # 長さにNone(これがデフォルト)を指定すると
         # 可能な最長の順列が生成される。
         # -----------------------------------------------
-        hr('it.permutations()')
-        pr('it.permutations(r=None)...(3!=3*2*1)', list(it.permutations('ABC')))
+        hr("it.permutations()")
+        pr("it.permutations(r=None)...(3!=3*2*1)", list(it.permutations("ABC")))
 
         # 長さを指定することで、シーケンスからいくつ選ぶのかを指定できる
-        pr('it.permutations(r=3)...(4p3=4*3*2)', len(list(it.permutations('ABCD', r=3))))
-        pr('it.permutations(r=2)...(4p2=4*3)', len(list(it.permutations('ABCD', r=2))))
+        pr(
+            "it.permutations(r=3)...(4p3=4*3*2)",
+            len(list(it.permutations("ABCD", r=3))),
+        )
+        pr("it.permutations(r=2)...(4p2=4*3)", len(list(it.permutations("ABCD", r=2))))
 
         # -----------------------------------------------
         # itertools.combinations()
@@ -58,13 +62,22 @@ class Sample(SampleBase):
         # 並べる際の順序を無視した結果を返す。
         # つまり、(a, b, c)と(b, a, c)と(c, b, a)は同じとみなす。
         # -----------------------------------------------
-        hr('it.combinations()')
-        pr('it.combinations(r=2)...(4c2=4p2/2!)', list(it.combinations('ABCD', r=2)))
-        pr('it.combinations(r=2)...(4c2=4p2/2!)', len(list(it.combinations('ABCD', r=2))))
+        hr("it.combinations()")
+        pr("it.combinations(r=2)...(4c2=4p2/2!)", list(it.combinations("ABCD", r=2)))
+        pr(
+            "it.combinations(r=2)...(4c2=4p2/2!)",
+            len(list(it.combinations("ABCD", r=2))),
+        )
 
         # combinations_with_replacement() は、それぞれの要素が重複することを許す
-        pr('it.combinations_with_replacement(r=2)', list(it.combinations_with_replacement('ABCD', r=2)))
-        pr('it.combinations_with_replacement(r=2)', len(list(it.combinations_with_replacement('ABCD', r=2))))
+        pr(
+            "it.combinations_with_replacement(r=2)",
+            list(it.combinations_with_replacement("ABCD", r=2)),
+        )
+        pr(
+            "it.combinations_with_replacement(r=2)",
+            len(list(it.combinations_with_replacement("ABCD", r=2))),
+        )
 
 
 def go():

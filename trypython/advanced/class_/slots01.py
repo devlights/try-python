@@ -25,11 +25,11 @@ class Sample(SampleBase):
         # 好きなタイミングで属性を追加したり出来る
         #
         without_slots = WithoutSlots()
-        pr('without_slots.__dict__', without_slots.__dict__)
-        pr('without_slots.x', without_slots.x)
+        pr("without_slots.__dict__", without_slots.__dict__)
+        pr("without_slots.x", without_slots.x)
         without_slots.z = 100
-        pr('without_slots.z', without_slots.z)
-        pr('without_slots.__dict__', without_slots.__dict__)
+        pr("without_slots.z", without_slots.z)
+        pr("without_slots.__dict__", without_slots.__dict__)
 
         #
         # クラス定義時に__slots__を追加している場合
@@ -38,17 +38,17 @@ class Sample(SampleBase):
         # __dict__が生成されないので、アクセスすると例外が発生する。
         #
         with_slots = WithSlots()
-        pr('with_slots.x', without_slots.x)
+        pr("with_slots.x", without_slots.x)
 
         try:
             with_slots.z = 100
         except AttributeError as e:
-            pr('with_slots.z', e)
+            pr("with_slots.z", e)
 
         try:
-            pr('with_slots.__dict__', with_slots.__dict__)
+            pr("with_slots.__dict__", with_slots.__dict__)
         except AttributeError as e:
-            pr('with_slots.__dict__', e)
+            pr("with_slots.__dict__", e)
 
 
 class WithoutSlots:
@@ -63,7 +63,7 @@ class WithoutSlots:
 class WithSlots:
     """__slots__を追加したクラス定義"""
 
-    __slots__ = ['x', 'y']
+    __slots__ = ["x", "y"]
 
     def __init__(self):
         super().__init__()

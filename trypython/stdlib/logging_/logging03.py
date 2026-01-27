@@ -2,6 +2,7 @@
 logging モジュールのサンプルです。
 最も基本的な使い方について (フォーマッタの指定)
 """
+
 import logging
 
 from trypython.common.commoncls import SampleBase
@@ -42,16 +43,16 @@ class Sample(SampleBase):
         #     %(levelname)8s
         #
         # --------------------------------------------------------
-        fmt = '[%(asctime)s][%(levelname)-8s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s'
+        fmt = "[%(asctime)s][%(levelname)-8s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s"
         logging.basicConfig(level=logging.WARNING, format=fmt)
         logger = logging.getLogger(__name__)
 
         # それぞれのログレベルで出力
-        logger.debug('debug')
-        logger.info('info')
-        logger.warning('warn')
-        logger.error('error')
-        logger.critical('critical')
+        logger.debug("debug")
+        logger.info("info")
+        logger.warning("warn")
+        logger.error("error")
+        logger.critical("critical")
 
         # logging を終了
         logging.shutdown()

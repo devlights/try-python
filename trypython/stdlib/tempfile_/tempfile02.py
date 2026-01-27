@@ -5,6 +5,7 @@ tempfile.gettempdir() の使い方について
 
 REFERENCES:: http://bit.ly/2GqvFac
 """
+
 import tempfile
 
 from trypython.common.commoncls import SampleBase
@@ -18,7 +19,7 @@ class Sample(SampleBase):
         # そのOSで安全に利用できる一時ディレクトリのパスを
         # 返してくれる。
         # ----------------------------------------------
-        pr('gettempdir', tempfile.gettempdir())
+        pr("gettempdir", tempfile.gettempdir())
 
 
 def go():

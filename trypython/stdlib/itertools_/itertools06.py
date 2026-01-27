@@ -6,6 +6,7 @@ itertools モジュールについてのサンプル
 
 - islice()
 """
+
 import itertools as it
 
 from trypython.common.commoncls import SampleBase
@@ -26,15 +27,15 @@ class Sample(SampleBase):
         # 引数が二つの場合、start, stopが指定された状態となる。
         # 引数が三つの場合、start, stop, stepが指定された(略
         # -----------------------------------------------
-        hr('it.islice()')
+        hr("it.islice()")
 
         data01 = list(range(10))
-        pr('it.islice(8)', list(it.islice(data01, 8)))
-        pr('it.islice(5,8)', list(it.islice(data01, 5, 8)))
-        pr('it.islice(2,8,2)', list(it.islice(data01, 2, 8, 2)))
+        pr("it.islice(8)", list(it.islice(data01, 8)))
+        pr("it.islice(5,8)", list(it.islice(data01, 5, 8)))
+        pr("it.islice(2,8,2)", list(it.islice(data01, 2, 8, 2)))
 
         # stop には、None が指定可能。None を指定した場合は最後までという意味となる。
-        pr('it.islice(5,None)', list(it.islice(data01, 5, None)))
+        pr("it.islice(5,None)", list(it.islice(data01, 5, None)))
 
 
 def go():

@@ -7,6 +7,7 @@ REFERENCES:: http://bit.ly/2TVtVNY
              http://bit.ly/2TVRy8Z
              http://bit.ly/2TWQQs4
 """
+
 import re
 
 from trypython.common.commoncls import SampleBase
@@ -39,8 +40,8 @@ class Sample(SampleBase):
         # キャプチャした内容は後から特別な記法により取り出す事が可能.
         # 置換などを行う際に重宝する.
         # ---------------------------------------------------
-        s = '田中 太郎'
-        p = r'田中|佐藤 太郎'
+        s = "田中 太郎"
+        p = r"田中|佐藤 太郎"
         r = re.compile(p)
         m = r.match(s)
         if m:
@@ -51,9 +52,9 @@ class Sample(SampleBase):
         if not m:
             # fullmatch 指定した場合はマッチしないと判定される
             # fullmatch メソッドは python 3.4 で追加された
-            pr(f'({p}).fullmatch({s})', 'マッチせず')
+            pr(f"({p}).fullmatch({s})", "マッチせず")
 
-        p = r'(田中|佐藤) 太郎'
+        p = r"(田中|佐藤) 太郎"
         r = re.compile(p)
         m = r.match(s)
         if m:

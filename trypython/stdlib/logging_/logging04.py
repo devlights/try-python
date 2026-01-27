@@ -2,6 +2,7 @@
 logging モジュールのサンプルです。
 最も基本的な使い方について (日付書式の指定)
 """
+
 import logging
 
 from trypython.common.commoncls import SampleBase
@@ -65,13 +66,13 @@ class Sample(SampleBase):
         # Pythonドキュメントでは、以下のところに記載がある。
         #  https://docs.python.jp/3/library/logging.html#logrecord-attributes
         # --------------------------------------------------------
-        fmt = '[%(asctime)s.%(msecs)03d] | %(message)s'
+        fmt = "[%(asctime)s.%(msecs)03d] | %(message)s"
         # ここで %f を指定すると実行時にフォーマットエラーになるので注意.
-        datefmt = '%Y/%m/%d %H:%M:%S'
+        datefmt = "%Y/%m/%d %H:%M:%S"
         logging.basicConfig(format=fmt, datefmt=datefmt, level=logging.INFO)
 
         logger = logging.getLogger(__name__)
-        logger.warning('warning')
+        logger.warning("warning")
 
         # logging を終了
         logging.shutdown()

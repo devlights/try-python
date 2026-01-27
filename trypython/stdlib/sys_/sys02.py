@@ -5,6 +5,7 @@ sys モジュールに関するサンプルです.
 
 REFERENCES:: http://bit.ly/2KQeJOH
 """
+
 import sys
 
 from trypython.common.commoncls import SampleBase
@@ -23,11 +24,11 @@ class Sample(SampleBase):
         # Python 3.6 で platform_version が追加となった。
         # ---------------------------------------------------------
         win_ver = sys.getwindowsversion()
-        pr('win_ver', win_ver)
-        pr('type()', type(win_ver))
-        pr('major', win_ver.major)
-        pr('minor', win_ver.minor)
-        pr('platform_version', win_ver.platform_version)
+        pr("win_ver", win_ver)
+        pr("type()", type(win_ver))
+        pr("major", win_ver.major)
+        pr("minor", win_ver.minor)
+        pr("platform_version", win_ver.platform_version)
 
 
 def go():

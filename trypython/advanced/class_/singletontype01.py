@@ -4,6 +4,7 @@ python シングルトンオブジェクトを利用するサンプルです。
 REFERENCES::
 https://github.com/stoic1979/PyLogger/blob/master/logger.py
 """
+
 import typing as ty
 
 from trypython.common.commoncls import SampleBase
@@ -11,6 +12,7 @@ from trypython.common.commoncls import SampleBase
 
 class SingletonType(type):
     """シングルトンを実現するためのメタクラスです"""
+
     _instances: ty.Dict = {}
 
     def __call__(cls, *args, **kwargs):
@@ -23,7 +25,7 @@ class SingletonObject(metaclass=SingletonType):
     """シングルトンクラス"です"""
 
     def __init__(self):
-        print('[call] init()')
+        print("[call] init()")
 
 
 class Sample(SampleBase):
@@ -35,7 +37,7 @@ class Sample(SampleBase):
         obj2 = SingletonObject()
         obj3 = SingletonObject()
 
-        print(f'obj1={id(obj1)}, obj2={id(obj2)}, obj3={id(obj3)}')
+        print(f"obj1={id(obj1)}, obj2={id(obj2)}, obj3={id(obj3)}")
 
 
 def go():

@@ -3,6 +3,7 @@
 """
 共通クラスが定義されています。
 """
+
 import contextlib
 from abc import ABCMeta, abstractmethod
 from datetime import datetime
@@ -30,5 +31,5 @@ class timetracer(contextlib.AbstractContextManager):
         self._start = datetime.now()
 
     def __exit__(self, exc_type, exc_value, traceback):
-        diff = (datetime.now() - self._start)
-        print(f'[{self._message}] elapsed: {diff.seconds}.{diff.microseconds} seconds')
+        diff = datetime.now() - self._start
+        print(f"[{self._message}] elapsed: {diff.seconds}.{diff.microseconds} seconds")

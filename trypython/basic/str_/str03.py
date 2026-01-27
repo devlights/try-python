@@ -3,6 +3,7 @@
 
 文字列のインデックスとスライスに関して
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -33,13 +34,13 @@ class Sample(SampleBase):
         # どちらの場合も負のインデックスは右から割り振られている
         # と捉える。
         # --------------------------------------------
-        s = 'apple'
-        pr('index', s[3])
-        pr('slice', s[0:3])
-        pr('index(negative)', s[-2])
-        pr('slice(negative)', s[-5:-2])
-        pr('slice', s[-3:])
-        pr('slice', s[:-3])
+        s = "apple"
+        pr("index", s[3])
+        pr("slice", s[0:3])
+        pr("index(negative)", s[-2])
+        pr("slice(negative)", s[-5:-2])
+        pr("slice", s[-3:])
+        pr("slice", s[:-3])
 
 
 def go():

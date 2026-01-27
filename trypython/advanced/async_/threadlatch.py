@@ -5,6 +5,7 @@ REFERENCES::
 https://stackoverflow.com/questions/10236947/does-python-have-a-similar-control-mechanism-to-javas-countdownlatch
 https://qiita.com/shinkiro/items/75f3561d6bc96694ce30
 """
+
 import threading as th
 import typing as ty
 
@@ -52,6 +53,7 @@ class CountDownLatch:
     >>> latch.await_(timeout=1.0)
     True
     """
+
     def __init__(self, count: int = 1, condition: ty.Optional[th.Condition] = None):
         """
         オブジェクトを初期化します。
@@ -59,7 +61,7 @@ class CountDownLatch:
         :param count: カウント。デフォルト値は 1 です。 0 以下は指定できません。(ValueError)
         """
         if count <= 0:
-            raise ValueError(f'0 以下は指定できません。 [{count}]')
+            raise ValueError(f"0 以下は指定できません。 [{count}]")
         self._count = count
         self.lock = condition if condition else th.Condition()
 

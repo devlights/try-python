@@ -5,6 +5,7 @@ PEP-3132 Extended Iterable Unpacking のサンプルです。
 PEP 3132
   https://www.python.org/dev/peps/pep-3132/
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -24,28 +25,28 @@ class Sample(SampleBase):
         # アンパックではない通常の変数を置いても
         # 適切に解釈して値を設定してくれる。
         # -----------------------------------------------
-        str01 = 'hello world'
+        str01 = "hello world"
         first, *rest, last = str01
 
-        pr('first', first)
-        pr('rest', rest)
-        pr('last', last)
+        pr("first", first)
+        pr("rest", rest)
+        pr("last", last)
 
         # なので、シーケンスの先頭とそれ以外を分ける場合に
         seq01 = list(range(10))
         first, rest = seq01[0], seq01[1:]
 
-        pr('first', first)
-        pr('rest', rest)
+        pr("first", first)
+        pr("rest", rest)
 
         # とする必要がなく、以下のように書ける
         first, *rest = seq01
 
-        pr('first', first)
-        pr('rest', rest)
+        pr("first", first)
+        pr("rest", rest)
 
         # 同じことが for ステートメントでも適用できて以下のように書ける
-        it01 = [tuple('hello'), tuple('world')]
+        it01 = [tuple("hello"), tuple("world")]
         for _, *x, _ in it01:
             print(x)
 
@@ -53,18 +54,18 @@ class Sample(SampleBase):
         oneitem = [1]
         first, *rest = oneitem
 
-        pr('first', first)
-        pr('rest', rest)
+        pr("first", first)
+        pr("rest", rest)
 
         # さすがに要素がゼロの場合はエラーになる
         try:
             noitem = []
             first, *rest = noitem
 
-            pr('first', first)
-            pr('rest', rest)
+            pr("first", first)
+            pr("rest", rest)
         except ValueError as e:
-            pr('noitem', e)
+            pr("noitem", e)
 
 
 def go():

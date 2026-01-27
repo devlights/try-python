@@ -3,6 +3,7 @@
 
 Inner Function について
 """
+
 import typing
 
 from trypython.common.commoncls import SampleBase
@@ -19,23 +20,23 @@ class Sample(SampleBase):
         # 関数内部で定義した関数を戻り値として返すことももちろん可能.
         # 一般的に内部関数を使うのは、decorator や closure を使うときが多い.
         # ---------------------------------------------------------
-        f = self.get_helloworld_func('hello world', 0.7)
-        pr('f', f)
+        f = self.get_helloworld_func("hello world", 0.7)
+        pr("f", f)
         pr('f("hello world", 0.7)', f())
 
-        f = self.get_helloworld_func('hello world', 0.1)
-        pr('f', f)
+        f = self.get_helloworld_func("hello world", 0.1)
+        pr("f", f)
         pr('f("hello world", 0.1)', f())
 
     # noinspection PyMethodMayBeStatic
     def get_helloworld_func(self, text: str, volume: float) -> typing.Callable[[], str]:
         def whisper():
             """小文字にして返します"""
-            return f'{text.lower()}...'
+            return f"{text.lower()}..."
 
         def yell():
             """大文字にして返します"""
-            return f'{text.upper()}!!!'
+            return f"{text.upper()}!!!"
 
         if volume > 0.5:
             return yell

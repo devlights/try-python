@@ -1,6 +1,7 @@
 """
 time モジュールに関するサンプルです。
 """
+
 import time
 
 from trypython.common.commoncls import SampleBase
@@ -30,22 +31,22 @@ class Sample(SampleBase):
         # 処理時間を計測したい場合は、こちらを利用するほうが良い。
         # -------------------------------------------------------
         t1 = time.time()
-        pr('t1', t1)
+        pr("t1", t1)
 
         time.sleep(3)
 
         t2 = time.time()
-        pr('t2', t2)
-        pr('diff', t2 - t1)
+        pr("t2", t2)
+        pr("diff", t2 - t1)
 
         lt1 = time.localtime(t1)
         lt2 = time.localtime(t2)
-        pr('localtime', lt1)
-        pr('localtime', lt2)
+        pr("localtime", lt1)
+        pr("localtime", lt2)
 
         # strftimeには、struct_timeか時刻を表す９要素のタプルが必要
-        pr('strftime', time.strftime('%Y/%m/%d %H:%M:%S', lt1))
-        pr('strftime', time.strftime('%Y/%m/%d %H:%M:%S', lt2))
+        pr("strftime", time.strftime("%Y/%m/%d %H:%M:%S", lt1))
+        pr("strftime", time.strftime("%Y/%m/%d %H:%M:%S", lt2))
 
 
 def go():

@@ -3,6 +3,7 @@
 
 先頭を表す ^ と 末尾を表す $ について
 """
+
 import re
 
 from trypython.common.commoncls import SampleBase
@@ -17,13 +18,13 @@ class Sample(SampleBase):
         #
         # ^ は先頭を表し、$ は末尾を表す
         # ---------------------------------------------
-        message = 'hello world'
-        pattern = r'^h.*d$'
+        message = "hello world"
+        pattern = r"^h.*d$"
 
         r = re.compile(pattern)
         m = r.match(message)
 
-        pr('r', r)
+        pr("r", r)
         util.print_match_object(m)
 
 

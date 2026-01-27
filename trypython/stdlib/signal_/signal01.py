@@ -11,6 +11,7 @@ CTRL-C をハンドルする。
 REFERENCES:: http://bit.ly/2Y4dxt2
              http://bit.ly/2XYnqso
 """
+
 import signal
 import time
 

@@ -3,6 +3,7 @@
 """
 PythonのContextManagerに関してのサンプルです。
 """
+
 import contextlib as ctx
 
 from trypython.common.commoncls import SampleBase, timetracer
@@ -11,7 +12,7 @@ from trypython.common.commonfunc import pr
 
 class Sample(SampleBase):
     def exec(self):
-        with timetracer('contextmanager-sample'):
+        with timetracer("contextmanager-sample"):
             #
             # クラス定義で ContextManager の動きをサポートする場合
             # dunderメソッドの __enter__() と __exit__() を実装する
@@ -19,11 +20,11 @@ class Sample(SampleBase):
             # ので、このクラスを基底クラスにして、オーバーライドするとラク
             #
             with HasCtxManager() as o:
-                pr('inside-with', o)
+                pr("inside-with", o)
 
             with HasCtxManager() as o:
-                pr('inside-with', o)
-                raise CtxTestException('this is test ex')
+                pr("inside-with", o)
+                raise CtxTestException("this is test ex")
 
             #
             # 関数定義で、ContextManager の動きをサポートする場合
@@ -31,27 +32,27 @@ class Sample(SampleBase):
             # その上で、関数内で yield する必要がある
             #
             with return_none_ctx_manager() as o:
-                pr('inside-with', o)
+                pr("inside-with", o)
 
             with return_none_ctx_manager() as o:
-                pr('inside-with', o)
-                raise CtxTestException('this is test ex2')
+                pr("inside-with", o)
+                raise CtxTestException("this is test ex2")
 
             with return_obj_ctx_manager() as o:  # type: SayHelloWorld
-                pr('inside-with', o)
+                pr("inside-with", o)
                 o.say()
 
 
 class HasCtxManager(ctx.AbstractContextManager):
     def __enter__(self):
-        pr('__enter__', 'called')
+        pr("__enter__", "called")
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        pr('__exit__.exc_type', exc_type)
-        pr('__exit__.exc_value', exc_value)
-        pr('__exit__.traceback', traceback)
-        pr('__exit__', 'called')
+        pr("__exit__.exc_type", exc_type)
+        pr("__exit__.exc_value", exc_value)
+        pr("__exit__.traceback", traceback)
+        pr("__exit__", "called")
 
         #
         # 本メソッドの戻り値にて True を返すと
@@ -69,12 +70,13 @@ class CtxTestException(Exception):
 class SayHelloWorld:
     def say(self):
         from datetime import datetime
-        pr('say', 'hello world', datetime.now().isoformat())
+
+        pr("say", "hello world", datetime.now().isoformat())
 
 
 @ctx.contextmanager
 def return_none_ctx_manager():
-    pr('yield', 'before')
+    pr("yield", "before")
 
     #
     # ここで yield だけにすると
@@ -84,21 +86,21 @@ def return_none_ctx_manager():
     try:
         yield
     except CtxTestException as e:
-        pr('raise-exception', e)
+        pr("raise-exception", e)
 
-    print('yield', 'after')
+    print("yield", "after")
 
 
 @ctx.contextmanager
 def return_obj_ctx_manager():
-    pr('yield', 'before')
+    pr("yield", "before")
 
     try:
         yield SayHelloWorld()
     except Exception as e:
-        pr('raise-exception', e)
+        pr("raise-exception", e)
 
-    pr('yield', 'after')
+    pr("yield", "after")
 
 
 def go():

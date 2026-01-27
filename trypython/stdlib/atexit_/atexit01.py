@@ -28,12 +28,12 @@ class Sample(SampleBase):
 
     @staticmethod
     def exit_hook():
-        pr('exit_hook', 'called')
+        pr("exit_hook", "called")
 
     @staticmethod
     # @atexit.register
     def exit_hook2():
-        pr('exit_hook2', 'called')
+        pr("exit_hook2", "called")
 
 
 def go():

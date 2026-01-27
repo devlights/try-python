@@ -5,6 +5,7 @@ tempfile.TemporaryDirectory() の使い方について
 
 REFERENCES:: http://bit.ly/2KIbuZC
 """
+
 import pathlib
 import tempfile
 
@@ -37,15 +38,15 @@ class Sample(SampleBase):
         # tempfile.TemporaryFile() は 3.5 で追加された。
         # ----------------------------------------------
         with tempfile.TemporaryDirectory() as tmpdir:
-            pr('tmpdir', tmpdir)
-            pr('type(tmpdir)', type(tmpdir))
+            pr("tmpdir", tmpdir)
+            pr("type(tmpdir)", type(tmpdir))
 
             # with ブロック内では一時ディレクトリは存在している
             p = pathlib.Path(tmpdir)
-            pr('exists (inside with block)', p.exists())
+            pr("exists (inside with block)", p.exists())
 
         # with ブロックを抜けた後は一時ディレクトリが削除されている
-        pr('exists (outside with-block)', p.exists())
+        pr("exists (outside with-block)", p.exists())
 
 
 def go():

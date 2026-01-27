@@ -3,6 +3,7 @@
 collections.namedtupleについてのサンプルです。
 namedtupleの基本的な使い方については、collections04.py を参照。
 """
+
 import collections as cols
 
 from trypython.common.commoncls import SampleBase
@@ -20,19 +21,19 @@ class Sample(SampleBase):
         # また、以下のプロパティも持つ
         #   ・_fields
         # ------------------------------------------------------------
-        MyVal01 = cols.namedtuple('MyVal01', ['name', 'value'])
-        obj1 = MyVal01('hello world', 'value01')
+        MyVal01 = cols.namedtuple("MyVal01", ["name", "value"])
+        obj1 = MyVal01("hello world", "value01")
 
-        pr('obj', obj1)
+        pr("obj", obj1)
 
         # namedtuple は、__dict__ を持たない
         try:
-            pr('__dict__', obj1.__dict__)
+            pr("__dict__", obj1.__dict__)
         except AttributeError as e:
-            pr('__dict__', e)
+            pr("__dict__", e)
 
         # namedtuple は、__slots__ に 空タプルが設定される
-        pr('__slots__', obj1.__slots__)
+        pr("__slots__", obj1.__slots__)
 
         # ------------------------------------------------------------
         # _make メソッド
@@ -40,9 +41,9 @@ class Sample(SampleBase):
         # 既存のsequence, iterable から新しいオブジェクトを構築する。
         # csvやデータベースなどの行からオブジェクトを作成するのに便利。
         # ------------------------------------------------------------
-        rows = (['hello', 'value01'], ['world', 'value02'])
+        rows = (["hello", "value01"], ["world", "value02"])
         for item in (MyVal01._make(row) for row in rows):
-            pr('item', item)
+            pr("item", item)
 
         # ------------------------------------------------------------
         # _asdict メソッド
@@ -52,12 +53,12 @@ class Sample(SampleBase):
         # (*) OrderedDictになったのは、python 3.1 から。
         # ------------------------------------------------------------
         obj_dict = obj1._asdict()
-        pr('obj_dict', obj_dict)
+        pr("obj_dict", obj_dict)
 
         # 辞書から namedtuple を構築する場合は **kwargs 形式で渡す
         obj2 = MyVal01(**obj_dict)
-        pr('obj2', obj2)
-        pr('eq', obj1 == obj2)
+        pr("obj2", obj2)
+        pr("eq", obj1 == obj2)
 
         # ------------------------------------------------------------
         # _replace メソッド
@@ -65,31 +66,31 @@ class Sample(SampleBase):
         # 指定したフィールドの値を置き換えた、新しい namedtuple を返す。
         # namedtuple は、immutableなので、常に新しいオブジェクトを返す。
         # ------------------------------------------------------------
-        obj3 = obj2._replace(name='world hello', value='value03')
-        pr('obj3', obj3)
-        pr('eq', obj3 == obj2)
+        obj3 = obj2._replace(name="world hello", value="value03")
+        pr("obj3", obj3)
+        pr("eq", obj3 == obj2)
 
         # ------------------------------------------------------------
         # _fields プロパティ
         # --------------------
         # 定義されているフィールド名をタプルで返す。
         # ------------------------------------------------------------
-        pr('_fields', obj3._fields)
+        pr("_fields", obj3._fields)
 
         # ------------------------------------------------------------
         # namedtuple に、独自のメソッドを持たせる場合は
         # namedtuple を親クラスにしたクラスを新たに定義する。
         # ------------------------------------------------------------
-        class MyVal02(cols.namedtuple('MyVal02', ['name'])):
+        class MyVal02(cols.namedtuple("MyVal02", ["name"])):
             __slots__ = ()
 
             @property
             def upper_name(self):
                 return self.name.upper()
 
-        obj4 = MyVal02('hello world 2')
-        pr('obj4.name', obj4.name)
-        pr('obj4.upper_name', obj4.upper_name)
+        obj4 = MyVal02("hello world 2")
+        pr("obj4.name", obj4.name)
+        pr("obj4.upper_name", obj4.upper_name)
 
 
 def go():

@@ -2,6 +2,7 @@
 """
 contextlib.suppress のサンプルです。
 """
+
 import contextlib as ctx
 import os
 from typing import Generator
@@ -18,7 +19,7 @@ class Sample(SampleBase):
         # 例外補足が必要となるが、例外が
         # 発生しても無視して進むときもある。
         ######################################
-        target_file = 'non_exists_file'
+        target_file = "non_exists_file"
 
         try:
             # 処理前にクリーニング目的で
@@ -36,7 +37,7 @@ class Sample(SampleBase):
         # ようになる。例外情報は複数指定できる。
         ######################################
         with ctx.suppress(FileNotFoundError):
-            with log('存在しないファイルを削除'):
+            with log("存在しないファイルを削除"):
                 os.remove(target_file)
 
 
@@ -55,11 +56,11 @@ def log(message: str) -> Generator:
     :rtype: typing.Generator
     :return: コンテキストマネージャ
     """
-    print(f'START: {message}')
+    print(f"START: {message}")
     try:
         yield
     finally:
-        print(f'END: {message}')
+        print(f"END: {message}")
 
 
 def go():

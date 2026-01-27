@@ -1,5 +1,6 @@
 # coding: utf-8
 """tracemallocモジュールについてのサンプルです。"""
+
 import secrets
 import string
 import tracemalloc
@@ -52,15 +53,15 @@ class Sample(SampleBase):
         #   'lineno'   : ファイル名と行番号
         #   'traceback': トレースバック
         # ------------------------------
-        top_stat = snapshot.statistics('lineno')
+        top_stat = snapshot.statistics("lineno")
         for item in top_stat[:10]:
-            pr('snapshot-item', item)
+            pr("snapshot-item", item)
 
     def _heavy_proc(self, count=1000) -> None:
         self._data_list = [self._generate_password() for _ in range(count)]
 
     def _generate_password(self, nbytes=32) -> str:
-        return ''.join(secrets.choice(self._characters) for _ in range(nbytes))
+        return "".join(secrets.choice(self._characters) for _ in range(nbytes))
 
 
 def go():

@@ -7,6 +7,7 @@ REFERENCES:: http://bit.ly/2O07odl
              http://bit.ly/2O0ddaD
              http://bit.ly/2NZgd72
 """
+
 import itertools
 import multiprocessing
 import socket
@@ -30,22 +31,22 @@ class Sample(SampleBase):
         server_process.close()
 
     def launch_client(self):
-        with timetracer('CLIENT'):
+        with timetracer("CLIENT"):
             sock = socket.socket()
             host = socket.gethostname()
             port = 12345
 
             sock.connect((host, port))
 
-            data = b'hoge hoge' * 10 * 512
+            data = b"hoge hoge" * 10 * 512
             assert sock.send(data)
-            print(f'[CLIENT] {len(data)} bytes sended...')
+            print(f"[CLIENT] {len(data)} bytes sended...")
 
             sock.close()
-            print('[CLIENT] socket.close()')
+            print("[CLIENT] socket.close()")
 
     def launch_server(self):
-        with timetracer('SERVER'):
+        with timetracer("SERVER"):
             sock = socket.socket()
             host = socket.gethostname()
             port = 12345
@@ -59,13 +60,13 @@ class Sample(SampleBase):
                 counter = itertools.count(start=1)
                 data = conn.recv(4096)
                 while data:
-                    print(f'[SERVER] {next(counter)} {len(data)} bytes receive')
+                    print(f"[SERVER] {next(counter)} {len(data)} bytes receive")
                     data = conn.recv(4096)
                 else:
-                    print('[SERVER] data received...')
+                    print("[SERVER] data received...")
 
                 conn.close()
-                print('[SERVER] socket.close()')
+                print("[SERVER] socket.close()")
 
                 break
 

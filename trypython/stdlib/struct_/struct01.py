@@ -46,14 +46,14 @@ class Sample(SampleBase):
         #
         # struct.unpack メソッドは pack メソッドの逆を行う。
         #############################################
-        hr('fmt=3I values=(2, 1, 408)')
-        fmt = '3I'
+        hr("fmt=3I values=(2, 1, 408)")
+        fmt = "3I"
         vals = (2, 1, 408)
 
         b = struct.pack(fmt, *vals)
         print(b)
 
-        hr('strcut.unpack')
+        hr("strcut.unpack")
         print(struct.unpack(fmt, b))
 
 

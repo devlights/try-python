@@ -4,6 +4,7 @@ weakref モジュールについてのサンプルです。
 
 弱参照がオブジェクトの __weakref__ に設定されることを確認するサンプルです。
 """
+
 import weakref
 
 from trypython.common.commoncls import SampleBase
@@ -19,17 +20,17 @@ class Sample(SampleBase):
         # に設定される。
         #
         # ただし、この属性が存在するのは
-        #   ユーザ定義クラス　
+        #   ユーザ定義クラス
         # の場合のみ。
         # ------------------------------------------------
         set01 = {1, 2}
         wref = weakref.ref(set01)
-        pr('__weakref__ exists?', hasattr(set01, '__weakref__'))
+        pr("__weakref__ exists?", hasattr(set01, "__weakref__"))
 
         a = A()
         wref = weakref.ref(a)
-        pr('__weakref__ exists?', hasattr(a, '__weakref__'))
-        pr('a.__weakref__ is wref', a.__weakref__ is wref)
+        pr("__weakref__ exists?", hasattr(a, "__weakref__"))
+        pr("a.__weakref__ is wref", a.__weakref__ is wref)
 
         # ------------------------------------------------
         # ユーザ定義クラスで弱参照をサポートするためには
@@ -41,7 +42,7 @@ class Sample(SampleBase):
         try:
             bref = weakref.ref(b)
         except TypeError as e:
-            pr('NotContainsWeakrefAttr', e)
+            pr("NotContainsWeakrefAttr", e)
 
         c = ContainsWeakrefAttr(100)
         cref = weakref.ref(c)
@@ -53,14 +54,17 @@ class A:
 
 
 class NotContainsWeakrefAttr:
-    __slots__ = ('val',)
+    __slots__ = ("val",)
 
     def __init__(self, val):
         self.val = val
 
 
 class ContainsWeakrefAttr:
-    __slots__ = ('val', '__weakref__',)
+    __slots__ = (
+        "val",
+        "__weakref__",
+    )
 
     def __init__(self, val):
         self.val = val

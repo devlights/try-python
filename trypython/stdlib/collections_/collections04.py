@@ -3,6 +3,7 @@
 """
 collections.namedtupleのサンプルです。
 """
+
 import collections
 
 from trypython.common.commoncls import SampleBase
@@ -20,37 +21,37 @@ class Sample(SampleBase):
         # フィールド名は、カンマ区切りの文字列で渡すか
         # シーケンスを指定する
         # ---------------------------------------------------------------
-        Person = collections.namedtuple('Person', 'name,age')
-        p = Person(name='test', age=30)
-        pr('Person', p)
+        Person = collections.namedtuple("Person", "name,age")
+        p = Person(name="test", age=30)
+        pr("Person", p)
 
         try:
-            p.name = 'test2'
+            p.name = "test2"
         except AttributeError as e:
-            pr('namedtupleはイミュータブル', e)
+            pr("namedtupleはイミュータブル", e)
 
         # ---------------------------------------------------------------
         # フィールド名にはシーケンスを指定することも出来る
         # ---------------------------------------------------------------
-        field_names = ('name', 'age')
-        Person2 = collections.namedtuple('Person2', field_names=field_names)
-        p2 = Person2(name='test2', age=30)
-        pr('Person2', p2)
+        field_names = ("name", "age")
+        Person2 = collections.namedtuple("Person2", field_names=field_names)
+        p2 = Person2(name="test2", age=30)
+        pr("Person2", p2)
 
         # ---------------------------------------------------------------
         # 存在しないフィールド名を指定するとエラー
         # ---------------------------------------------------------------
         try:
-            p3 = Person2(name='test3', age=33, hoge=10)
+            p3 = Person2(name="test3", age=33, hoge=10)
         except TypeError as e:
-            pr('存在しないフィールド名を指定', e)
+            pr("存在しないフィールド名を指定", e)
 
         # ---------------------------------------------------------------
         # verbose引数にTrueを指定するとクラス宣言を標準出力に出してくれる
         # (*) Python ドキュメントをみると、この指定は deprecated 扱い。
         #     現在は、_source フィールドから取得するべきとのこと。
         # ---------------------------------------------------------------
-        collections.namedtuple('Person3', 'name', verbose=True)
+        collections.namedtuple("Person3", "name", verbose=True)
 
 
 def go():

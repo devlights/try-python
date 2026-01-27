@@ -3,6 +3,7 @@
 """
 ジェネレータについてのサンプルです。
 """
+
 from typing import Iterator
 
 from trypython.common.commoncls import SampleBase
@@ -25,15 +26,15 @@ class Sample(SampleBase):
         #
 
         # make_generator自身は普通の関数
-        pr('make_generator', type(Sample.make_generator))
+        pr("make_generator", type(Sample.make_generator))
 
         # 返す値は ジェネレータ となる
         gen01 = Sample.make_generator(1, 5)
-        pr('make_generator_result', type(gen01))
+        pr("make_generator_result", type(gen01))
 
         # 通常通り利用できる
         for x in gen01:
-            pr('generator', x)
+            pr("generator", x)
 
     @staticmethod
     def make_generator(start: int, end: int) -> Iterator[int]:

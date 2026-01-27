@@ -7,6 +7,7 @@ REFERENCES:: http://bit.ly/2HSBbSG
              http://bit.ly/2I7IJBh
              http://bit.ly/2HSPZkd
 """
+
 import numbers
 
 from trypython.common.commoncls import SampleBase
@@ -33,11 +34,11 @@ class Sample(SampleBase):
         class MyClass1:
             pass
 
-        pr('type(MyClass1)', type(MyClass1))  # => <class 'type'>
+        pr("type(MyClass1)", type(MyClass1))  # => <class 'type'>
 
         # type() に type を渡すと type となる
         # つまり、type は type クラス自身に属している
-        pr('type(type)', type(type))  # => <class 'type'>
+        pr("type(type)", type(type))  # => <class 'type'>
 
         # typeクラスは引数が一つのものと三つのものが存在する
         # 一つのものが通常利用しているもの。三つのものを利用すると
@@ -49,14 +50,14 @@ class Sample(SampleBase):
                 return val + 1
             return 0
 
-        clsname = 'DynClass1'
+        clsname = "DynClass1"
         baseclasses = (object,)
         classdict = dict(method1=func1)
 
         # 動的にクラス定義し、インスタンスを生成
         DynClass1 = type(clsname, baseclasses, classdict)
         d1 = DynClass1()
-        pr('d1.method1(10)', d1.method1(10))  # => 11
+        pr("d1.method1(10)", d1.method1(10))  # => 11
 
         # 追記：
         # type() を利用する他に types モジュールを利用する方法もある
@@ -72,10 +73,10 @@ class Sample(SampleBase):
         def update_ns(ns: dict):
             ns.update(classdict)
 
-        clsname = 'DynClass2'
+        clsname = "DynClass2"
         DynClass2 = types.new_class(clsname, baseclasses, exec_body=update_ns)
         d2 = DynClass2()
-        pr('d2.method1(11)', d2.method1(11))  # => 12
+        pr("d2.method1(11)", d2.method1(11))  # => 12
 
         # types.new_class() で メタクラスを指定する場合は kwds 引数に指定する
         class DynMeta(type):
@@ -89,17 +90,19 @@ class Sample(SampleBase):
             def creation_count(cls):
                 return cls._count
 
-        clsname = 'DynClass3'
+        clsname = "DynClass3"
         kwds = dict(metaclass=DynMeta)
-        DynClass3 = types.new_class(clsname, baseclasses, kwds=kwds, exec_body=update_ns)
+        DynClass3 = types.new_class(
+            clsname, baseclasses, kwds=kwds, exec_body=update_ns
+        )
 
         # 10 回 生成を繰り返してみる
         instances = [DynClass3() for _ in range(10)]
-        pr('DynClass3.creation_count', DynClass3.creation_count)  # => 10
+        pr("DynClass3.creation_count", DynClass3.creation_count)  # => 10
 
         # 10 回 メソッドを呼び出してみる
         _ = [instance.method1(index) for index, instance in enumerate(instances)]
-        pr('DynClass3.creation_count', DynClass3.creation_count)  # => 10
+        pr("DynClass3.creation_count", DynClass3.creation_count)  # => 10
 
 
 def go():

@@ -5,6 +5,7 @@ Pythonのクラスについてのサンプルです。
 
 __iter__メソッドを実装することによるイテレータプロトコルのサポートについて
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -17,7 +18,7 @@ class Sample(SampleBase):
         #
         iter_support = IterProtocolSupport(list(range(10)))
         for item in iter_support:
-            pr('item', item)
+            pr("item", item)
 
 
 class IterProtocolSupport:

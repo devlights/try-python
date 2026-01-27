@@ -5,6 +5,7 @@ tempfile.TemporaryFile() の使い方について
 
 REFERENCES:: http://bit.ly/2GqQLVY
 """
+
 import os
 import tempfile
 
@@ -35,29 +36,29 @@ class Sample(SampleBase):
         # tempfile.TemporaryFile() は 3.5 で追加された。
         # ----------------------------------------------
         with tempfile.TemporaryFile() as tmpfile:
-            pr('tmpfile', tmpfile)
-            pr('type', type(tmpfile))
-            pr('name', tmpfile.name)
+            pr("tmpfile", tmpfile)
+            pr("type", type(tmpfile))
+            pr("name", tmpfile.name)
 
             # 通常のファイルのように読み書きすることができる
             # ただし、デフォルトの mode は w+b なので bytes 経由で
             # データをやり取りする必要がある
-            lines = [f'{i}:helloworld{os.linesep}' for i in range(5)]
+            lines = [f"{i}:helloworld{os.linesep}" for i in range(5)]
             for line_str in lines:
                 # bytes へ エンコード
-                b = line_str.encode('utf-8')
+                b = line_str.encode("utf-8")
                 tmpfile.write(b)
 
             tmpfile.seek(os.SEEK_SET)
             for line_bytes in tmpfile:
                 # bytes から デコード
-                s = line_bytes.decode('utf-8')
-                pr('line_str', s)
+                s = line_bytes.decode("utf-8")
+                pr("line_str", s)
 
             # with ブロックの中にいる間、ファイルは開いている
-            pr('closed', tmpfile.closed)
+            pr("closed", tmpfile.closed)
         # with ブロックを抜けると、ファイルは閉じている
-        pr('closed', tmpfile.closed)
+        pr("closed", tmpfile.closed)
 
 
 def go():

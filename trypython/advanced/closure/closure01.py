@@ -3,6 +3,7 @@
 """
 クロージャのサンプルです。
 """
+
 from typing import Callable
 
 from trypython.common.commoncls import SampleBase
@@ -15,14 +16,14 @@ class Sample(SampleBase):
         # クロージャとは、他の関数によって動的に生成される関数
         # その関数の外で作られた変数の値を覚えていて、変更したりできるもの
         #
-        closure1 = Sample.make_closure('hello world')
-        closure2 = Sample.make_closure('this is message')
+        closure1 = Sample.make_closure("hello world")
+        closure2 = Sample.make_closure("this is message")
 
-        pr('closure1', closure1())
-        pr('closure2', closure2())
+        pr("closure1", closure1())
+        pr("closure2", closure2())
 
-        closure3 = Sample.make_closure_with_param('hello world')
-        pr('closure3', closure3('closure parameter'))
+        closure3 = Sample.make_closure_with_param("hello world")
+        pr("closure3", closure3("closure parameter"))
 
     @staticmethod
     def make_closure_with_param(message: str) -> Callable[[str], str]:
@@ -34,7 +35,7 @@ class Sample(SampleBase):
         """
 
         def new_function(option_message: str):
-            return f'{message} with {option_message}'
+            return f"{message} with {option_message}"
 
         return new_function
 

@@ -13,13 +13,13 @@ from trypython.common.commonfunc import pr
 
 class MySentinel:
     def __eq__(self, o: object) -> bool:
-        return 'sentinel' == str(o).replace('\n', '')
+        return "sentinel" == str(o).replace("\n", "")
 
 
 class Sample(SampleBase):
     def __init__(self, tmpdir: pathlib.Path) -> None:
         super().__init__()
-        self._file = str(tmpdir / 'test.txt')
+        self._file = str(tmpdir / "test.txt")
 
     def exec(self):
         ####################################################
@@ -46,20 +46,20 @@ class Sample(SampleBase):
         try:
             self._write_dummy_file()
 
-            with open(self._file, mode='r', encoding='utf-8') as f:
+            with open(self._file, mode="r", encoding="utf-8") as f:
                 sentinel = MySentinel()
                 it = iter(f.readline, sentinel)
 
                 for i, line in enumerate(it):
-                    pr(f'line-{i:02}', line)
+                    pr(f"line-{i:02}", line)
         finally:
             self._delete_dummy_file()
 
     def _write_dummy_file(self):
-        with open(self._file, mode='w', encoding='utf-8', newline='') as f:
-            print('helloworld', file=f)
-            print('sentinel', file=f)
-            print('helloworld', file=f)
+        with open(self._file, mode="w", encoding="utf-8", newline="") as f:
+            print("helloworld", file=f)
+            print("sentinel", file=f)
+            print("helloworld", file=f)
 
     def _delete_dummy_file(self):
         if os.path.exists(self._file):

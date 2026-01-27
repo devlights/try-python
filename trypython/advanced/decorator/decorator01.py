@@ -3,6 +3,7 @@
 """
 デコレータについてのサンプルです。
 """
+
 import functools
 
 from trypython.common.commoncls import SampleBase
@@ -18,13 +19,13 @@ def log_it(func):
     """
 
     def decorator_function(*args, **kwargs):
-        pr('decorator', func.__name__, 'func-name')
-        pr('decorator', args, '*args')
-        pr('decorator', kwargs, '**kwargs')
+        pr("decorator", func.__name__, "func-name")
+        pr("decorator", args, "*args")
+        pr("decorator", kwargs, "**kwargs")
 
         result = func(*args, **kwargs)
-        pr('decorator', result, 'result')
-        pr('----------------------------------', '')
+        pr("decorator", result, "result")
+        pr("----------------------------------", "")
 
         return result
 
@@ -43,7 +44,7 @@ def sum_it(func):
         func_result = func(*args, **kwargs)
 
         result = sum(range(1, func_result + 1))
-        pr('sum_it', result)
+        pr("sum_it", result)
 
         return result
 
@@ -78,7 +79,7 @@ class Sample(SampleBase):
         #
         # 元の関数に @log_it を付与した版
         #
-        self.test_func2(name='test value')
+        self.test_func2(name="test value")
 
         #
         # @log_it を付与せずに
@@ -95,26 +96,26 @@ class Sample(SampleBase):
         #
         # functools.wrap()を利用した版
         #
-        pr('test_func5', self.test_func5('hello decorator'))
+        pr("test_func5", self.test_func5("hello decorator"))
 
         #
         # 関数の名前がどのようになるか
         #
-        pr('test_func.__name__', self.test_func.__name__)
-        pr('test_func2.__name__', self.test_func2.__name__)
-        pr('test_func3.__name__', self.test_func3.__name__)
-        pr('test_func4.__name__', self.test_func4.__name__)
-        pr('test_func5.__name__', self.test_func5.__name__)
+        pr("test_func.__name__", self.test_func.__name__)
+        pr("test_func2.__name__", self.test_func2.__name__)
+        pr("test_func3.__name__", self.test_func3.__name__)
+        pr("test_func4.__name__", self.test_func4.__name__)
+        pr("test_func5.__name__", self.test_func5.__name__)
 
     def test_func(self, x, y):
-        pr('test-func', f'hello world {x} {y}')
+        pr("test-func", f"hello world {x} {y}")
 
     @log_it
     def test_func2(self, **kwargs):
-        pr('test-func2', f'hello world {kwargs}')
+        pr("test-func2", f"hello world {kwargs}")
 
     def test_func3(self):
-        pr('test-func3', 'test-func3')
+        pr("test-func3", "test-func3")
 
     test_func3 = log_it(test_func3)
 

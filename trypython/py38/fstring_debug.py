@@ -3,6 +3,7 @@ Python 3.8 にて導入された f-string での {xxx=} 表記についてのサ
 
 REFERENCES:: http://bit.ly/2NlJkSc
 """
+
 from trypython.common.commoncls import SampleBase
 
 

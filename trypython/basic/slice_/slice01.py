@@ -2,6 +2,7 @@
 """
 slice 関数についてのサンプルです。
 """
+
 import itertools
 
 from trypython.common.commoncls import SampleBase
@@ -27,11 +28,11 @@ class Sample(SampleBase):
         from_two_to_four = slice(2, 4)
         print(type(from_two_to_four))
         print(l[from_two_to_four])
-        print('helloworld'[from_two_to_four])
+        print("helloworld"[from_two_to_four])
 
         # slice 関数に渡す引数は、前から start, stop, step となっている
         step_two = slice(None, None, 2)
-        print('helloworld'[step_two])
+        print("helloworld"[step_two])
 
         # イテレータに対しては、itertools.islice を使う
         it = iter(l)

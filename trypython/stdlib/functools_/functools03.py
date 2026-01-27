@@ -3,6 +3,7 @@
 functoolsモジュールについて
 singledispatch関数についてのサンプルです.
 """
+
 import functools
 import html
 import numbers
@@ -20,24 +21,24 @@ from trypython.common.commonfunc import pr
 @functools.singledispatch
 def htmlescape(obj):
     content = html.escape(repr(obj))
-    return f'<pre>{content}</pre>'
+    return f"<pre>{content}</pre>"
 
 
 @htmlescape.register(str)
 def _(text):
-    return f'<p>{text}</p>'
+    return f"<p>{text}</p>"
 
 
 @htmlescape.register(numbers.Integral)
 def _(n):
-    return f'<pre>0x{n}</pre>'
+    return f"<pre>0x{n}</pre>"
 
 
 class Sample(SampleBase):
     def exec(self):
-        pr('singledispatch(obj)', htmlescape((1, 2, 3)))
-        pr('singledispatch(str)', htmlescape('hello world'))
-        pr('singledispatch(int)', htmlescape(100))
+        pr("singledispatch(obj)", htmlescape((1, 2, 3)))
+        pr("singledispatch(str)", htmlescape("hello world"))
+        pr("singledispatch(int)", htmlescape(100))
 
 
 def go():

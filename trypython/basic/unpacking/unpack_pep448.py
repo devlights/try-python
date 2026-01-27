@@ -5,6 +5,7 @@ PEP484 の動作について
 
 REFERENCES:: http://bit.ly/2VMowpQ
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -21,26 +22,26 @@ class Sample(SampleBase):
 
         # 1
         self.pep448_01(*[1, 2], *[5], 3, *[9, 10])
-        self.pep448_02(**{'a': 100, 'b': 200}, c=300, **{'d': 400})
+        self.pep448_02(**{"a": 100, "b": 200}, c=300, **{"d": 400})
         self.pep448_02(*range(2), 2, *range(3, 4))
 
         # 2
         r1 = *range(2), 2
-        pr('r1', r1)
+        pr("r1", r1)
 
         r2 = [*range(2), 2, *range(3, 10)]
-        pr('r2', r2)
+        pr("r2", r2)
 
-        d1 = {'a': 100, 'b': 200}
-        d2 = {'f': 999}
-        d3 = {**d1, 'c': 300, 'd': 400, **d2}
-        pr('d3', d3)
+        d1 = {"a": 100, "b": 200}
+        d2 = {"f": 999}
+        d3 = {**d1, "c": 300, "d": 400, **d2}
+        pr("d3", d3)
 
     def pep448_01(self, *args):
-        pr('pep448_01', args)
+        pr("pep448_01", args)
 
     def pep448_02(self, a, b, c, d):
-        pr('pep448_02', a, b, c, d)
+        pr("pep448_02", a, b, c, d)
 
 
 def go():

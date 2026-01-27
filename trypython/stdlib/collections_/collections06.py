@@ -3,6 +3,7 @@
 """
 collections.ChainMapについてのサンプルです。
 """
+
 import collections
 
 from trypython.common.commoncls import SampleBase
@@ -20,21 +21,21 @@ class Sample(SampleBase):
         # 対して、書込みや更新、削除は、最初に指定した dict() に対してのみ実施される。
         #
         map01 = dict(apple=100, pineapple=200)
-        map02 = dict(hello='world', world='hello')
+        map02 = dict(hello="world", world="hello")
         map03 = collections.ChainMap(map01, map02)
 
-        pr('ChainMap', map03)
-        pr('ChainMap[apple]', map03['apple'])
-        pr('ChainMap[world]', map03['world'])
+        pr("ChainMap", map03)
+        pr("ChainMap[apple]", map03["apple"])
+        pr("ChainMap[world]", map03["world"])
 
-        map03['new_key'] = 999
-        pr('ChainMap[new_key]', map03)
+        map03["new_key"] = 999
+        pr("ChainMap[new_key]", map03)
 
-        map03['world'] = 'new value'
-        pr('ChainMap[world]', map03)
+        map03["world"] = "new value"
+        pr("ChainMap[world]", map03)
 
-        del map03['world']
-        pr('del ChainMap[world]', map03)
+        del map03["world"]
+        pr("del ChainMap[world]", map03)
 
 
 def go():

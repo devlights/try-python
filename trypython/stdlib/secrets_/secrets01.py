@@ -3,6 +3,7 @@
 """
 secretsモジュールについてのサンプルです。
 """
+
 import secrets
 import string
 
@@ -21,14 +22,14 @@ class Sample(SampleBase):
         # 参考URL:
         #   https://www.blog.pythonlibrary.org/2017/02/16/pythons-new-secrets-module/
         #
-        pr('generate passwd', self.generate_password(32))
-        pr('url_token', secrets.token_urlsafe(32))
+        pr("generate passwd", self.generate_password(32))
+        pr("url_token", secrets.token_urlsafe(32))
 
     def generate_password(self, nbytes=8):
         """指定されたバイト数でパスワードを生成します。"""
         characters = string.ascii_letters + string.digits
         generate_chars = (secrets.choice(characters) for __ in range(nbytes))
-        return ''.join(generate_chars)
+        return "".join(generate_chars)
 
 
 def go():

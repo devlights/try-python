@@ -5,6 +5,7 @@ Pythonのクラスについてのサンプルです。
 
 __contains__メソッドを実装することによる in のサポートについて
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -17,8 +18,8 @@ class Sample(SampleBase):
         #
         contains_support = ContainsProtocolSupport(list(range(10)))
 
-        pr('contains(5)', 5 in contains_support)
-        pr('contains(99)', 99 in contains_support)
+        pr("contains(5)", 5 in contains_support)
+        pr("contains(99)", 99 in contains_support)
 
 
 class ContainsProtocolSupport:

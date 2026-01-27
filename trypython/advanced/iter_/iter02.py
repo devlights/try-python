@@ -12,6 +12,7 @@ $ python -m trypython.advanced.socket_server01
 REFERENCES::
 http://pythonwise.blogspot.jp/2018/02/pythons-iter-functoolspartial.html
 """
+
 import functools
 import socket
 
@@ -22,16 +23,20 @@ class Sample(SampleBase):
     """本サンプルの処理を実装しているクラスです"""
 
     def __init__(self):
-        self._host = '127.0.0.1'
+        self._host = "127.0.0.1"
         self._port = 8888
 
     def exec(self):
         """処理を実行します"""
         with socket.socket() as sock:
             sock.connect((self._host, self._port))
-            recv = functools.partial(sock.recv, 1)  # partialで callable を作る。（わざと1バイトずつ受信するようにしている）
-            recv_bytes = b''.join(iter(recv, b''))  # 1バイトずつ受信したものを一気に結合
-            print(f'From server [{recv_bytes.decode("utf-8")}]')  # bytes なので復号する
+            recv = functools.partial(
+                sock.recv, 1
+            )  # partialで callable を作る。（わざと1バイトずつ受信するようにしている）
+            recv_bytes = b"".join(
+                iter(recv, b"")
+            )  # 1バイトずつ受信したものを一気に結合
+            print(f"From server [{recv_bytes.decode('utf-8')}]")  # bytes なので復号する
 
 
 def go():

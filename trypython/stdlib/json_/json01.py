@@ -3,6 +3,7 @@
 """
 jsonモジュールについてのサンプルです。
 """
+
 import json
 import pathlib
 
@@ -16,14 +17,14 @@ class Sample(SampleBase):
         # jsonモジュールには load() と dump() がある
         # また、文字列で処理するための loads(), dumps() もある
         #
-        file_path = pathlib.Path('sample01.json')
+        file_path = pathlib.Path("sample01.json")
 
         with open(file_path) as fp:
             json_object = json.load(fp)
-            pr('json', json_object)
+            pr("json", json_object)
 
-        languages = json_object['languages']
-        pr('language', [item['language']['name'] for item in languages])
+        languages = json_object["languages"]
+        pr("language", [item["language"]["name"] for item in languages])
 
 
 def go():

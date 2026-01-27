@@ -2,6 +2,7 @@
 logging モジュールのサンプルです。
 最も基本的な使い方について (ログレベルの変更）
 """
+
 import logging
 
 from trypython.common.commoncls import SampleBase
@@ -58,11 +59,11 @@ class Sample(SampleBase):
         logger = logging.getLogger(__name__)
 
         # それぞれのログレベルで出力
-        logger.debug('debug')
-        logger.info('info')
-        logger.warning('warn')
-        logger.error('error')
-        logger.critical('critical')
+        logger.debug("debug")
+        logger.info("info")
+        logger.warning("warn")
+        logger.error("error")
+        logger.critical("critical")
 
         # ロギングを終了。強制的に flush を実施。
         # 基本必要ないが、大量にログを入れた後にすぐに終了や

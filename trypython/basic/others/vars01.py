@@ -3,6 +3,7 @@
 """
 vars()についてのサンプルです。
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import pr
 
@@ -15,22 +16,22 @@ class Sample(SampleBase):
         #
         x = 10
         y = 20
-        pr('vars()', vars())
+        pr("vars()", vars())
 
         self.fn01(10, 20, 30, **dict(apple=100, pineapple=200))
         Sample.fn02(10, 20, 30, **dict(apple=100, pineapple=200))
         Sample.fn03(10, 20, 30, **dict(apple=100, pineapple=200))
 
     def fn01(self, *args, **kwargs):
-        pr('vars() in method', vars())
+        pr("vars() in method", vars())
 
     @classmethod
     def fn02(cls, *args, **kwargs):
-        pr('vars() in class method', vars())
+        pr("vars() in class method", vars())
 
     @staticmethod
     def fn03(*args, **kwargs):
-        pr('vars() in static method', vars())
+        pr("vars() in static method", vars())
 
 
 def go():

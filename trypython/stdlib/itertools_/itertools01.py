@@ -8,6 +8,7 @@ itertools モジュールについてのサンプル
 - chain()
 - zip_longest()
 """
+
 import itertools as it
 
 from trypython.common.commoncls import SampleBase
@@ -21,13 +22,13 @@ class Sample(SampleBase):
         # ----------------------
         # 複数のシーケンスを繋いで一つのようにする。
         # -----------------------------------------------
-        hr('it.chain()')
+        hr("it.chain()")
 
-        list01 = ['hello', 'world']
+        list01 = ["hello", "world"]
         list02 = list(range(10))
 
-        for x in it.chain(list01, list02, 'abc'):
-            pr('value', x)
+        for x in it.chain(list01, list02, "abc"):
+            pr("value", x)
 
         # -----------------------------------------------
         # itertools.zip_longest()
@@ -37,14 +38,14 @@ class Sample(SampleBase):
         #
         # zip() は、要素が最も少ない方になる。
         # -----------------------------------------------
-        hr('it.zip_longest()')
+        hr("it.zip_longest()")
 
         for x, y in zip(list01, list02):
-            pr('zip()', (x, y))
+            pr("zip()", (x, y))
 
         # zip_longest()は、要素が最も多い方になる
         for x, y in it.zip_longest(list01, list02):
-            pr('zip_longest()', (x, y))
+            pr("zip_longest()", (x, y))
 
 
 def go():

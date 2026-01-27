@@ -3,6 +3,7 @@
 functools モジュールのサンプルです。
 functools.lru_cache() について。
 """
+
 import functools
 
 from trypython.common.commoncls import SampleBase
@@ -24,31 +25,31 @@ class Sample(SampleBase):
         # 現在のキャッシュ状態は、cache_info() で確認できる
         # キャッシュをクリアする場合は、cache_clear() を呼び出す
         # --------------------------------------------------
-        pr('functools.lru_cache()', type(self.my_sum))
-        pr('functools.lru_cache()', self.my_sum.__wrapped__)
-        pr('functools.lru_cache()', self.my_sum.cache_info())
+        pr("functools.lru_cache()", type(self.my_sum))
+        pr("functools.lru_cache()", self.my_sum.__wrapped__)
+        pr("functools.lru_cache()", self.my_sum.cache_info())
 
         self.my_sum(1, 1)  # no hit
         self.my_sum(1, 2)  # no hit
         self.my_sum(1, 3)  # no hit
         self.my_sum(1, 1)  # hit
 
-        pr('functools.lru_cache()', self.my_sum.cache_info())
+        pr("functools.lru_cache()", self.my_sum.cache_info())
 
         self.my_sum(1, 2)  # hit
         self.my_sum(1, 3)  # hit
         self.my_sum(1, 4)  # no hit
 
-        pr('functools.lru_cache()', self.my_sum.cache_info())
+        pr("functools.lru_cache()", self.my_sum.cache_info())
 
         self.my_sum(1, 2)  # hit
         self.my_sum(1, 3)  # hit
         self.my_sum(1, 4)  # hit
 
-        pr('functools.lru_cache()', self.my_sum.cache_info())
+        pr("functools.lru_cache()", self.my_sum.cache_info())
 
         self.my_sum.cache_clear()
-        pr('functools.lru_cache()', self.my_sum.cache_info())
+        pr("functools.lru_cache()", self.my_sum.cache_info())
 
     @functools.lru_cache(maxsize=32)
     def my_sum(self, x, y):

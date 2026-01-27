@@ -1,6 +1,7 @@
 """
 初期処理を実施します.
 """
+
 import sys
 from typing import Dict, Callable
 

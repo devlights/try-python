@@ -8,6 +8,7 @@ https://aoishi.hateblo.jp/entry/2017/10/09/021054
 https://stackoverflow.com/questions/6167587/the-logging-handlers-how-to-rollover-after-time-or-maxbytes
 https://stackoverflow.com/questions/29602352/how-to-mix-logging-handlers-file-timed-and-compress-log-in-the-same-config-f
 """
+
 import io
 import logging
 import pathlib
@@ -52,7 +53,7 @@ class Sample(SampleBase):
         #   loggingモジュールにてハンドラを設定ていない状態で
         #   利用すると自動的に追加されるのが、このハンドラ。
         # --------------------------------------------------------
-        hr('StreamHandler')
+        hr("StreamHandler")
         self._run_streamhandler_example()
 
         # --------------------------------------------------------
@@ -60,7 +61,7 @@ class Sample(SampleBase):
         #    指定したファイルに出力するハンドラ。
         #    出力機能は StreamHandler から継承している。
         # --------------------------------------------------------
-        hr('FileHandler')
+        hr("FileHandler")
         self._run_filehandler_example()
 
         # RotatingFileHandler
@@ -74,13 +75,13 @@ class Sample(SampleBase):
     def _run_filehandler_example(self):
         """logging.FileHandler のサンプル"""
         logdir = pathlib.Path(tempfile.gettempdir())
-        logfile = logdir / 'logging05.log'
+        logfile = logdir / "logging05.log"
 
-        handler = logging.FileHandler(logfile, mode='w', encoding='utf-8')
-        logger = logging.getLogger('filehandler1')
+        handler = logging.FileHandler(logfile, mode="w", encoding="utf-8")
+        logger = logging.getLogger("filehandler1")
         logger.addHandler(handler)
 
-        logger.warning('[FileHandler] add filehandler')
+        logger.warning("[FileHandler] add filehandler")
         handler.flush()
 
         # 確認
@@ -89,8 +90,8 @@ class Sample(SampleBase):
     def _run_streamhandler_example(self):
         """logging.StreamHandler のサンプル"""
         # ハンドラを設定しないまま利用すると、 StreamHandler(sys.stderr) が自動で追加される
-        logger = logging.getLogger('default_streamhandler')
-        logger.warning('[StreamHandler] default')
+        logger = logging.getLogger("default_streamhandler")
+        logger.warning("[StreamHandler] default")
 
         # バッファリングされていると表示位置がずれるのでここで明示的にフラッシュ。
         # python 起動時のオプションで -u を付与する場合は、以下は必要ない.
@@ -98,14 +99,14 @@ class Sample(SampleBase):
         sys.stderr.flush()
 
         # sys.stdout の StreamHandler を追加して出力。
-        logger = logging.getLogger('stdout_streamhandler')
+        logger = logging.getLogger("stdout_streamhandler")
         handler = logging.StreamHandler(sys.stdout)
         logger.addHandler(handler)
 
-        logger.warning('[StreamHandler] add StreamHandler(sys.stdout)')
+        logger.warning("[StreamHandler] add StreamHandler(sys.stdout)")
 
         # io.StringIO を使うとユニットテスト時などに便利
-        logger = logging.getLogger('stringio_streamhandler')
+        logger = logging.getLogger("stringio_streamhandler")
         buf = io.StringIO()
         handler = logging.StreamHandler(buf)
         logger.addHandler(handler)
@@ -114,7 +115,9 @@ class Sample(SampleBase):
 
         handler.flush()
         buf.seek(io.SEEK_SET)
-        message = buf.read().rstrip()  # ログ出力時に末尾に改行文字が追加されているため除去
+        message = (
+            buf.read().rstrip()
+        )  # ログ出力時に末尾に改行文字が追加されているため除去
 
         assert logger.name == message
 

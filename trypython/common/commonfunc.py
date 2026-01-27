@@ -11,10 +11,9 @@ from unicodedata import east_asian_width
 
 
 @ctx.contextmanager
-def open_inout(in_file: str,
-               out_file: str,
-               in_enc: str = 'utf-8',
-               out_enc: str = 'utf-8') -> Generator[Tuple[IO[str], IO[str]], None, None]:
+def open_inout(
+    in_file: str, out_file: str, in_enc: str = "utf-8", out_enc: str = "utf-8"
+) -> Generator[Tuple[IO[str], IO[str]], None, None]:
     """
     指定した２つのファイルを片方は読み込み用、もう片方は書込み用で開きます。
 
@@ -25,12 +24,12 @@ def open_inout(in_file: str,
     :return: 入力用ファイル、出力用ファイルのタプル
     """
     if not in_file or not out_file:
-        raise ValueError('parameters must be set. [in_file, out_file]')
+        raise ValueError("parameters must be set. [in_file, out_file]")
     if not in_enc or not out_enc:
-        raise ValueError('parameters must be set. [in_enc, out_enc]')
+        raise ValueError("parameters must be set. [in_enc, out_enc]")
 
-    in_fp = open(in_file, mode='r', encoding=in_enc)
-    out_fp = open(out_file, mode='w', encoding=out_enc)
+    in_fp = open(in_file, mode="r", encoding=in_enc)
+    out_fp = open(out_file, mode="w", encoding=out_enc)
     try:
         yield (in_fp, out_fp)
     finally:
@@ -49,7 +48,7 @@ def chdir(directory: str = None) -> Generator[str, None, None]:
     :return: 現在のカレントディレクトリ (yield の結果)
     """
     if directory is None or not os.path.exists(directory):
-        raise ValueError('parameter: directory must be directory-path.')
+        raise ValueError("parameter: directory must be directory-path.")
 
     _orig_dir = os.path.abspath(os.path.curdir)
     try:
@@ -60,7 +59,9 @@ def chdir(directory: str = None) -> Generator[str, None, None]:
 
 
 @ctx.contextmanager
-def timetracer(message: Optional[str] = None, file: Optional[IO[str]] = None) -> Generator[None, None, None]:
+def timetracer(
+    message: Optional[str] = None, file: Optional[IO[str]] = None
+) -> Generator[None, None, None]:
     """
     処理の経過時間を出力するコンテキストマネージャです。
 
@@ -74,8 +75,8 @@ def timetracer(message: Optional[str] = None, file: Optional[IO[str]] = None) ->
     finally:
         _diff = datetime.now() - _start
         _io = sys.stdout if file is None else file
-        _message = 'timetracer' if message is None else message
-        _log = f'[{_message}] elapsed: {_diff.seconds}.{_diff.microseconds} seconds'
+        _message = "timetracer" if message is None else message
+        _log = f"[{_message}] elapsed: {_diff.seconds}.{_diff.microseconds} seconds"
 
         print(_log, file=_io)
 
@@ -95,7 +96,7 @@ def stopwatch(func: Callable) -> Callable:
         results = func(*args, **kwargs)
         end = time.perf_counter()
 
-        hr(f'ELAPSED TIME: {(end - start):0.3f}')
+        hr(f"ELAPSED TIME: {(end - start):0.3f}")
 
         return results
 
@@ -106,11 +107,11 @@ def hr(message: Any = None) -> None:
     """
     水平線を出力します。
     中にメッセージを入れたい場合は引数 message を指定します。
-    
-    :param message: メッセージ 
+
+    :param message: メッセージ
     :return: 無し
     """
-    print(f'----------------{message or ""}----------------')
+    print(f"----------------{message or ''}----------------")
 
 
 def pr(prefix: str, message: Any, *args: Any) -> None:
@@ -123,8 +124,8 @@ def pr(prefix: str, message: Any, *args: Any) -> None:
     :param args: オプションで追加する情報
     :return: 無し
     """
-    optional = args and f'({",".join(str(s) for s in args)})' or ''
-    print(f'{prefix}={pformat(message)}{optional}')
+    optional = args and f"({','.join(str(s) for s in args)})" or ""
+    print(f"{prefix}={pformat(message)}{optional}")
 
 
 def chunks(sequence: Sequence, chunk_size: int = 1) -> Iterator[Any]:
@@ -136,7 +137,7 @@ def chunks(sequence: Sequence, chunk_size: int = 1) -> Iterator[Any]:
     :return: Iterator[Any]
     """
     for i in range(0, len(sequence), chunk_size):
-        yield sequence[i:i + chunk_size]
+        yield sequence[i : i + chunk_size]
 
 
 def unicode_width(s: str) -> int:
@@ -146,7 +147,7 @@ def unicode_width(s: str) -> int:
     :param s: 対象文字列
     :return: 文字幅
     """
-    return sum([east_asian_width(c) in 'WF' and 2 or 1 for c in s])
+    return sum([east_asian_width(c) in "WF" and 2 or 1 for c in s])
 
 
 def is_py3() -> bool:
@@ -155,6 +156,9 @@ def is_py3() -> bool:
 
     :return: 3.x 系の場合はTrue, それ以外は False.
     """
-    if sys.version_info >= (3, 0,):
+    if sys.version_info >= (
+        3,
+        0,
+    ):
         return True
     return False

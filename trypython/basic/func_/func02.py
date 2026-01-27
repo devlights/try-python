@@ -3,6 +3,7 @@
 """
 関数についてのサンプルです。
 """
+
 from trypython.common.commoncls import SampleBase
 from trypython.common.commonfunc import hr, pr
 
@@ -58,14 +59,14 @@ class Sample(SampleBase):
         # 受け付けないように出来る。
         # -----------------------------------------
         func = Sample.with_asterisk_sentinel
-        hr(func.__name__ + '(sentinel)')
+        hr(func.__name__ + "(sentinel)")
         pr(func.__name__, func(10, 20))
         pr(func.__name__, func(10, 20, z=500))
 
         try:
             pr(func.__name__, func(10, 20, 300))
         except TypeError as err:
-            pr('with_asterisk_sentinel', err)
+            pr("with_asterisk_sentinel", err)
 
     @staticmethod
     def normal_func(x, y):

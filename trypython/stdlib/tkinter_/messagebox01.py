@@ -2,6 +2,7 @@
 """
 tkinter の messagebox を使用するサンプルです。
 """
+
 from datetime import datetime
 from functools import wraps
 from time import sleep
@@ -14,11 +15,11 @@ def show_complete_dialog(func):
     @wraps(func)
     def _wrapper(*args, **kwargs):
         results = func(*args, **kwargs)
-        message = f'{func.__name__} is DONE at {datetime.now()}'
+        message = f"{func.__name__} is DONE at {datetime.now()}"
 
         root = Tk()
         root.withdraw()
-        messagebox.showinfo('DONE', message)
+        messagebox.showinfo("DONE", message)
         root.quit()
 
         return results
@@ -34,9 +35,9 @@ class Sample(SampleBase):
         #  http://devlights.hatenablog.com/entry/2017/12/04/134738
         #
         #############################################################
-        print('start')
+        print("start")
         sleep(5)
-        print('end')
+        print("end")
 
 
 @show_complete_dialog

@@ -6,6 +6,7 @@ itertools モジュールについてのサンプル
 
 - starmap()
 """
+
 import itertools as it
 import operator as ope
 
@@ -38,17 +39,17 @@ class Sample(SampleBase):
         #
         # なので、名前が starmap となっている
         # -----------------------------------------------
-        hr('it.starmap()')
+        hr("it.starmap()")
 
         list01 = [9, 8, 7]
         list02 = [1, 2, 3]
         list03 = list(zip(list01, list02))
 
         starmap = it.starmap(ope.sub, list03)
-        pr('it.starmap', list(starmap))
+        pr("it.starmap", list(starmap))
 
         list04 = list(zip(list01, list02, *list03))
-        pr('it.starmap', list(it.starmap(lambda *args: sum(args), list04)))
+        pr("it.starmap", list(it.starmap(lambda *args: sum(args), list04)))
 
         # -----------------------------------------------
         # itertools.takewhile()
@@ -59,13 +60,13 @@ class Sample(SampleBase):
         # なので、一度でも条件から外れた場合、それ以降に
         # 条件を満たす値があっても要素は返らない。
         # -----------------------------------------------
-        hr('it.takewhile()')
+        hr("it.takewhile()")
 
         list05 = sorted(it.chain(list01, list02))
-        pr('list05', list05)
+        pr("list05", list05)
 
         takewhile = it.takewhile(lambda x: x < 5, list05)
-        pr('it.takewhile', list(takewhile))
+        pr("it.takewhile", list(takewhile))
 
         # -----------------------------------------------
         # itertools.tee()
@@ -84,14 +85,14 @@ class Sample(SampleBase):
         # otherwise, the iterable could get advanced
         # without the tee objects being informed.
         # -----------------------------------------------
-        hr('it.tee()')
+        hr("it.tee()")
 
-        list06 = list('helloworld')
+        list06 = list("helloworld")
 
         it_tee = it.tee(list06, 2)
         it_asc, it_desc = it_tee[0], reversed(list(it_tee[-1]))
         for it01, it02 in zip(it_asc, it_desc):
-            pr('it.tee', f'{it01}, {it02}')
+            pr("it.tee", f"{it01}, {it02}")
 
 
 def go():

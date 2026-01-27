@@ -3,6 +3,7 @@
 """
 ElementTreeモジュールについてのサンプルです。
 """
+
 import xml.etree.ElementTree as et
 
 from trypython.common.commoncls import SampleBase
@@ -22,29 +23,29 @@ class Sample(SampleBase):
         # XMLツリーオブジェクトを生成
         # この他にも、文字列からパースするやり方もある
         #
-        tree = et.ElementTree(file='sample01.xml')
+        tree = et.ElementTree(file="sample01.xml")
 
         #
         # ルートオブジェクトを取得
         #
         languages = tree.getroot()
-        pr('root-tag', languages)
-        pr('len(root)', len(languages))
+        pr("root-tag", languages)
+        pr("len(root)", len(languages))
 
         #
         # DOMライクなループ
         #
         for language in languages:
             for child in language:
-                if child.tag != 'name':
+                if child.tag != "name":
                     continue
-                pr('dom', child.text)
+                pr("dom", child.text)
 
         #
         # 指定した要素を iterate
         #
-        for word in languages.iter('name'):
-            pr('element-iter()', word.text)
+        for word in languages.iter("name"):
+            pr("element-iter()", word.text)
 
 
 def go():

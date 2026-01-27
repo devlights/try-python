@@ -10,6 +10,7 @@ itertools モジュールについてのサンプル
 - dropwhile()
 - filterfalse()
 """
+
 import itertools as it
 import operator as op
 
@@ -26,13 +27,13 @@ class Sample(SampleBase):
         # 指定した start 値から step 分加算した値を
         # 生成し続ける。
         # -----------------------------------------------
-        hr('itertools.count()')
+        hr("itertools.count()")
 
         iter01 = it.count(start=10, step=2)
         for i in iter01:
             if i > 20:
                 break
-            pr('it.count', i)
+            pr("it.count", i)
 
         # -----------------------------------------------
         # itertools.accumulate()
@@ -55,20 +56,20 @@ class Sample(SampleBase):
         #
         # なので、結果は[1, 3, 6, 10, 15]となる
         # -----------------------------------------------
-        hr('itertools.accumulate()')
+        hr("itertools.accumulate()")
 
         data01 = [1, 2, 3, 4, 5]
 
         # 加算
-        pr('it.accumulate', list(it.accumulate(data01, op.add)))
+        pr("it.accumulate", list(it.accumulate(data01, op.add)))
         # 乗算
-        pr('it.accumulate', list(it.accumulate(data01, op.mul)))
+        pr("it.accumulate", list(it.accumulate(data01, op.mul)))
 
         # 自前関数
         def _accum(accum: int, curr: int) -> int:
             return accum * curr if accum < 20 else 20
 
-        pr('it.accumulate', list(it.accumulate(data01, func=_accum)))
+        pr("it.accumulate", list(it.accumulate(data01, func=_accum)))
 
         # -----------------------------------------------
         # itertools.compress()
@@ -78,10 +79,10 @@ class Sample(SampleBase):
         # 注意点として、zip関数と同様に短い方が終了した
         # 段階で処理が打ち切られる。
         # -----------------------------------------------
-        hr('itertools.compress()')
+        hr("itertools.compress()")
 
         selector01 = [True if x >= 3 else False for x in data01]
-        pr('it.compress', list(it.compress(data01, selectors=selector01)))
+        pr("it.compress", list(it.compress(data01, selectors=selector01)))
 
         # -----------------------------------------------
         # itertools.dropwhile()
@@ -92,8 +93,8 @@ class Sample(SampleBase):
         # 第一引数が predicate つまり、条件。
         # 第二引数が データ であることに注意。
         # -----------------------------------------------
-        hr('itertools.dropwhile()')
-        pr('it.dropwhile', list(it.dropwhile(lambda x: x < 3, data01)))
+        hr("itertools.dropwhile()")
+        pr("it.dropwhile", list(it.dropwhile(lambda x: x < 3, data01)))
 
         # -----------------------------------------------
         # itertools.filterfalse()
@@ -104,8 +105,8 @@ class Sample(SampleBase):
         # 第一引数が predicate つまり、条件。
         # 第二引数が データ であることに注意。
         # -----------------------------------------------
-        hr('itertools.filterfalse()')
-        pr('it.filterfalse', list(it.filterfalse(lambda x: x < 3, data01)))
+        hr("itertools.filterfalse()")
+        pr("it.filterfalse", list(it.filterfalse(lambda x: x < 3, data01)))
 
         # ----------------------------------------------------------------------------
         # 上の dropwhile と filterfalse では同じ条件を指定している。
@@ -118,10 +119,10 @@ class Sample(SampleBase):
         # dropwhile() は、一度 True になった後は、以降のデータは無条件で全部返る。
         # filterfalse() は、false の判定になったものしか返さない。
         # ----------------------------------------------------------------------------
-        hr('difference between dropwhile() and filterfalse()')
+        hr("difference between dropwhile() and filterfalse()")
         data02 = [*data01, 2, 1, 3, 4, 5]
-        pr('it.dropwhile', list(it.dropwhile(lambda x: x < 3, data02)))
-        pr('it.filterfalse', list(it.filterfalse(lambda x: x < 3, data02)))
+        pr("it.dropwhile", list(it.dropwhile(lambda x: x < 3, data02)))
+        pr("it.filterfalse", list(it.filterfalse(lambda x: x < 3, data02)))
 
 
 def go():

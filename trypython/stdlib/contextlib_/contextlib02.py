@@ -2,6 +2,7 @@
 contextlib モジュールについてのサンプルです。
 contextlib.redirect_stdout について記載しています。
 """
+
 import io
 from contextlib import redirect_stdout
 
@@ -28,19 +29,19 @@ class Sample(SampleBase):
         with redirect_stdout(f):
             Sample.tekito()
 
-        pr('f', f.getvalue())
+        pr("f", f.getvalue())
 
         # 同様に help() は、通常 stdout に結果を出力するが
         # redirect_stdout することで結果を StringIO に格納
         f.seek(io.SEEK_SET)
         with redirect_stdout(f):
             help(sum)
-        pr('f', f.getvalue())
+        pr("f", f.getvalue())
 
     @staticmethod
     def tekito(begin=0, end=10):
         for i in range(begin, end):
-            print(i, end=',')
+            print(i, end=",")
 
 
 def go():

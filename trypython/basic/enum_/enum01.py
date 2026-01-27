@@ -3,6 +3,7 @@
 """
 enumについてのサンプルです。
 """
+
 from enum import Enum, unique
 
 from trypython.common.commoncls import SampleBase
@@ -18,6 +19,7 @@ class Fruit(Enum):
     ・クラスフィールドとして各列挙値を定義
     ・各Enumメンバーが持つ値を一意に制限するにはuniqueデコレータを付与
     """
+
     Apple = 1
     Strawberry = 2
     Banana = 3
@@ -30,11 +32,11 @@ class Sample(SampleBase):
         self.show_enum_value(val)
 
     def show_enum_value(self, val: Fruit) -> None:
-        pr('val', val)
-        pr('Apple?', val == Fruit.Apple)
-        pr('Strawberry?', val == Fruit.Strawberry)
-        pr('Banana?', val == Fruit.Banana)
-        pr('Cherry?', val == Fruit.Cherry)
+        pr("val", val)
+        pr("Apple?", val == Fruit.Apple)
+        pr("Strawberry?", val == Fruit.Strawberry)
+        pr("Banana?", val == Fruit.Banana)
+        pr("Cherry?", val == Fruit.Cherry)
 
 
 def go():
